@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace NetPulse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            dgvListaClientes.DataSource = clienteNegocio.listarClientes();
+            dgvListaClientes.DataBind();
         }
     }
 }
