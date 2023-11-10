@@ -4,20 +4,20 @@ Go
 USE BD_NetPulse
 Go
 
-CREATE TABLE Clientes (
-    IdCliente INT PRIMARY KEY identity (1, 1),
+CREATE TABLE Cliente(
+    IdCliente INT PRIMARY KEY not null identity (1, 1),
     Nombre VARCHAR(255) NOT NULL,
-    Telefono VARCHAR(20),
-    Mail VARCHAR(255),
-    Dni VARCHAR(20) NOT NULL,
-    FechaAlta DATETIME,
-    Activo bit,
+    Telefono VARCHAR(20) unique,
+    Mail VARCHAR(255) unique,
+    Dni VARCHAR(20) NOT NULL unique,
+    FechaAlta DATETIME not null,
+    Activo bit not null,
 )
 Go
 
 Create Table Domicilio(
-    IdDomicilio int primary key identity (1, 1),
-    Direccion VARCHAR(255),
+    IdDomicilio int primary key not null identity (1, 1),
+    Direccion VARCHAR(255) not null,
     Barrio varchar(255),
     Ciudad varchar(255),
     Comentario varchar(255)
@@ -25,108 +25,110 @@ Create Table Domicilio(
 Go
 
 Create Table TPlan(
-    IdPlan INT PRIMARY KEY identity (1, 1),
-    CantidadMegas int,
-    Precio money
+    IdPlan INT PRIMARY KEY not null identity (1, 1),
+    CantidadMegas int not null,
+    Precio money not null
 )
 Go
 
 Create Table FormaPago(
-    IdFormaPago int primary key identity (1, 1),
-    Nombre varchar(50)
+    IdFormaPago int primary key not null identity (1, 1),
+    Nombre varchar(50) not null
 )
 Go
 
 Create Table AbonoMensual(
-    IdAbonoMensual int primary key identity (1, 1),
-    IdFormaPago int,
-    FechaVencimiento1 datetime,
-    FechaVencimiento2 datetime,
-    Pagado bit,
+    IdAbonoMensual int primary key not null identity (1, 1),
+    IdFormaPago int not null,
+    FechaVencimiento1 datetime not null,
+    FechaVencimiento2 datetime not null,
+    Pagado bit not null,
     -- //////////////////
     FOREIGN KEY (IdFormaPago) REFERENCES FormaPago (IdFormaPago)
 )
 Go
 
-CREATE TABLE Servicio (
-    IdServicio INT PRIMARY KEY identity (1, 1),
-    IdCliente INT,
-    IdDomicilio int,
-    IdPlan int,
-    IdAbonoMensual int,
-    FechaAlta datetime,
-    Estado bit,
+CREATE TABLE Servicio(
+    IdServicio INT PRIMARY KEY not null identity (1, 1),
+    IdCliente INT not null,
+    IdDomicilio int not null,
+    IdPlan int not null,
+    IdAbonoMensual int not null,
+    FechaAlta datetime not null,
+    Estado bit not null,
     --TecnicoResponsable VARCHAR(255),
     Comentarios text,
-    FOREIGN KEY (IdCliente) REFERENCES Clientes (IdCliente),
+    FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
     FOREIGN KEY (IdDomicilio) REFERENCES Domicilio (IdDomicilio),
     FOREIGN KEY (IdPlan) REFERENCES TPlan (IdPlan),
     FOREIGN KEY (IdAbonoMensual) REFERENCES AbonoMensual (IdAbonoMensual)
 )
 Go
+
 Create Table Tecnico(
-    IdTecnico int PRIMARY KEY identity (1, 1),
-    Nombre VARCHAR(50),
-    Contacto VARCHAR(50),
-    FechaIncorporacion datetime,
-    Estado bit
-)
-Go
-Create Table TipoMantenimiento(
-    IdTipoMantenimiento int primary key identity (1, 1),
-    Nombre varchar(50)
+    IdTecnico int PRIMARY KEY not null identity (1, 1),
+    Nombre VARCHAR(50) not null,
+    Contacto VARCHAR(50) unique,
+    FechaIncorporacion datetime not null,
+    Estado bit not null
 )
 Go
 
-CREATE TABLE Mantenimiento (
-    IdMantenimiento int primary key identity (1, 1),
-    IdServicio int,
-    Fecha DATETIME,
-    IdTecnico int,
+Create Table TipoMantenimiento(
+    IdTipoMantenimiento int primary key not null identity (1, 1),
+    Nombre varchar(50) not null
+)
+Go
+
+CREATE TABLE Mantenimiento(
+    IdMantenimiento int primary key not null identity (1, 1),
+    IdServicio int not null,
+    Fecha DATETIME not null,
+    IdTecnico int not null,
     Descripcion text,
     --Costo REVISAR
-    IdTipoMantenimiento int,
+    IdTipoMantenimiento int not null,
     --ComponentesCambiados text,
     Comentarios text,
-    EstadoRealizacion bit,
+    EstadoRealizacion bit not null,
     FOREIGN KEY (IdServicio) REFERENCES Servicio (IdServicio),
     FOREIGN KEY (IdTecnico) REFERENCES Tecnico (IdTecnico),
     FOREIGN KEY (IdTipoMantenimiento) REFERENCES TipoMantenimiento (IdTipoMantenimiento),
 )
 Go
 
-INSERT INTO Clientes (Nombre, Telefono, Mail, Dni, FechaAlta, Activo)
+INSERT INTO Cliente (Nombre, Telefono, Mail, Dni, FechaAlta, Activo)
 VALUES
-    ('Cliente1', '123-456-7890', 'cliente1@example.com', '123456789', GETDATE(), 1),
-    ('Cliente2', '987-654-3210', 'cliente2@example.com', '987654321', GETDATE(), 1),
-    ('Cliente3', '555-555-5555', 'cliente3@example.com', '555555555', GETDATE(), 1),
-    ('Cliente4', '111-111-1111', 'cliente4@example.com', '111111111', GETDATE(), 1),
-    ('Cliente5', '222-222-2222', 'cliente5@example.com', '222222222', GETDATE(), 1),
-    ('Cliente6', '333-333-3333', 'cliente6@example.com', '333333333', GETDATE(), 1),
-    ('Cliente7', '444-444-4444', 'cliente7@example.com', '444444444', GETDATE(), 1),
-    ('Cliente8', '666-666-6666', 'cliente8@example.com', '666666666', GETDATE(), 1),
-    ('Cliente9', '777-777-7777', 'cliente9@example.com', '777777777', GETDATE(), 1),
-    ('Cliente10', '999-999-9999', 'cliente10@example.com', '999999999', GETDATE(), 1);
+     ('Juan Pérez', '1123456789', 'jPerez@mail.com', '12345678', '2023-11-05', 1),
+    ('María García', '1145678901', 'mGarcia@mail.com', '87654321', '2023-10-15', 1),
+    ('Carlos López', '1156789012', 'cLopez@mail.com', '23456789', '2022-12-20', 0),
+    ('Laura Martínez', '1167890123', 'lMartinez@mail.com', '34567890', '2022-08-25', 0),
+    ('Diego Rodríguez', '1189012345', 'dRodriguez@mail.com', '45678901', '2021-05-12', 1),
+    ('Valeria Fernández', '1123456790', 'vFernandez@mail.com', '56789012', '2023-09-07', 1),
+    ('Lucas Pérez', '1134567890', 'lPerez@mail.com', '67890123', '2020-07-18', 1),
+    ('Sofía López', '1145678902', 'sLopez@mail.com', '78901234', '2022-03-29', 1),
+    ('Joaquín González', '1156789013', 'jGonzalez@mail.com', '89012345', '2021-11-14', 1),
+    ('Elena Torres', '1190123456', 'eTorres@mail.com', '90123456', '2022-04-03', 0);
 
 INSERT INTO Domicilio (Direccion, Barrio, Ciudad, Comentario)
 VALUES
-    ('Calle 1, Nº 123', 'Barrio A', 'Ciudad X', 'Comentario 1'),
-    ('Calle 2, Nº 456', 'Barrio B', 'Ciudad Y', 'Comentario 2'),
-    ('Calle 3, Nº 789', 'Barrio C', 'Ciudad Z', 'Comentario 3'),
-    ('Calle 4, Nº 1011', 'Barrio D', 'Ciudad W', 'Comentario 4'),
-    ('Calle 5, Nº 1213', 'Barrio E', 'Ciudad V', 'Comentario 5'),
-    ('Calle 6, Nº 1415', 'Barrio F', 'Ciudad U', 'Comentario 6'),
-    ('Calle 7, Nº 1617', 'Barrio G', 'Ciudad T', 'Comentario 7'),
-    ('Calle 8, Nº 1819', 'Barrio H', 'Ciudad S', 'Comentario 8'),
-    ('Calle 9, Nº 2021', 'Barrio I', 'Ciudad R', 'Comentario 9'),
-    ('Calle 10, Nº 2223', 'Barrio J', 'Ciudad Q', 'Comentario 10');
+    ('Av. General Paz 123', 'Nueva Córdoba', 'Córdoba', 'No hay timbre'),
+    ('Av. Santa Fe 456', 'Palermo', 'Buenos Aires', 'Departamento B'),
+    ('Av. Hipólito Yrigoyen 789', 'Güemes', 'Córdoba', ''),
+    ('Av. Libertador 1011', 'La Boca', 'Buenos Aires', ''),
+    ('Av. Corrientes 1213', 'Centro', 'Buenos Aires', 'La casa de techo marrón y rejas negras'),
+    ('Av. Vélez Sársfield 1415', 'Alberdi', 'Córdoba', 'Cuidado con el perro'),
+    ('Av. Callao 1617', 'Recoleta', 'Buenos Aires', ''),
+    ('Av. Rivadavia 1819', 'Caballito', 'Buenos Aires', 'Avisarme por telefono'),
+    ('Av. Maipú 2021', 'Olivos', 'Buenos Aires', ''),
+    ('Av. 9 de Julio 2223', 'San Nicolás', 'Buenos Aires', 'Piso 10');
 
 INSERT INTO TPlan (CantidadMegas, Precio)
 VALUES
     (10, 29.99),
-    (25, 49.99),
-    (50, 69.99),
-    (100, 89.99);
+    (25, 69.99),
+    (50, 119.99),
+    (100, 229.99);
 
 INSERT INTO FormaPago (Nombre)
 VALUES
@@ -149,22 +151,22 @@ VALUES
 
 INSERT INTO Servicio (IdCliente, IdDomicilio, IdPlan, IdAbonoMensual, FechaAlta, Estado, Comentarios)
 VALUES
-    (1, 1, 1, 1, GETDATE(), 1, 'Comentario 1'),
-    (2, 2, 2, 2, GETDATE(), 0, 'Comentario 2'),
-    (3, 3, 3, 3, GETDATE(), 1, 'Comentario 3'),
-    (4, 4, 4, 4, GETDATE(), 0, 'Comentario 4'),
-    (5, 5, 1, 5, GETDATE(), 1, 'Comentario 5'),
-    (6, 6, 2, 6, GETDATE(), 0, 'Comentario 6'),
-    (7, 7, 3, 7, GETDATE(), 1, 'Comentario 7'),
-    (8, 8, 4, 8, GETDATE(), 0, 'Comentario 8'),
-    (9, 9, 1, 9, GETDATE(), 1, 'Comentario 9'),
-    (10, 10, 2, 10, GETDATE(), 0, 'Comentario 10');
+    (1, 1, 1, 1, GETDATE(), 1, ''),
+    (2, 2, 2, 2, GETDATE(), 0, ''),
+    (3, 3, 3, 3, GETDATE(), 1, ''),
+    (4, 4, 4, 4, GETDATE(), 0, ''),
+    (5, 5, 1, 5, GETDATE(), 1, ''),
+    (6, 6, 2, 6, GETDATE(), 0, ''),
+    (7, 7, 3, 7, GETDATE(), 1, ''),
+    (8, 8, 4, 8, GETDATE(), 0, ''),
+    (9, 9, 1, 9, GETDATE(), 1, ''),
+    (10, 10, 2, 10, GETDATE(), 0, '');
 
 INSERT INTO Tecnico (Nombre, Contacto, FechaIncorporacion, Estado)
 VALUES
-    ('Técnico1', '123-456-7890', GETDATE(), 1),
-    ('Técnico2', '987-654-3210', GETDATE(), 1),
-    ('Técnico3', '555-555-5555', GETDATE(), 1);
+    ('Tecnico Pepe', '123-456-7890', GETDATE(), 1),
+    ('Tecnico Jose', '987-654-3210', GETDATE(), 1),
+    ('Tecnico Luis', '555-444-3679', GETDATE(), 1);
 
 INSERT INTO TipoMantenimiento (Nombre)
 VALUES
@@ -175,13 +177,14 @@ VALUES
 
 INSERT INTO Mantenimiento (IdServicio, Fecha, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
 VALUES
-    (1, GETDATE(), 1, 'Mantenimiento 1', 1, 'Comentario Mantenimiento 1', 1),
-    (2, GETDATE(), 2, 'Mantenimiento 2', 2, 'Comentario Mantenimiento 2', 0),
-    (3, GETDATE(), 1, 'Mantenimiento 3', 3, 'Comentario Mantenimiento 3', 1),
-    (4, GETDATE(), 3, 'Mantenimiento 4', 4, 'Comentario Mantenimiento 4', 0),
-    (5, GETDATE(), 2, 'Mantenimiento 5', 1, 'Comentario Mantenimiento 5', 1),
-    (6, GETDATE(), 1, 'Mantenimiento 6', 2, 'Comentario Mantenimiento 6', 0),
-    (7, GETDATE(), 3, 'Mantenimiento 7', 3, 'Comentario Mantenimiento 7', 1),
-    (8, GETDATE(), 2, 'Mantenimiento 8', 4, 'Comentario Mantenimiento 8', 0),
-    (9, GETDATE(), 1, 'Mantenimiento 9', 1, 'Comentario Mantenimiento 9', 1),
-    (10, GETDATE(), 3, 'Mantenimiento 10', 2, 'Comentario Mantenimiento 10', 0);
+    (1, GETDATE(), 1, 'Mantenimiento 1', 1, 'Estaba todo sucio', 1),
+    (2, GETDATE(), 2, 'Mantenimiento 2', 2, '', 0),
+    (3, GETDATE(), 1, 'Mantenimiento 3', 3, '', 1),
+    (4, GETDATE(), 3, 'Mantenimiento 4', 4, '', 0),
+    (5, GETDATE(), 2, 'Mantenimiento 5', 1, '', 1),
+    (6, GETDATE(), 1, 'Mantenimiento 6', 2, '', 0),
+    (7, GETDATE(), 3, 'Mantenimiento 7', 3, '', 1),
+    (8, GETDATE(), 2, 'Mantenimiento 8', 4, '', 0),
+    (9, GETDATE(), 1, 'Mantenimiento 9', 1, '', 1),
+    (10, GETDATE(), 3, 'Mantenimiento 10', 2, '', 0);
+
