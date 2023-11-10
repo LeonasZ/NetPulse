@@ -9,11 +9,11 @@ namespace Dominio
     internal class Mantenimiento
     {
         public int IdMantenimiento { get; set; }
-        public int IdServicio { get; set; }
+        public Servicio Servicio{ get; set; }
         public DateTime Fecha { get; set; }
-        public int IdTecnico { get; set; }
+        public Tecnico Tecnico{ get; set; }
         public string Descripcion { get; set; }
-        public int IdTipoMantenimiento { get; set; }
+        public TipoMantenimiento TipoMantenimiento { get; set; }
         public string Comentarios { get; set; }
         public bool EstadoRealizacion { get; set; }
     }
