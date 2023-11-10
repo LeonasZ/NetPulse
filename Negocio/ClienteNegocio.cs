@@ -14,20 +14,20 @@ namespace Negocio
             List<Cliente> lista = new List<Cliente>();
             AccesoDatos datos = new AccesoDatos();
 
-            datos.setConsulta("select nroCliente,Nombre,Direccion,Barrio,telefono,mail,Activo,nroPlan from Clientes");
+            datos.setConsulta("Select IdCliente, Nombre, Telefono, Mail, Dni, FechaAlta, Activo from Cliente");
             datos.ejecutarLectura();
 
             while (datos.Lector.Read())
             {
                 Cliente aux = new Cliente();
-                aux.NroCliente = (int)datos.Lector["nroCliente"];
+                aux.IdCliente = (int)datos.Lector["IdCliente"];
                 aux.Nombre = (string)datos.Lector["Nombre"];
-                aux.Direccion = (string)datos.Lector["Direccion"];
-                aux.Barrio = (string)datos.Lector["Barrio"];
                 aux.Telefono = (string)datos.Lector["telefono"];
                 aux.Mail = (string)datos.Lector["mail"];
+                aux.Dni = (string)datos.Lector["Dni"];
+                aux.FechaAlta = (DateTime)datos.Lector["FechaAlta"];
                 aux.Activo = (bool)datos.Lector["Activo"];
-                aux.NroPlan = (int)datos.Lector["nroPlan"];
+
 
                 lista.Add(aux);
             }

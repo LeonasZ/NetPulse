@@ -14,7 +14,7 @@ namespace Negocio
         public SqlCommand cmd;
         public AccesoDatos()
         {
-            conection = new SqlConnection("server=.\\SQLEXPRESS;database=BD_SXA;integrated security=true"); // ruta
+            conection = new SqlConnection("server=.\\SQLEXPRESS;database=BD_NetPulse;integrated security=true");
             cmd = new SqlCommand();
 
         }
