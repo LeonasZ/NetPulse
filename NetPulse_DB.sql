@@ -188,3 +188,23 @@ VALUES
     (9, GETDATE(), 1, 'Mantenimiento 9', 1, '', 1),
     (10, GETDATE(), 3, 'Mantenimiento 10', 2, '', 0);
 
+Create View VistaServicios as (
+select IdServicio,C.IdCliente ,C.Nombre as NombreCliente ,C.Telefono, C.Mail , C.Dni, C.FechaAlta as FACliente, C.Activo as ActivoCliente, 
+Am.IdAbonoMensual, Am.IdFormaPago as IdFormaPagoAm, Am.FechaVencimiento1, Am.FechaVencimiento2, Am.Pagado,
+Fp.IdFormaPago, Fp.Nombre as FormaPago, 
+P.IdPlan,P.CantidadMegas, P.Precio,
+D.IdDomicilio,D.Direccion, D.Barrio, D.Ciudad, D.Comentario as DireccionComentarios,
+S.FechaAlta as FechaAltaServicio,S.Estado,S.Comentarios as ComentarioServicios from Servicio S
+inner join Cliente as C on C.IdCliente = S.IdCliente
+inner join AbonoMensual as Am on Am.IdAbonoMensual = S.IdAbonoMensual
+inner join FormaPago as Fp on Fp.IdFormaPago = Am.IdFormaPago
+inner join TPlan as P on P.IdPlan = S.IdPlan
+inner join Domicilio as D on D.IdDomicilio = S.IdDomicilio
+)
+
+/*select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, 
+IdAbonoMensual, IdFormaPagoAm,FechaVencimiento1, FechaVencimiento2, Pagado, 
+IdFormaPago, FormaPago, 
+IdPlan, CantidadMegas, Precio, 
+IdDomicilio, Direccion,Barrio, Ciudad, DireccionComentarios,
+FechaAltaServicio, Estado, ComentarioServicios from VistaServicios*/

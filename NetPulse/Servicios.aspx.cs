@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace NetPulse
             ServicioNegocio ServicioNegocio = new ServicioNegocio();
             dgvListaServicios.DataSource = ServicioNegocio.listarServicios();
             dgvListaServicios.DataBind();
+           
+            
         }
     }
 }
