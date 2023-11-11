@@ -28,7 +28,7 @@
                             <a class="nav-link" href="Tecnicos.aspx">Tecnicos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Mantenimientos</a>
+                            <a class="nav-link" href="Mantenimientos.aspx">Mantenimientos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Services</a>

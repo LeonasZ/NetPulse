@@ -16,7 +16,8 @@ namespace NetPulse
             ServicioNegocio ServicioNegocio = new ServicioNegocio();
             dgvListaServicios.DataSource = ServicioNegocio.listarServicios();
             dgvListaServicios.DataBind();
-           
+
+            Session.Add("listaServicios", ServicioNegocio.listarServicios());
             
         }
     }
