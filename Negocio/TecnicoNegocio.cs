@@ -32,5 +32,29 @@ namespace Negocio
 
             return lista;
         }
+
+        public int AgregarTecnico(Tecnico nuevoTecnico)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("INSERT INTO Tecnico (Nombre, Contacto, FechaIncorporacion, Estado) VALUES (@Nombre, @Contacto, @FechaIncorporacion, @Estado)");
+
+                datos.setearParametro("@Nombre", nuevoTecnico.Nombre);
+                datos.setearParametro("@Contacto", nuevoTecnico.Contacto);
+                datos.setearParametro("@FechaIncorporacion", nuevoTecnico.FechaIncorporacion);
+                datos.setearParametro("@Estado", nuevoTecnico.Estado);
+                return datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

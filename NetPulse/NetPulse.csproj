@@ -67,7 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="AgregarServicio.aspx" />
+=======
+    <Content Include="AgregarTecnico.aspx" />
+>>>>>>> 215703c284ecdf29b34cd3ce9eb7a7ea94b90b11
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Mantenimientos.aspx" />
@@ -76,12 +80,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="AgregarServicio.aspx.cs">
       <DependentUpon>AgregarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AgregarServicio.aspx.designer.cs">
       <DependentUpon>AgregarServicio.aspx</DependentUpon>
+=======
+    <Compile Include="AgregarTecnico.aspx.cs">
+      <DependentUpon>AgregarTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarTecnico.aspx.designer.cs">
+      <DependentUpon>AgregarTecnico.aspx</DependentUpon>
+>>>>>>> 215703c284ecdf29b34cd3ce9eb7a7ea94b90b11
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
