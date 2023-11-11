@@ -75,5 +75,20 @@ namespace Negocio
 
             return lista;
         }
+        //public int agregarServicio(Servicio nuevo)
+        //{
+
+        //    nuevo.IdServicio;
+        //    nuevo.Comentarios;
+        //    nuevo.IdServicio;
+        //    nuevo.Cliente;
+        //    nuevo.Domicilio;
+        //    nuevo.AbonoMensual;
+        //    nuevo.FechaAlta;
+        //    nuevo.Plan;
+            
+
+
+        //}
     }
 }

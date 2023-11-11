@@ -14,4 +14,10 @@
             <asp:BoundField HeaderText ="Comentarios" DataField  ="Comentarios"/>
         </Columns>
 </asp:GridView>
+    <hr />
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example"  >
+        <asp:Button ID="agregarServicio" runat="server" Text="Agregar Nuevo Servicio" CssClass="btn btn-success" onClick="agregarServicio_Click"/>
+        <asp:Button ID="modificarServicio" runat="server" Text="Modificar Servicio" CssClass="btn btn-warning"/>
+        <asp:Button ID="eliminarServicio" runat="server" Text="Dar de baja Servicio" CssClass="btn btn-danger"/>
+</div>
 </asp:Content>
