@@ -11,17 +11,8 @@ namespace NetPulse
 {
 
 
-    public partial class Tecnicos
+    public partial class AgregarTecnico
     {
-
-        /// <summary>
-        /// Control dgvListaTecnicos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvListaTecnicos;
 
         /// <summary>
         /// Control lblMensaje.

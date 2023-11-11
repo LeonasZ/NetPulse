@@ -1,21 +1,19 @@
-﻿using Dominio;
-using Negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Negocio;
 
 namespace NetPulse
 {
-    public partial class Tecnicos : System.Web.UI.Page
+    public partial class AgregarTecnico : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TecnicoNegocio TecnicoNegocio = new TecnicoNegocio();
-            dgvListaTecnicos.DataSource = TecnicoNegocio.listarTecnicos();
-            dgvListaTecnicos.DataBind();
+
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -32,9 +30,19 @@ namespace NetPulse
 
                 negocio.AgregarTecnico(nuevoTecnico);
 
-                Response.Redirect("Default.aspx");
 
+                /*TecnicoNegocio negocio = new TecnicoNegocio();
+                int filasAfectadas;
+                filasAfectadas = negocio.AgregarTecnico(nuevoTecnico);
 
+                if (filasAfectadas > 0)
+                {
+                    lblMensaje.Text = "Técnico agregado correctamente.";
+                }
+                else
+                {
+                    lblMensaje.Text = "Error al agregar técnico.";
+                }*/
             }
             catch (Exception ex)
             {
