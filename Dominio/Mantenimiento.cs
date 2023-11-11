@@ -9,7 +9,7 @@ namespace Dominio
     public class Mantenimiento
     {
         public int IdMantenimiento { get; set; }
-        public Servicio Servicio{ get; set; }
+        public int IdServicio{ get; set; }
         public DateTime Fecha { get; set; }
         public Tecnico Tecnico{ get; set; }
         public string Descripcion { get; set; }

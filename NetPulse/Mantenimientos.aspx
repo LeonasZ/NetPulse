@@ -4,12 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <asp:GridView ID="dgvListaMantenimientos" runat="server" CssClass="table table-bordered table-responsive " AutoGenerateColumns ="false">
 
-            <%
-                foreach(var in item collection){
-                
-                }
-
-                %>
         <Columns>
             <asp:BoundField HeaderText ="IdMantenimiento" DataField  ="IdMantenimiento"/>
             <asp:BoundField HeaderText ="IdServicio" DataField  ="IdServicio"/>
