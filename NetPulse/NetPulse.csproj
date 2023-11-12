@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="Global.asax" />
@@ -76,6 +77,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaServicio.aspx.cs">
+      <DependentUpon>AltaServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaServicio.aspx.designer.cs">
+      <DependentUpon>AltaServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
