@@ -11,70 +11,61 @@ namespace NetPulse
 {
 
 
-    public partial class AltaServicio
+    public partial class AgregarCliente
     {
 
         /// <summary>
-        /// Label1 control.
+        /// inputName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox inputName;
 
         /// <summary>
-        /// btnBuscarDni control.
+        /// inputTelefono control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarDni;
+        protected global::System.Web.UI.WebControls.TextBox inputTelefono;
 
         /// <summary>
-        /// Label2 control.
+        /// inputEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox inputEmail;
 
         /// <summary>
-        /// btnAgregarNuevo control.
+        /// inputDNI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarNuevo;
+        protected global::System.Web.UI.WebControls.TextBox inputDNI;
 
         /// <summary>
-        /// btnReincorporar control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReincorporar;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
-        /// btnAgregarPlan control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarPlan;
-
-        /// <summary>
-        /// btnAgregarDomicilio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarDomicilio;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

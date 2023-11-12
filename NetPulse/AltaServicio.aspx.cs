@@ -13,5 +13,21 @@ namespace NetPulse
         {
 
         }
+
+        protected void btnBuscarDni_Click(object sender, EventArgs e)
+        {
+            /*Buscar en sessoin y modifica label*/
+        }
+
+        protected void btnAgregarNuevo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarCliente.aspx");
+        }
+
+        protected void btnReincorporar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarCliente.aspx");
+            /*Carga a los campos desde session, permite modificar y vuelve a activar.*/
+        }
     }
 }
