@@ -29,5 +29,15 @@ namespace NetPulse
             Response.Redirect("AgregarCliente.aspx");
             /*Carga a los campos desde session, permite modificar y vuelve a activar.*/
         }
+
+        protected void btnAgregarDomicilio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAgregarPlan_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarPlan.aspx");
+        }
     }
 }

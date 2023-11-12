@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarCliente.aspx" />
+    <Content Include="AgregarPlan.aspx" />
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
@@ -84,6 +85,13 @@
     </Compile>
     <Compile Include="AgregarCliente.aspx.designer.cs">
       <DependentUpon>AgregarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarPlan.aspx.cs">
+      <DependentUpon>AgregarPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarPlan.aspx.designer.cs">
+      <DependentUpon>AgregarPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaServicio.aspx.cs">
       <DependentUpon>AltaServicio.aspx</DependentUpon>
