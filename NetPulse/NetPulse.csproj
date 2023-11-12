@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarCliente.aspx" />
+    <Content Include="AgregarDomicilio.aspx" />
     <Content Include="AgregarPlan.aspx" />
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
@@ -85,6 +86,13 @@
     </Compile>
     <Compile Include="AgregarCliente.aspx.designer.cs">
       <DependentUpon>AgregarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarDomicilio.aspx.cs">
+      <DependentUpon>AgregarDomicilio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarDomicilio.aspx.designer.cs">
+      <DependentUpon>AgregarDomicilio.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarPlan.aspx.cs">
       <DependentUpon>AgregarPlan.aspx</DependentUpon>

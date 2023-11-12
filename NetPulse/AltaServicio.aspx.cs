@@ -32,7 +32,7 @@ namespace NetPulse
 
         protected void btnAgregarDomicilio_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AgregarDomicilio.aspx");
         }
 
         protected void btnAgregarPlan_Click(object sender, EventArgs e)
