@@ -29,7 +29,7 @@
 
         <div class="col-12">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <asp:CheckBox ID="chbActivo" runat="server" CssClass="form-check-input"/>
                 <label class="form-check-label" for="gridCheck">
                     Activo
                 </label>
@@ -37,7 +37,10 @@
         </div>
         <div class="col-12">
 
-            <asp:Button ID="Button1" runat="server" Text="Crear" type="submit" class="btn btn-primary" OnClick="Button1_Click" />
+            <asp:Button ID="agregarCliente" runat="server" Text="Crear" type="submit" class="btn btn-primary" OnClick="agregarCliente_Click" />
+        </div>
+        <div>
+            <asp:Label ID="lblclienteAgregado" runat="server" Text=""></asp:Label>
         </div>
     </div>
 </asp:Content>
