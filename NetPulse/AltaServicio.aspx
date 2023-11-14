@@ -17,17 +17,20 @@
             <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" type="submit" class="btn btn-primary" OnClick="btnBuscarDni_Click" />
         </div>
         <asp:Label Style="color: darkgray" ID="Label2" runat="server" Text="Disponibilidad..."></asp:Label>
-        </div>
-            <div class="row row-cols-lg-auto g-3 align-items-center" style="margin: 40px 20px">
-            <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
+    </div>
+    <asp:GridView ID="dgvListaClientesInactivos" runat="server" CssClass="table table-bordered table-responsive  ">
 
-            <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnReincorporar" runat="server" Text="Activar" type="submit" class="btn btn-primary" OnClick="btnReincorporar_Click" />
+    </asp:GridView>
+    <div class="row row-cols-lg-auto g-3 align-items-center" style="margin: 40px 20px">
+        <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
 
-                <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnAgregarPlan" runat="server" Text="AgregarPlan" type="submit" class="btn btn-primary" OnClick="btnAgregarPlan_Click" />
+        <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnReincorporar" runat="server" Text="Activar" type="submit" class="btn btn-primary" OnClick="btnReincorporar_Click" />
 
-                <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnAgregarDomicilio" runat="server" Text="AgregarDomicilio" type="submit" class="btn btn-primary" OnClick="btnAgregarDomicilio_Click" />
-            </div>
-        
+        <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnAgregarPlan" runat="server" Text="AgregarPlan" type="submit" class="btn btn-primary" OnClick="btnAgregarPlan_Click" />
+
+        <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnAgregarDomicilio" runat="server" Text="AgregarDomicilio" type="submit" class="btn btn-primary" OnClick="btnAgregarDomicilio_Click" />
+    </div>
+
 </asp:Content>
 
 
