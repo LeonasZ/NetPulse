@@ -18,8 +18,17 @@
         </div>
         <asp:Label Style="color: darkgray" ID="Label2" runat="server" Text="Disponibilidad..."></asp:Label>
     </div>
-    <asp:GridView ID="dgvListaClientesInactivos" runat="server" CssClass="table table-bordered table-responsive  ">
 
+    <asp:GridView ID="dgvListaClientesInactivos" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns ="false">
+        <Columns>
+            <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
+            <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+            <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
+            <asp:BoundField HeaderText="Dni" DataField="Dni" />
+            <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
+            <asp:ButtonField HeaderText="Activar Servicio" ButtonType="Button" Text ="Activar" />
+            
+        </Columns>
     </asp:GridView>
     <div class="row row-cols-lg-auto g-3 align-items-center" style="margin: 40px 20px">
         <asp:Button Style="margin: 40px 20px; display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
