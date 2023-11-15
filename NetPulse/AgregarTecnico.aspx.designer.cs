@@ -11,34 +11,43 @@ namespace NetPulse
 {
 
 
-    public partial class AgregarPlan1
+    public partial class AgregarTecnico
     {
 
         /// <summary>
-        /// inputCantMegas control.
+        /// inputNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCantMegas;
+        protected global::System.Web.UI.WebControls.TextBox inputNombre;
 
         /// <summary>
-        /// inputPrecio control.
+        /// inputContacto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputPrecio;
+        protected global::System.Web.UI.WebControls.TextBox inputContacto;
 
         /// <summary>
-        /// btnAgregarPlan control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarPlan;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+
+        /// <summary>
+        /// btnAgregarTecnico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarTecnico;
     }
 }

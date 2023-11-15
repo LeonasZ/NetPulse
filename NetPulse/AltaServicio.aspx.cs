@@ -40,7 +40,7 @@ namespace NetPulse
 
         protected void btnAgregarPlan_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AgregarPlan.aspx");
+            Response.Redirect("AgregarPlanCliente.aspx");
         }
     }
 }

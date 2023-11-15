@@ -11,26 +11,17 @@ namespace NetPulse
 {
 
 
-    public partial class AgregarPlan1
+    public partial class Planes
     {
 
         /// <summary>
-        /// inputCantMegas control.
+        /// dgvListaPlanes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCantMegas;
-
-        /// <summary>
-        /// inputPrecio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputPrecio;
+        protected global::System.Web.UI.WebControls.GridView dgvListaPlanes;
 
         /// <summary>
         /// btnAgregarPlan control.

@@ -1,4 +1,4 @@
-﻿using Dominio;
+﻿using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +8,19 @@ using System.Web.UI.WebControls;
 
 namespace NetPulse
 {
-    public partial class AgregarPlan1 : System.Web.UI.Page
+    public partial class Planes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            PlanNegocio planNegocio = new PlanNegocio();
+            dgvListaPlanes.DataSource = planNegocio.listar();
+            dgvListaPlanes.DataBind();
+            
         }
 
         protected void btnAgregarPlan_Click(object sender, EventArgs e)
         {
-            TPlan plan = new TPlan();
-            plan.CantidadMegas = int.Parse(inputCantMegas.Text);
-            plan.Precio = int.Parse(inputPrecio.Text);
-            Response.Redirect("Planes.aspx");
+            Response.Redirect("AgregarPlan.aspx");
         }
     }
 }

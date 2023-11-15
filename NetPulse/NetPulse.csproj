@@ -70,11 +70,14 @@
     <Content Include="AgregarCliente.aspx" />
     <Content Include="AgregarDomicilio.aspx" />
     <Content Include="AgregarPlan.aspx" />
+    <Content Include="AgregarPlanCliente.aspx" />
+    <Content Include="AgregarTecnico.aspx" />
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Mantenimientos.aspx" />
+    <Content Include="Planes.aspx" />
     <Content Include="Servicios.aspx" />
     <Content Include="Tecnicos.aspx" />
     <Content Include="Web.config" />
@@ -100,6 +103,20 @@
     </Compile>
     <Compile Include="AgregarPlan.aspx.designer.cs">
       <DependentUpon>AgregarPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarPlanCliente.aspx.cs">
+      <DependentUpon>AgregarPlanCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarPlanCliente.aspx.designer.cs">
+      <DependentUpon>AgregarPlanCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarTecnico.aspx.cs">
+      <DependentUpon>AgregarTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarTecnico.aspx.designer.cs">
+      <DependentUpon>AgregarTecnico.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaServicio.aspx.cs">
       <DependentUpon>AltaServicio.aspx</DependentUpon>
@@ -131,6 +148,13 @@
     </Compile>
     <Compile Include="Mantenimientos.aspx.designer.cs">
       <DependentUpon>Mantenimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Planes.aspx.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Planes.aspx.designer.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios.aspx.cs">
