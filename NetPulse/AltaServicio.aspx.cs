@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,18 @@ namespace NetPulse
 
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
-            /*Buscar en sessoin y modifica label*/
+            List<Cliente> listaClientes = new List<Cliente>();
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            listaClientes = clienteNegocio.listarClientes();
+            LabelEstado.Text = "El Elemento NO Existe o Esta Activo";
+            foreach (var item in listaClientes)
+            {                             
+                if(item.Dni == inputDNI.Text && item.Activo == false)
+                {
+                    LabelEstado.Text = "Elemento Existente Inactivo Encontrado";                   
+                }
+            }
+           
         }
 
         protected void btnAgregarNuevo_Click(object sender, EventArgs e)

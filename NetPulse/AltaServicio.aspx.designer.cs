@@ -24,6 +24,15 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// inputDNI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputDNI;
+
+        /// <summary>
         /// btnBuscarDni control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Button btnBuscarDni;
 
         /// <summary>
-        /// Label2 control.
+        /// LabelEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label LabelEstado;
 
         /// <summary>
         /// dgvListaClientesInactivos control.

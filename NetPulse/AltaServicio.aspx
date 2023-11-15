@@ -14,14 +14,14 @@
 
         <div style="margin-bottom:10px;margin-top:10px" class="col-3">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">DNI</label>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="DNI">
+            <asp:TextBox ID="inputDNI" class="form-control" placeholder="0" runat="server"></asp:TextBox>     
         </div>
 
         <div style="margin-bottom:10px" class="col-12">
             <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" type="submit" class="btn btn-primary" OnClick="btnBuscarDni_Click" />
         </div>
 
-        <asp:Label Style="color: darkgray" ID="Label2" runat="server" Text="Disponibilidad..."></asp:Label>
+        <asp:Label Style="color: darkgray" ID="LabelEstado" runat="server" Text="Disponibilidad..."></asp:Label>
 
     </div>
 
@@ -50,6 +50,9 @@
         <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarPlan" runat="server" Text="AgregarPlan" type="submit" class="btn btn-primary" OnClick="btnAgregarPlan_Click" />
 
         <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarDomicilio" runat="server" Text="AgregarDomicilio" type="submit" class="btn btn-primary" OnClick="btnAgregarDomicilio_Click" />
+
+        
+
     </div>
 
 </asp:Content>
