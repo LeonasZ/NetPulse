@@ -15,6 +15,8 @@
 
     <div class="col-12">
         <asp:Button ID="btnAgregarPlan" runat="server" Text="Agregar" type="submit" class="btn btn-primary" OnClick="btnAgregarPlan_Click" />
+            <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
+
     </div>
 </div>
 </asp:Content>

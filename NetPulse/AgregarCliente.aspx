@@ -38,6 +38,8 @@
         <div class="col-12">
 
             <asp:Button ID="agregarCliente" runat="server" Text="Crear" type="submit" class="btn btn-primary" OnClick="agregarCliente_Click" />
+            <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
+
         </div>
         <div>
             <asp:Label ID="lblclienteAgregado" runat="server" Text=""></asp:Label>

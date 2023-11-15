@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,18 @@ namespace NetPulse
             TPlan plan = new TPlan();
             plan.CantidadMegas = int.Parse(inputCantMegas.Text);
             plan.Precio = int.Parse(inputPrecio.Text);
+        
+            PlanNegocio planNegocio = new PlanNegocio();
+            plan.IdPlan = planNegocio.guardar(plan);
+
+
             Response.Redirect("Planes.aspx");
+        }
+
+        protected void Cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Planes.aspx");
+
         }
     }
 }

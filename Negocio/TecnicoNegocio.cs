@@ -32,5 +32,40 @@ namespace Negocio
 
             return lista;
         }
+        public int agregarTecnico(Tecnico tecnico)
+        {
+            int idtecnico= -1;
+            string nombre = tecnico.Nombre;
+            string contacto = tecnico.Contacto;
+            DateTime fechaalta = tecnico.FechaIncorporacion;
+            bool activo = tecnico.Estado;
+
+            string query = "insert into Tecnico(Nombre,Contacto,FechaIncorporacion,Estado) VALUES (@nombre,@contacto,@fechaalta,@activo)" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID";
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta(query);
+                datos.setearParametro("@nombre", nombre);
+                datos.setearParametro("@contacto", contacto);
+                datos.setearParametro("@fechaalta", fechaalta);
+                datos.setearParametro("@activo", activo);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    idtecnico = (int)datos.Lector["ID"];
+                }
+
+
+                return idtecnico;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+
+        }
     }
 }

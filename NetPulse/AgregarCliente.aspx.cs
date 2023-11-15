@@ -33,18 +33,24 @@ namespace NetPulse
 
             /*Agregar a Clientes*/
 
-            if (cliente.IdCliente != -1)
-            {
-                lblclienteAgregado.Text = "El Cliente " + cliente.Nombre +" fue agregado exitosamente";
-            }
-            else
-            {
-                lblclienteAgregado.Text = "Se produjo un error";
-            }
+            //if (cliente.IdCliente != -1)
+            //{
+            //    lblclienteAgregado.Text = "El Cliente " + cliente.Nombre +" fue agregado exitosamente";
+            //}
+            //else
+            //{
+            //    lblclienteAgregado.Text = "Se produjo un error";
+            //}
             
 
 
             //Response.Redirect("AltaServicio.aspx");
+        }
+
+        protected void Cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AltaServicio.aspx");
+
         }
     }
 }
