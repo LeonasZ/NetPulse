@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActivarServicio.aspx" />
     <Content Include="AgregarCliente.aspx" />
     <Content Include="AgregarDomicilio.aspx" />
     <Content Include="AgregarPlan.aspx" />
@@ -83,6 +84,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivarServicio.aspx.cs">
+      <DependentUpon>ActivarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivarServicio.aspx.designer.cs">
+      <DependentUpon>ActivarServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgregarCliente.aspx.cs">
       <DependentUpon>AgregarCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

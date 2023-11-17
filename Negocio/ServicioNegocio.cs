@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
@@ -43,7 +44,7 @@ namespace Negocio
                 AbonoMensual abonoMensualAux = new AbonoMensual();
                 abonoMensualAux.IdAbonoMensual = (int)datos.lector["IdAbonoMensual"];
 
-                FormaPago formaPagoAux =    new FormaPago();
+                FormaPago formaPagoAux = new FormaPago();
                 formaPagoAux.IdFormaPago = (int)datos.lector["IdFormaPagoAm"];
                 formaPagoAux.Nombre = (string)datos.lector["FormaPago"];
                 abonoMensualAux.FormaPago = formaPagoAux;
@@ -68,12 +69,51 @@ namespace Negocio
                 domicilioAux.Barrio = (string)datos.lector["Barrio"];
                 domicilioAux.Ciudad = (string)datos.lector["Ciudad"];
                 domicilioAux.Comentario = (string)datos.lector["DireccionComentarios"];
-                aux.Domicilio= domicilioAux;
+                aux.Domicilio = domicilioAux;
                 lista.Add(aux);
-                
+
             }
 
             return lista;
+        }
+        public int agregarServicio(Servicio nuevo)
+        {
+            int idservicio = -1;
+            int idCliente = nuevo.Cliente.IdCliente;
+            int idDomicilio = nuevo.Domicilio.IdDomicilio;
+            int idPlan = nuevo.Plan.IdPlan;
+            int idAbonoMensual = nuevo.AbonoMensual.IdAbonoMensual;
+            DateTime FechaAlta = DateTime.Now;
+            string comentarios = nuevo.Comentarios;
+
+            string query = "insert into Servicio(IdCliente,IdDomicilio,IdPlan,IdAbonoMensual,FechaAlta,Estado,Comentarios) values (@idCliente,@idDomicilio,@idPlan,@idAbonoMensual,@FechaAlta,1,@comentarios)" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID";
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta(query);
+                datos.setearParametro("@idCliente", idCliente);
+                datos.setearParametro("@idDomicilio", idDomicilio);
+                datos.setearParametro("@idPlan", idPlan);
+                datos.setearParametro("@idAbonoMensual", idAbonoMensual);
+                datos.setearParametro("@FechaAlta", FechaAlta);
+                datos.setearParametro("@comentarios", comentarios);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    idservicio = (int)datos.Lector["ID"];
+                }
+
+
+                return idservicio;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+
         }
     }
 }

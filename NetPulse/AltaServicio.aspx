@@ -34,7 +34,7 @@
                 <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
                 <asp:BoundField HeaderText="Dni" DataField="Dni" />
                 <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
-                <asp:ButtonField HeaderText="Activar Servicio" ButtonType="Button" Text="Activar"/>
+                <asp:ButtonField HeaderText="Activar Servicio" ButtonType="Button" Text="Activar" />
 
             </Columns>
         </asp:GridView>

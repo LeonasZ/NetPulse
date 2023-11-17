@@ -54,5 +54,10 @@ namespace NetPulse
         {
             Response.Redirect("AgregarPlanCliente.aspx");
         }
+        protected void btnActivar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ActivarServicio.aspx");
+
+        }
     }
 }
