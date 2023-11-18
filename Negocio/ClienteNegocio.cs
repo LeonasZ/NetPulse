@@ -100,6 +100,29 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
             
         }
+
+        public int activarCliente(int idcliente)
+        {
+            string query = "update Cliente set Activo = 1 where IdCliente = @idcliente";
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta(query);
+                datos.setearParametro("@idcliente", idcliente);
+                datos.ejecutarAccion();
+
+                return idcliente;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 
 }

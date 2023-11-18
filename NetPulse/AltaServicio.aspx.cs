@@ -16,6 +16,7 @@ namespace NetPulse
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             dgvListaClientesInactivos.DataSource = clienteNegocio.listarClientesInactivos();
             dgvListaClientesInactivos.DataBind();
+            Session.Add("clientesInactivos", clienteNegocio.listarClientesInactivos());
         }
 
         protected void btnBuscarDni_Click(object sender, EventArgs e)
@@ -54,10 +55,10 @@ namespace NetPulse
         {
             Response.Redirect("AgregarPlanCliente.aspx");
         }
-        protected void btnActivar_Click(object sender, EventArgs e)
+        protected void dgvListaClientesInactivos_SelectedIndexChanged(object sender,EventArgs e)
         {
-            Response.Redirect("ActivarServicio.aspx");
-
+            int IdCliente = int.Parse(dgvListaClientesInactivos.SelectedDataKey.Value.ToString());
+            Response.Redirect("ActivarServicio.aspx?IdCliente=" + IdCliente);
         }
     }
 }

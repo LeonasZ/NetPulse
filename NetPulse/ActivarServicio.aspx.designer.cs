@@ -87,12 +87,12 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.TextBox inputPrecio;
 
         /// <summary>
-        /// btnActivar control.
+        /// ActivarServicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActivar;
+        protected global::System.Web.UI.WebControls.Button ActivarServicio;
     }
 }

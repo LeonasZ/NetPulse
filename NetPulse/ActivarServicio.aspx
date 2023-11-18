@@ -45,8 +45,10 @@
         <asp:TextBox type="text" class="form-control" ID="inputPrecio" placeholder="XX-XXX-XXX" ReadOnly="true" runat="server"></asp:TextBox>
     </div>
     <div class="col-12">
+            <asp:Button ID="ActivarServicio" runat="server" Text="Activar" type="submit" class="btn btn-success" OnClick="Activar_Click" />
+
     </div>
-            <asp:Button ID="btnActivar" runat="server" Text="Activar Servicio" type="submit" class="btn btn-success"/>
 
 </div>
+        <h1 class="display-5" style="text-align: left; margin: 20px">Forma de pago</h1>
 </asp:Content>

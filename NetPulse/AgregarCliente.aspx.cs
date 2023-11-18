@@ -41,10 +41,10 @@ namespace NetPulse
             //{
             //    lblclienteAgregado.Text = "Se produjo un error";
             //}
-            
 
 
-            //Response.Redirect("AltaServicio.aspx");
+
+            Response.Redirect("AltaServicio.aspx");
         }
 
         protected void Cancelar_Click(object sender, EventArgs e)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    internal class DomicilioNegocio
+    public class DomicilioNegocio
     {
         public int agregarDomicilio(Domicilio nuevo)
         {

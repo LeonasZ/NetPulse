@@ -27,14 +27,14 @@
 
     <div style="margin: 20px">
         <h3>Usuarios Inactivos</h3>
-        <asp:GridView ID="dgvListaClientesInactivos" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false">
+        <asp:GridView ID="dgvListaClientesInactivos" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvListaClientesInactivos_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                 <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
                 <asp:BoundField HeaderText="Dni" DataField="Dni" />
                 <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
-                <asp:ButtonField HeaderText="Activar Servicio" ButtonType="Button" Text="Activar" />
+                <asp:CommandField HeaderText="Activar Servicio" SelectText="Activar" ShowSelectButton="true" />
 
             </Columns>
         </asp:GridView>
