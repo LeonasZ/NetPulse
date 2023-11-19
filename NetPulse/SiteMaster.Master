@@ -1,6 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="NetPulse.SiteMaster" %>
 
-
 <!DOCTYPE html>
 <html>
 <head runat="server">
@@ -52,7 +51,7 @@
                             <a class="nav-link disabled" aria-disabled="true">Estadisticas</a>
                         </li>
                     </ul>
-               
+
                 </div>
             </div>
         </nav>

@@ -208,3 +208,22 @@ IdFormaPago, FormaPago,
 IdPlan, CantidadMegas, Precio, 
 IdDomicilio, Direccion,Barrio, Ciudad, DireccionComentarios,
 FechaAltaServicio, Estado, ComentarioServicios from VistaServicios*/
+
+
+-- Tablas para el Login
+Create database UserLoginTest
+GO
+Use UserLoginTest
+GO
+Create Table Usuarios(
+    IdUsuario int not null primary key identity (1, 1),
+    Nombre varchar(50) null,
+    Usuario varchar(50) null,
+    Contraseña varchar(50) null,
+    TipoUsuario varchar(50) null
+)
+
+Select * From Usuarios
+
+Insert into Usuarios values ('Admin 1', 'Adm1', '1234', 'Admin'),
+                            ('User 1', 'User1', '4321', 'User');

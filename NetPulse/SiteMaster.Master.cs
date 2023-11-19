@@ -11,7 +11,17 @@ namespace NetPulse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["NombreUsuario"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
 
+            if (Session["NombreUsuario"] != null && Session["TipoUsuario"] != null)
+            {
+                string nombreUsuario = Session["NombreUsuario"].ToString();
+                string tipoUsuario = Session["TipoUsuario"].ToString();
+
+            }
         }
     }
 }
