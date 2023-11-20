@@ -26,15 +26,6 @@
             <label for="FechaAlta" class="form-label">FechaAlta</label>
             <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
         </div>
-
-        <div class="col-12">
-            <div class="form-check">
-                <asp:CheckBox ID="chbActivo" runat="server" CssClass="form-check-input"/>
-                <label class="form-check-label" for="gridCheck">
-                    Activo
-                </label>
-            </div>
-        </div>
         <div class="col-12">
 
             <asp:Button ID="agregarCliente" runat="server" Text="Crear" type="submit" class="btn btn-primary" OnClick="agregarCliente_Click" />

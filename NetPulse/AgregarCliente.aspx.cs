@@ -25,7 +25,7 @@ namespace NetPulse
             cliente.Nombre = inputName.Text;
             cliente.Telefono = inputTelefono.Text;
             cliente.Dni = inputDNI.Text;
-            cliente.Activo = chbActivo.Checked;
+            cliente.Activo = false;
             cliente.Mail = inputEmail.Text;
             cliente.FechaAlta = Calendar1.SelectedDate;
 

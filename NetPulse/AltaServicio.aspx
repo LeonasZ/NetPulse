@@ -47,9 +47,7 @@
 
         <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
 
-        <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarPlan" runat="server" Text="AgregarPlan" type="submit" class="btn btn-primary" OnClick="btnAgregarPlan_Click" />
-
-        <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarDomicilio" runat="server" Text="AgregarDomicilio" type="submit" class="btn btn-primary" OnClick="btnAgregarDomicilio_Click" />
+        
 
         
 

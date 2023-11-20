@@ -69,9 +69,7 @@
   <ItemGroup>
     <Content Include="ActivarServicio.aspx" />
     <Content Include="AgregarCliente.aspx" />
-    <Content Include="AgregarDomicilio.aspx" />
     <Content Include="AgregarPlan.aspx" />
-    <Content Include="AgregarPlanCliente.aspx" />
     <Content Include="AgregarTecnico.aspx" />
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
@@ -99,26 +97,12 @@
     <Compile Include="AgregarCliente.aspx.designer.cs">
       <DependentUpon>AgregarCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AgregarDomicilio.aspx.cs">
-      <DependentUpon>AgregarDomicilio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgregarDomicilio.aspx.designer.cs">
-      <DependentUpon>AgregarDomicilio.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AgregarPlan.aspx.cs">
       <DependentUpon>AgregarPlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AgregarPlan.aspx.designer.cs">
       <DependentUpon>AgregarPlan.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AgregarPlanCliente.aspx.cs">
-      <DependentUpon>AgregarPlanCliente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgregarPlanCliente.aspx.designer.cs">
-      <DependentUpon>AgregarPlanCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarTecnico.aspx.cs">
       <DependentUpon>AgregarTecnico.aspx</DependentUpon>
