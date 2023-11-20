@@ -14,11 +14,9 @@
                 <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />
                 <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
                 <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
-                <asp:ButtonField HeaderText="Modificar" ButtonType="Button" Text="Edit" />
-                <asp:ButtonField HeaderText="Eliminar" ButtonType="Button" Text=" X " />
+                
             </Columns>
-        </asp:GridView>
-        <asp:Button ID="ButtonAgregar" runat="server" Text=" + " OnClick="ButtonAgregar_Click" />
+        </asp:GridView>       
     </div>
 
 </asp:Content>

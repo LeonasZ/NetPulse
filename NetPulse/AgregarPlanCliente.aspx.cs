@@ -15,12 +15,20 @@ namespace NetPulse
             PlanNegocio planNegocio = new PlanNegocio();
             List<TPlan> plans = new List<TPlan>();
             plans = planNegocio.listar();
-            /*Session["Planes"] = plans;*/
+            
+            FormaPagoNegocio servicioFP = new FormaPagoNegocio();
+            List<FormaPago> formaPagos = new List<FormaPago>();
+            formaPagos = servicioFP.listar();
+
             if (!IsPostBack)
             {
                 foreach (var item in plans)
                 {
                     DDLPlanes.Items.Add(item.IdPlan.ToString());
+                }
+                foreach (var item in formaPagos)
+                {
+                    DDLMedioDePago.Items.Add(item.Nombre.ToString());
                 }
             }
             

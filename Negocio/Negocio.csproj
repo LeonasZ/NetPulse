@@ -45,6 +45,7 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="DomicilioNegocio.cs" />
+    <Compile Include="FormaPagoNegocio.cs" />
     <Compile Include="MantenimientoNegocio.cs" />
     <Compile Include="PlanNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

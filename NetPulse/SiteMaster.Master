@@ -30,25 +30,10 @@
                             <a class="nav-link" href="Mantenimientos.aspx">Mantenimientos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="AltaServicio.aspx">Alta</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="Planes.aspx">Planes</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Abonos
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Octubre</a></li>
-                                <li><a class="dropdown-item" href="#">Septiembre</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Nueva pestaña</a></li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Estadisticas</a>
+                            <a class="nav-link" href="AltaServicio.aspx">Alta</a>
                         </li>
                     </ul>
 

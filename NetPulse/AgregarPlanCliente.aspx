@@ -22,6 +22,10 @@
             <asp:TextBox type="text" class="form-control" ID="inputPrecio" placeholder="XX-XXX-XXX" ReadOnly="true" runat="server"></asp:TextBox>
         </div>
         <div class="col-12">
+            <label for="inputPago" class="form-label">MedioDePago</label>
+            <asp:DropDownList ID="DDLMedioDePago" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
+        </div>
+        <div class="col-12">
             <asp:Button ID="btnAgregarPlan" runat="server" Text="Agregar" type="submit" class="btn btn-primary" OnClick="btnAgregarPlan_Click" />
         </div>
     </div>
