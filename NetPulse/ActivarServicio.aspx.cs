@@ -11,6 +11,8 @@ namespace NetPulse
 {
     public partial class ActivarServicio : System.Web.UI.Page
     {
+        List<FormaPago> formaPagos = new List<FormaPago>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,7 +21,6 @@ namespace NetPulse
             plans = planNegocio.listar();
             /*Session["Planes"] = plans;*/
             FormaPagoNegocio servicioFP = new FormaPagoNegocio();
-            List<FormaPago> formaPagos = new List<FormaPago>();
             formaPagos = servicioFP.listar();
 
             if (!IsPostBack)
@@ -37,6 +38,8 @@ namespace NetPulse
             inputPrecio.Text = plans[DDLPlanes.SelectedIndex].Precio.ToString();
             inputCantMegas.Text = plans[DDLPlanes.SelectedIndex].CantidadMegas.ToString();
             inputIdPlan.Text = plans[DDLPlanes.SelectedIndex].IdPlan.ToString();
+
+            
         }
 
         protected void Activar_Click(object sender, EventArgs e)
@@ -63,7 +66,8 @@ namespace NetPulse
           
             servicio.Estado = true;
             servicio.FechaAlta = DateTime.Now;
-            servicio.Comentarios = "Instalacion reciente";
+            servicio.Comentarios = inputComentariosServicio.Text;
+
 
 
             //busco el cliente por session y lo cargo al servicio, revisar es posible que nos convenga que el objeto servicio solo contenga id en vez de objetos
@@ -101,8 +105,9 @@ namespace NetPulse
             amaux.FechaVencimiento2 = DateTime.Now;
             amaux.Pagado = false;
             amaux.FormaPago = new FormaPago();
-            amaux.FormaPago.IdFormaPago = 1;
-            amaux.FormaPago.Nombre = "Efectivo";
+
+            amaux.FormaPago.IdFormaPago = formaPagos[DDLMedioDePago.SelectedIndex].IdFormaPago;
+            amaux.FormaPago.Nombre = formaPagos[DDLMedioDePago.SelectedIndex].Nombre;
 
             amaux.IdAbonoMensual = abonoMensualNegocio.agregarAbonoMensual(amaux);
 
