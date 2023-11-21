@@ -15,12 +15,21 @@ namespace NetPulse
     {
 
         /// <summary>
-        /// dgvListaMantenimientos control.
+        /// dgvListaMantenimientosPendientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvListaMantenimientos;
+        protected global::System.Web.UI.WebControls.GridView dgvListaMantenimientosPendientes;
+
+        /// <summary>
+        /// dgvListaMantenimientosRealizados control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvListaMantenimientosRealizados;
     }
 }
