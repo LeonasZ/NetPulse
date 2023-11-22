@@ -13,7 +13,11 @@ namespace NetPulse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["NombreUsuario"] != null)
+            {
+                Session.Remove("NombreUsuario");
+                Session.Remove("TipoUsuario");
+            }
         }
 
         SqlConnection con = new SqlConnection("server=.\\SQLEXPRESS;database=UserLogin;integrated security=true");
