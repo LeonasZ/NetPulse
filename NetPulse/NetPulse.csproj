@@ -76,6 +76,7 @@
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="MainTecnico.aspx" />
     <Content Include="Mantenimientos.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Servicios.aspx" />
@@ -142,12 +143,24 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MainTecnico.aspx.cs">
+      <DependentUpon>MainTecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainTecnico.aspx.designer.cs">
+      <DependentUpon>MainTecnico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos.aspx.cs">
       <DependentUpon>Mantenimientos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Mantenimientos.aspx.designer.cs">
       <DependentUpon>Mantenimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterTecnico.Master.cs">
+      <DependentUpon>MasterTecnico.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterTecnico.Master.designer.cs">
+      <DependentUpon>MasterTecnico.Master</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
@@ -180,6 +193,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterTecnico.Master" />
     <None Include="packages.config" />
     <Content Include="SiteMaster.Master" />
     <None Include="Web.Debug.config">
