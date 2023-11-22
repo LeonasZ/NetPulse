@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="MainTecnico.aspx.cs">
       <DependentUpon>MainTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MainTecnico.aspx.designer.cs">
       <DependentUpon>MainTecnico.aspx</DependentUpon>
@@ -166,6 +167,7 @@
     </Compile>
     <Compile Include="MasterTecnico.Master.cs">
       <DependentUpon>MasterTecnico.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterTecnico.Master.designer.cs">
       <DependentUpon>MasterTecnico.Master</DependentUpon>

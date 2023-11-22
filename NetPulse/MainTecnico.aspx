@@ -19,7 +19,6 @@
             <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
             <asp:ButtonField HeaderText="Info Del Usuario" Text="Ver" />
             <asp:ButtonField HeaderText="Finalizar Mantenimiento" Text="Finalizar" />
-
         </Columns>
     </asp:GridView>
 </div>
@@ -38,7 +37,6 @@
             <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />
             <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
             <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
-
         </Columns>
     </asp:GridView>
 </div>

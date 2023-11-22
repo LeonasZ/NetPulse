@@ -41,12 +41,12 @@ namespace NetPulse
                         Session["TipoUsuario"] = tipoUsuario;
                         Response.Redirect("Default.aspx");
                     }
-                    else if (dt.Rows[0][1].ToString() == "User")
+                    else if (dt.Rows[0][1].ToString() == "Tecnico")
                     {
                         //Response.Write("<script>alert('Ingresaste como Usuario');</script>");
                         Session["NombreUsuario"] = nombreUsuario;
                         Session["TipoUsuario"] = tipoUsuario;
-                        Response.Redirect("Default.aspx");
+                        Response.Redirect("MainTecnico.aspx");
                     }
                 }
                 else

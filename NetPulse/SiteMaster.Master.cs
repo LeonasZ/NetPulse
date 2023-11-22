@@ -22,6 +22,11 @@ namespace NetPulse
                 string tipoUsuario = Session["TipoUsuario"].ToString();
 
             }
+
+            if (Session["NombreUsuario"] != null && Session["TipoUsuario"].ToString() != "Admin")
+            {
+                Response.Redirect("~/MainTecnico.aspx");
+            }
         }
     }
 }

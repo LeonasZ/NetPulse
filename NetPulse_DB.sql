@@ -222,8 +222,9 @@ Create Table Usuarios(
     Contraseña varchar(50) null,
     TipoUsuario varchar(50) null
 )
-
-Select * From Usuarios
-
+Go
 Insert into Usuarios values ('Admin 1', 'Adm1', '1234', 'Admin'),
-                            ('User 1', 'User1', '4321', 'User');
+                            ('User 1', 'User1', '4321', 'User'),
+                            ('Tecnico 1', 'Tec1', 't1', 'Tecnico');
+Go
+Select * From Usuarios
