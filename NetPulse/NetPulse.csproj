@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ActivarServicio.aspx" />
+    <Content Include="AgendarMantenimiento.aspx" />
     <Content Include="AgregarCliente.aspx" />
     <Content Include="AgregarPlan.aspx" />
     <Content Include="AgregarTecnico.aspx" />
@@ -89,6 +90,13 @@
     </Compile>
     <Compile Include="ActivarServicio.aspx.designer.cs">
       <DependentUpon>ActivarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgendarMantenimiento.aspx.cs">
+      <DependentUpon>AgendarMantenimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgendarMantenimiento.aspx.designer.cs">
+      <DependentUpon>AgendarMantenimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarCliente.aspx.cs">
       <DependentUpon>AgregarCliente.aspx</DependentUpon>

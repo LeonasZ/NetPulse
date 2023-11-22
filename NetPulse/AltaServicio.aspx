@@ -24,7 +24,56 @@
         <asp:Label Style="color: darkgray" ID="LabelEstado" runat="server" Text="Disponibilidad..."></asp:Label>
 
     </div>
+    <div style="margin: 20px">
+        <h3>Usuario Encontrado</h3>
+        <asp:GridView ID="dgvUsuarioEncontrado" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvUsuarioEncontrado_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
+                <asp:BoundField HeaderText="Nombre" DataField="Cliente.Nombre" />
+                <asp:BoundField HeaderText="Domicilio" DataField="Domicilio.Direccion" />
+                <asp:BoundField HeaderText="Dni" DataField="Cliente.Dni" />
+                <asp:BoundField HeaderText="Telefono" DataField="Cliente.Telefono" />
+                <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
+                <asp:CommandField HeaderText="Agendar Mantenimiento" SelectText="Agendar" ShowSelectButton="true" />
 
+            </Columns>
+        </asp:GridView>
+    </div>
+    <%--<table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">IdServicio</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Domicilio</th>
+                    <th scope="col">Dni</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Fecha Alta Servicio</th>
+                    <th scope="col">Modificar Servicio</th>
+                    <th scope="col">Agendar Mantenimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <asp:Label ID="lblIdServicio" runat="server" Text=""></asp:Label></th>
+                    <td>
+                        <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblDomicilio" runat="server" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblDni" runat="server" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblTelefono" runat="server" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblFechaAlta" runat="server" Text=""></asp:Label></td>
+                    <td>
+                        <asp:LinkButton ID="lnkBtnModificar" runat="server" Visible="false" OnClick="lnkBtnModificar_Click">Modificar</asp:LinkButton></td>
+                    <td>
+                        <asp:LinkButton ID="lnkBtnMantenimiento" runat="server" Visible="false" OnClick="lnkBtnMantenimiento_Click">Mantenimiento</asp:LinkButton></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>--%>
     <div style="margin: 20px">
         <h3>Usuarios Inactivos</h3>
         <asp:GridView ID="dgvListaClientesInactivos" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvListaClientesInactivos_SelectedIndexChanged">
@@ -40,44 +89,12 @@
         </asp:GridView>
     </div>
 
-    <div style="margin: 20px">
-        <div style="margin-bottom: 20px">
-            <h3>Usuario Existente Encontrado</h3>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">IdCliente</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Dni</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">FechaAlta</th>
-                    <th scope="col">Modificar Servicio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">
-                        <asp:Label ID="lblIDCliente" runat="server" Text=""></asp:Label></th>
-                    <td>
-                        <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:Label ID="lblTelefono" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:Label ID="lblDni" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:Label ID="lblFechaAlta" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:LinkButton ID="lnkBtnModificar" runat="server" Visible="false" OnClick="lnkBtnModificar_Click">Modificar</asp:LinkButton></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
     <div style="margin: 40px 20px">
 
         <h3>Funcionalidades</h3>
 
-        <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
+        <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo Cliente" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
 
 
 

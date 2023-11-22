@@ -44,5 +44,46 @@ namespace Negocio
 
             return lista;
         }
+        public int agregarMantenimiento(Mantenimiento mantenimiento)
+        {
+            int idMantenimiento = -1;
+            int IdServicio = mantenimiento.IdServicio;
+            DateTime Fecha = mantenimiento.Fecha;
+            int IdTecnico = mantenimiento.Tecnico.IdTecnico;
+            string Descripcion = mantenimiento.Descripcion;
+            int IdTipoMantenimiento = mantenimiento.TipoMantenimiento.IdTipoMantenimiento;
+            string Comentarios = mantenimiento.Comentarios;
+            bool EstadoRealizacion = mantenimiento.EstadoRealizacion;
+
+            string query = "insert into Mantenimiento(IdServicio,Fecha,IdTecnico,Descripcion,IdTipoMantenimiento,Comentarios,EstadoRealizacion) values(@IdServicio,@Fecha,@IdTecnico,@Descripcion,@IdTipoMantenimiento,@Comentarios,@EstadoRealizacion)" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID";
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta(query);
+                datos.setearParametro("@IdServicio", IdServicio);
+                datos.setearParametro("@Fecha", Fecha);
+                datos.setearParametro("@IdTecnico", IdTecnico);
+                datos.setearParametro("@Descripcion", Descripcion);
+                datos.setearParametro("@IdTipoMantenimiento", IdTipoMantenimiento);
+                datos.setearParametro("@Comentarios", Comentarios);
+                datos.setearParametro("@EstadoRealizacion", EstadoRealizacion);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    idMantenimiento = (int)datos.Lector["ID"];
+                }
+
+
+                return idMantenimiento;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+
+        }
     }
 }
