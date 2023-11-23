@@ -34,5 +34,23 @@ namespace NetPulse
             dgvListaMantenimientosRealizados.DataSource = listaRealizados;
             dgvListaMantenimientosRealizados.DataBind();
         }
+
+        protected void dgvListaMantenimientosPendientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        
+        protected void dgvListaMantenimientosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName == "Info_onClick")
+            {
+                Response.Redirect("InfoCliente.aspx");
+            }
+            if (e.CommandName == "Finalizar_onClick")
+            {
+                Response.Redirect("FinalizarMantenimiento.aspx");
+            }
+        }
     }
 }
