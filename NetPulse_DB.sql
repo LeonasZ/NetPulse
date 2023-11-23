@@ -109,6 +109,7 @@ VALUES
     ('Sofía López', '1145678902', 'sLopez@mail.com', '78901234', '2022-03-29', 1),
     ('Joaquín González', '1156789013', 'jGonzalez@mail.com', '89012345', '2021-11-14', 1),
     ('Elena Torres', '1190123456', 'eTorres@mail.com', '90123456', '2022-04-03', 0);
+GO
 
 INSERT INTO Domicilio (Direccion, Barrio, Ciudad, Comentario)
 VALUES
@@ -122,6 +123,7 @@ VALUES
     ('Av. Rivadavia 1819', 'Caballito', 'Buenos Aires', 'Avisarme por telefono'),
     ('Av. Maipú 2021', 'Olivos', 'Buenos Aires', ''),
     ('Av. 9 de Julio 2223', 'San Nicolás', 'Buenos Aires', 'Piso 10');
+GO
 
 INSERT INTO TPlan (CantidadMegas, Precio)
 VALUES
@@ -129,12 +131,14 @@ VALUES
     (25, 69.99),
     (50, 119.99),
     (100, 229.99);
+GO
 
 INSERT INTO FormaPago (Nombre)
 VALUES
     ('Tarjeta de Crédito'),
     ('Transferencia Bancaria'),
     ('Efectivo');
+GO
 
 INSERT INTO AbonoMensual (IdFormaPago, FechaVencimiento1, FechaVencimiento2, Pagado)
 VALUES
@@ -148,6 +152,7 @@ VALUES
     (1, DATEADD(MONTH, 1, GETDATE()), DATEADD(MONTH, 2, GETDATE()), 1),
     (1, DATEADD(MONTH, 1, GETDATE()), DATEADD(MONTH, 2, GETDATE()), 0),
     (1, DATEADD(MONTH, 1, GETDATE()), DATEADD(MONTH, 2, GETDATE()), 1);
+GO
 
 INSERT INTO Servicio (IdCliente, IdDomicilio, IdPlan, IdAbonoMensual, FechaAlta, Estado, Comentarios)
 VALUES
@@ -161,12 +166,14 @@ VALUES
     (8, 8, 4, 8, GETDATE(), 0, ''),
     (9, 9, 1, 9, GETDATE(), 1, ''),
     (10, 10, 2, 10, GETDATE(), 0, '');
+GO
 
 INSERT INTO Tecnico (Nombre, Contacto, FechaIncorporacion, Estado)
 VALUES
     ('Tecnico Pepe', '123-456-7890', GETDATE(), 1),
     ('Tecnico Jose', '987-654-3210', GETDATE(), 1),
     ('Tecnico Luis', '555-444-3679', GETDATE(), 1);
+GO
 
 INSERT INTO TipoMantenimiento (Nombre)
 VALUES
@@ -174,6 +181,7 @@ VALUES
     ('Mantenimiento Correctivo'),
     ('Mantenimiento Predictivo'),
     ('Mantenimiento de Emergencia');
+GO
 
 INSERT INTO Mantenimiento (IdServicio, Fecha, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
 VALUES
@@ -187,6 +195,7 @@ VALUES
     (8, GETDATE(), 2, 'Mantenimiento 8', 4, '', 0),
     (9, GETDATE(), 1, 'Mantenimiento 9', 1, '', 1),
     (10, GETDATE(), 3, 'Mantenimiento 10', 2, '', 0);
+GO
 
 Create View VistaServicios as (
 select IdServicio,C.IdCliente ,C.Nombre as NombreCliente ,C.Telefono, C.Mail , C.Dni, C.FechaAlta as FACliente, C.Activo as ActivoCliente, 
@@ -209,21 +218,3 @@ IdPlan, CantidadMegas, Precio,
 IdDomicilio, Direccion,Barrio, Ciudad, DireccionComentarios,
 FechaAltaServicio, Estado, ComentarioServicios from VistaServicios*/
 
-
--- Tablas para el Login
-Create database UserLoginTest
-GO
-Use UserLoginTest
-GO
-Create Table Usuarios(
-    IdUsuario int not null primary key identity (1, 1),
-    Nombre varchar(50) null,
-    Usuario varchar(50) null,
-    Contraseña varchar(50) null,
-    TipoUsuario varchar(50) null
-)
-
-Select * From Usuarios
-
-Insert into Usuarios values ('Admin 1', 'Adm1', '1234', 'Admin'),
-                            ('User 1', 'User1', '4321', 'User');

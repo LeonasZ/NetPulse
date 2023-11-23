@@ -46,7 +46,7 @@
                     </div>
                     <div>
                         <asp:Label ID="lblPass" runat="server" Text="Contraseña:"></asp:Label>
-                        <asp:TextBox ID="tbPass" runat="server" placeholder="Contraseña" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="tbPass" runat="server" TextMode="Password" placeholder="Contraseña" CssClass="form-control"></asp:TextBox>
                     </div>
                     <hr />
                     <div class="row">

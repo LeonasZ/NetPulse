@@ -74,8 +74,10 @@
     <Content Include="AgregarTecnico.aspx" />
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="FinalizarMantenimiento.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="InfoCliente.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MainTecnico.aspx" />
     <Content Include="Mantenimientos.aspx" />
@@ -134,6 +136,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FinalizarMantenimiento.aspx.cs">
+      <DependentUpon>FinalizarMantenimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinalizarMantenimiento.aspx.designer.cs">
+      <DependentUpon>FinalizarMantenimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormEditMantenimiento.aspx.cs">
       <DependentUpon>FormEditMantenimiento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,6 +152,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InfoCliente.aspx.cs">
+      <DependentUpon>InfoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InfoCliente.aspx.designer.cs">
+      <DependentUpon>InfoCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

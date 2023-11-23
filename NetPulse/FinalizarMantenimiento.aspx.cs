@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace NetPulse
 {
-    public partial class AgregarDomicilio : System.Web.UI.Page
+    public partial class FinalizarMantenimiento : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
