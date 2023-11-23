@@ -38,5 +38,34 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public TipoMantenimiento buscarPorNombre(string nombre)
+        {
+            AccesoDatos db = new AccesoDatos();
+            TipoMantenimiento tipoMantenimiento = new TipoMantenimiento();
+
+            string query = "select IdTipoMantenimiento, Nombre from TipoMantenimiento  where Nombre = @nombre";
+            try
+            {
+                db.setConsulta(query);
+                db.setearParametro("@nombre", nombre);
+                db.ejecutarLectura();
+
+                if (db.Lector.Read())
+                {
+                    if (!(db.Lector["IdTipoMantenimiento"] is DBNull)) tipoMantenimiento.IdTipoMantenimiento = (int)db.Lector["IdTipoMantenimiento"];
+                    if (!(db.Lector["Nombre"] is DBNull)) tipoMantenimiento.Nombre = (string)db.Lector["Nombre"];
+                }
+                
+
+
+                return tipoMantenimiento;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { db.cerrarConexion(); }
+        }
     }
 }

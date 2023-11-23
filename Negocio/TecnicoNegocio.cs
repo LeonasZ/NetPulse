@@ -67,5 +67,37 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
 
         }
+        public Tecnico buscarPorNombre(string nombre)
+        {
+            AccesoDatos db = new AccesoDatos();
+            Tecnico tecnico = new Tecnico();
+
+            string query = "select IdTecnico,Nombre,Contacto,FechaIncorporacion,Estado from Tecnico where Nombre = '@nombre'";
+            try
+            {
+                db.setConsulta(query);
+                db.setearParametro("@nombre", nombre);
+                db.ejecutarLectura();
+
+                if (db.Lector.Read())
+                {
+                    if (!(db.Lector["IdTecnico"] is DBNull)) tecnico.IdTecnico = (int)db.Lector["IdTecnico"];
+                    if (!(db.Lector["Nombre"] is DBNull)) tecnico.Nombre = (string)db.Lector["Nombre"];
+                    if (!(db.Lector["Contacto"] is DBNull)) tecnico.Contacto = (string)db.Lector["Contacto"];
+                    if (!(db.Lector["FechaIncorporacion"] is DBNull)) tecnico.FechaIncorporacion = (DateTime)db.Lector["FechaIncorporacion"];
+                    if (!(db.Lector["Estado"] is DBNull)) tecnico.Estado = (bool)db.Lector["Estado"];
+                }
+                
+
+
+                return tecnico;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { db.cerrarConexion(); }
+        }
     }
 }

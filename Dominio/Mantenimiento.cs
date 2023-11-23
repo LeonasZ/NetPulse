@@ -14,7 +14,7 @@ namespace Dominio
         public Tecnico Tecnico{ get; set; }
         public string Descripcion { get; set; }
         public TipoMantenimiento TipoMantenimiento { get; set; }
-        public string Comentarios { get; set; }
+        public string Comentarios { get; set; } // estos comentarios no los deberia ingresar el tecnico una vez realizado el mantenimiento?
         public bool EstadoRealizacion { get; set; }
     }
 }

@@ -41,7 +41,7 @@ namespace NetPulse
             foreach (var item in listaServicios)
             {
 
-                if (item.Cliente.Dni == inputDNI.Text && item.Cliente.Activo == true)
+                if (item.Cliente.Dni == inputDNI.Text && item.Estado == true)
                 {
                     LabelEstado.Text = "Servicio Activo Encontrado";
                     aux.IdServicio= item.IdServicio;
@@ -55,11 +55,12 @@ namespace NetPulse
                     aux.FechaAlta = item.FechaAlta;
                     listaAux.Add(aux);
 
-                    dgvUsuarioEncontrado.DataSource = listaAux;
-                    dgvUsuarioEncontrado.DataBind();
+                   
 
                 }
             }
+            dgvUsuarioEncontrado.DataSource = listaAux;
+            dgvUsuarioEncontrado.DataBind();
 
         }
 
