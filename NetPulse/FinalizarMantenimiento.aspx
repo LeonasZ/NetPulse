@@ -17,7 +17,6 @@
             <asp:CheckBox type="checkbox" class="form-check-input" id="CheckRealizado" runat="server"></asp:CheckBox>
             <label class="form-check-label" for="CheckRealizado">Realizado</label> 
         </div>
-
-        <button type="submit" class="btn btn-primary">Registrar Visita</button>
+        <asp:Button type="submit" class="btn btn-primary" ID="btnFinalizar" runat="server" Text="Registrar Visita" OnClick="btnFinalizar_Click" />
     </div>
 </asp:Content>

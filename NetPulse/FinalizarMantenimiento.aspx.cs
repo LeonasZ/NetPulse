@@ -13,5 +13,10 @@ namespace NetPulse
         {
 
         }
+
+        protected void btnFinalizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

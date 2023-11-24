@@ -7,7 +7,7 @@
         <h3>Mantenimientos Pendientes</h3>
     </div>
      
-    <asp:GridView ID="dgvListaMantenimientosPendientes" runat="server" CssClass="table table-bordered table-responsive " AutoGenerateColumns="false" OnRowCommand="dgvListaMantenimientosPendientes_RowCommand" >
+    <asp:GridView ID="dgvListaMantenimientosPendientes" DataKeyNames="IdServicio"  runat="server" CssClass="table table-bordered table-responsive " AutoGenerateColumns="false" OnRowCommand="dgvListaMantenimientosPendientes_RowCommand" >
         <Columns>
             <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
             <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
@@ -17,8 +17,7 @@
             <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />
             <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
             <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
-                      
-            
+                                 
             <asp:ButtonField HeaderText="Info Del Usuario" Text="Ver" ButtonType="Link" CommandName="Info_onClick" />
             <asp:ButtonField HeaderText="Finalizar Mantenimiento" Text="Finalizar" ButtonType="Link" CommandName="Finalizar_onClick" />
 

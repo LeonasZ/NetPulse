@@ -35,22 +35,24 @@ namespace NetPulse
             dgvListaMantenimientosRealizados.DataBind();
         }
 
-        protected void dgvListaMantenimientosPendientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         
         protected void dgvListaMantenimientosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if(e.CommandName == "Info_onClick")
             {
-                Response.Redirect("InfoCliente.aspx");
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = dgvListaMantenimientosPendientes.Rows[rowIndex];
+
+                // Accede a los datos de la fila utilizando los índices de las columnas
+                string IdServicio = row.Cells[1].Text;
+
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
             }
             if (e.CommandName == "Finalizar_onClick")
             {
                 Response.Redirect("FinalizarMantenimiento.aspx");
             }
         }
+
     }
 }
