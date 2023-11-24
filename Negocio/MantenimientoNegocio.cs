@@ -85,5 +85,22 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
 
         }
+
+        public void activarMantenimiento(int IdMantenimiento, string Comentarios)
+        {
+            try
+            {
+                AccesoDatos Datos = new AccesoDatos();
+                Datos.setConsulta("update Mantenimiento set EstadoRealizacion = 1, Comentarios = @Comentarios where IdMantenimiento = @IdMantenimiento");
+                Datos.setearParametro("@IdMantenimiento", IdMantenimiento);
+                Datos.setearParametro("@Comentarios", Comentarios);
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

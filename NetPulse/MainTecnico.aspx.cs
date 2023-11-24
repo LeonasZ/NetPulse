@@ -38,19 +38,21 @@ namespace NetPulse
         
         protected void dgvListaMantenimientosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if(e.CommandName == "Info_onClick")
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvListaMantenimientosPendientes.Rows[rowIndex];
+
+            // Accede a los datos de la fila utilizando los índices de las columnas
+            string IdServicio = row.Cells[1].Text;
+            string IdMantenimiento = row.Cells[0].Text;
+
+            if (e.CommandName == "Info_onClick")
             {
-                int rowIndex = Convert.ToInt32(e.CommandArgument);
-                GridViewRow row = dgvListaMantenimientosPendientes.Rows[rowIndex];
-
-                // Accede a los datos de la fila utilizando los índices de las columnas
-                string IdServicio = row.Cells[1].Text;
-
                 Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx");
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento);
+                
             }
         }
 
