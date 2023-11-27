@@ -22,8 +22,9 @@
     <div class="row g-3" style="margin: 20px">
         <asp:TextBox type="text" class="form-control" ID="inputDescripcionMantenimiento" placeholder="Descripcion del mantenimiento a realizar" runat="server"></asp:TextBox>
     </div>
-    <div class="row">
-    <asp:Button Style="margin: 20px; display: block;" ID="btnAgendarMantenimiento" runat="server" Text="Agendar" type="submit" class="btn btn-primary" OnClick="btnAgendarMantenimiento_Click" />
+    <div class="col-12">
+    <asp:Button  ID="btnAgendarMantenimiento" runat="server" Text="Agendar" type="submit" class="btn btn-primary" OnClick="btnAgendarMantenimiento_Click" />
+        <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
 
     </div>
 </asp:Content>

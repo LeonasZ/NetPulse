@@ -39,41 +39,7 @@
             </Columns>
         </asp:GridView>
     </div>
-    <%--<table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">IdServicio</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Domicilio</th>
-                    <th scope="col">Dni</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Fecha Alta Servicio</th>
-                    <th scope="col">Modificar Servicio</th>
-                    <th scope="col">Agendar Mantenimiento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">
-                        <asp:Label ID="lblIdServicio" runat="server" Text=""></asp:Label></th>
-                    <td>
-                        <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:Label ID="lblDomicilio" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:Label ID="lblDni" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:Label ID="lblTelefono" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:Label ID="lblFechaAlta" runat="server" Text=""></asp:Label></td>
-                    <td>
-                        <asp:LinkButton ID="lnkBtnModificar" runat="server" Visible="false" OnClick="lnkBtnModificar_Click">Modificar</asp:LinkButton></td>
-                    <td>
-                        <asp:LinkButton ID="lnkBtnMantenimiento" runat="server" Visible="false" OnClick="lnkBtnMantenimiento_Click">Mantenimiento</asp:LinkButton></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>--%>
+   
     <div style="margin: 20px">
         <h3>Usuarios Inactivos</h3>
         <asp:GridView ID="dgvListaClientesInactivos" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvListaClientesInactivos_SelectedIndexChanged">

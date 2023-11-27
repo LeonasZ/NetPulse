@@ -11,6 +11,11 @@
             <label for="InputComentarios" class="form-label">Comentarios... (Opcional)</label>
             <asp:TextBox type="text" class="form-control" id="TextComentarios" runat="server" MaxLength="255"></asp:TextBox>                   
         </div>
+        <div class="col-12">
         <asp:Button type="submit" class="btn btn-primary" ID="btnFinalizar" runat="server" Text="Registrar Visita" OnClick="btnFinalizar_Click" />
+        <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
+        </div>
+
     </div>
 </asp:Content>
+

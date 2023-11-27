@@ -24,6 +24,11 @@
 
      <asp:Label runat="server" Text="Estado"></asp:Label> 
     <asp:CheckBox runat="server"></asp:CheckBox>
+    <div class="col-12">
     <asp:Button runat="server" Text="Guardar Cambios" />
-    
+        <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
+    </div>
+
 </asp:Content>
+    
+

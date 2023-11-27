@@ -55,14 +55,16 @@
             <asp:DropDownList ID="DDLMedioDePago" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
 
         </div>
-        
+
     </div>
     <h1 class="display-5" style="text-align: left; margin: 10px">Acerca del Servicio</h1>
     <div class="row g-3" style="margin: 20px">
-    <asp:TextBox type="text" class="form-control" ID="inputComentariosServicio" placeholder="Especificaciones sobre el servicio..." runat="server"></asp:TextBox>
-</div>
-    <div class="row">
-        <asp:Button ID="ActivarServicio" runat="server" Text="Activar" type="submit" CssClass="btn btn-success btn-lg d-grid gap-2" Style="margin: 30px;" OnClick="Activar_Click" />
+        <asp:TextBox type="text" class="form-control" ID="inputComentariosServicio" placeholder="Especificaciones sobre el servicio..." runat="server"></asp:TextBox>
+    </div>
+    <div class="col-12" style="margin:20px;">
+        <asp:Button ID="Activar" runat="server" Text="Activar" type="submit" CssClass="btn btn-success" OnClick="Activar_Click" />
+        <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
+
     </div>
 </asp:Content>
 
