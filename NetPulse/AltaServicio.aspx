@@ -46,7 +46,7 @@
             {
 
         %>
-        <asp:GridView ID="dgvUsuarioEncontrado" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvUsuarioEncontrado_SelectedIndexChanged">
+        <asp:GridView ID="dgvUsuarioEncontrado" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesActivos_RowCommand">
 
             <Columns>
                 <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
@@ -55,7 +55,7 @@
                 <asp:BoundField HeaderText="Dni" DataField="Cliente.Dni" />
                 <asp:BoundField HeaderText="Telefono" DataField="Cliente.Telefono" />
                 <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
-                <asp:BoundField HeaderText="Estado" DataField="Estado" />
+                <asp:CheckBoxField HeaderText="Estado" DataField="Estado" />
 
                 <asp:ButtonField HeaderText="Modificar" Text="Modificar" ButtonType="Link" CommandName="Modificar_onClick" />
                 <asp:ButtonField HeaderText="Baja" Text="Baja" ButtonType="Link" CommandName="BajaLogica_onClick" />
@@ -70,7 +70,7 @@
 
 
         %>
-        <asp:GridView ID="dgvUsuarioInactivo" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false">
+        <asp:GridView ID="dgvUsuarioInactivo" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesInactivos_RowCommand">
 
             <Columns>
                 <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
@@ -79,7 +79,7 @@
                 <asp:BoundField HeaderText="Dni" DataField="Cliente.Dni" />
                 <asp:BoundField HeaderText="Telefono" DataField="Cliente.Telefono" />
                 <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
-                <asp:BoundField HeaderText="Estado" DataField="Estado" />
+                <asp:CheckBoxField HeaderText="Estado" DataField="Estado" />
 
                 <asp:ButtonField HeaderText="Activar" Text="Activar" ButtonType="Link" CommandName="Activar_onClick" />
                 

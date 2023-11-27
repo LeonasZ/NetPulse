@@ -115,5 +115,38 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
 
         }
+        public void activarServicio(int IdServicio)
+        {
+            try
+            {
+                DateTime FechaRealizado = DateTime.Now;
+                AccesoDatos Datos = new AccesoDatos();
+                Datos.setConsulta("Update Servicio set Estado = 1 where IdServicio = @IdServicio");
+                Datos.setearParametro("@IdServicio", IdServicio);
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void BajaLogica(int IdServicio)
+        {
+            try
+            {
+                DateTime FechaRealizado = DateTime.Now;
+                AccesoDatos Datos = new AccesoDatos();
+                Datos.setConsulta("Update Servicio set Estado = 0 where IdServicio = @IdServicio");
+                Datos.setearParametro("@IdServicio", IdServicio);
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

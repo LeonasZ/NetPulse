@@ -34,7 +34,7 @@ namespace NetPulse
             LabelEstado.Text = "El Elemento NO Existe o no se encuentra Activo ";
 
             Servicio aux = new Servicio();
-            List<Servicio> listaAux= new List<Servicio>();
+            List<Servicio> listaAux = new List<Servicio>();
 
             LabelEstado.Text = "Usuario No encontrado";
 
@@ -51,15 +51,16 @@ namespace NetPulse
                 if (item.Cliente.Dni == inputDNI.Text && item.Estado == true)
                 {
                     LabelEstado.Text = "Servicio Activo Encontrado";
-                    aux.IdServicio= item.IdServicio;
+                    aux.IdServicio = item.IdServicio;
 
                     aux.Cliente = new Cliente();
                     aux.Cliente.Nombre = item.Cliente.Nombre;
                     aux.Domicilio = new Domicilio();
                     aux.Domicilio.Direccion = item.Domicilio.Direccion;
                     aux.Cliente.Dni = item.Cliente.Dni;
-                    aux.Cliente.Telefono= item.Cliente.Telefono;
+                    aux.Cliente.Telefono = item.Cliente.Telefono;
                     aux.FechaAlta = item.FechaAlta;
+                    aux.Estado = true;
                     listaAux.Add(aux);
                     LabelActivo.Text = "Activo";
 
@@ -87,7 +88,7 @@ namespace NetPulse
                 }
 
             }
-          
+
 
         }
 
@@ -102,22 +103,64 @@ namespace NetPulse
             Response.Redirect("ActivarServicio.aspx?IdCliente=" + IdCliente);
         }
 
-        protected void lnkBtnModificar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void lnkBtnMantenimiento_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         protected void dgvUsuarioEncontrado_SelectedIndexChanged(object sender, EventArgs e)
         {
             int IdServicio = int.Parse(dgvUsuarioEncontrado.SelectedDataKey.Value.ToString());
 
             Response.Redirect("AgendarMantenimiento.aspx?IdServicio=" + IdServicio);
         }
+
+        protected void DgvListaClientesInactivos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvUsuarioInactivo.Rows[rowIndex];
+
+            string IdServicio = row.Cells[0].Text;
+            
+
+            if (e.CommandName == "Activar_onClick")
+            {
+                ServicioNegocio servicioNegocio = new ServicioNegocio();
+                servicioNegocio.activarServicio(int.Parse(IdServicio));             
+                Response.Redirect("Servicios.aspx");
+            }
+        }
+
+        protected void DgvListaClientesActivos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvUsuarioEncontrado.Rows[rowIndex];
+
+            string IdServicio = row.Cells[0].Text;
+
+
+            if (e.CommandName == "Modificar_onClick")
+            {
+                Response.Redirect("ModificarServicio.aspx?IdServicio=" + IdServicio);
+                //Falta Implementacion
+            }
+
+            if (e.CommandName == "BajaLogica_onClick")
+            {
+                ServicioNegocio servicioNegocio = new ServicioNegocio();
+                servicioNegocio.BajaLogica(int.Parse(IdServicio));
+                Response.Redirect("Servicios.aspx");
+                //Funcionando
+            }
+
+            if (e.CommandName == "agendarMantenimiento_onClick")
+            {
+                Response.Redirect("AgendarMantenimiento.aspx?IdServicio=" + IdServicio);
+                //Funcionando
+            }
+
+            if (e.CommandName == "Historial_onClick")
+            {
+                Response.Redirect("HistorialServicios.aspx?IdServicio=" + IdServicio);
+                //Falta Implementacion
+            }
+
+        }
+
     }
 }
