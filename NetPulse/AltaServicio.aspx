@@ -3,8 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 class="display-5" style="text-align: left; margin: 20px">Alta de Servicio </h1>
+    <h1 class="display-5" style="text-align: left; margin: 20px">Administrador De Servicios</h1>
 
+    <div style="margin: 20px">
+        <h3>Usuarios Pendientes a Activacion</h3>
+        <asp:GridView ID="dgvListaClientesInactivos" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvListaClientesInactivos_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
+                <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+                <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
+                <asp:BoundField HeaderText="Dni" DataField="Dni" />
+                <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
+                <asp:CommandField HeaderText="Activar Servicio" SelectText="Activar" ShowSelectButton="true" />
+
+            </Columns>
+        </asp:GridView>
+    </div>
 
     <div style="margin: 40px 20px">
 
@@ -24,9 +38,16 @@
         <asp:Label Style="color: darkgray" ID="LabelEstado" runat="server" Text="Disponibilidad..."></asp:Label>
 
     </div>
+
     <div style="margin: 20px">
-        <h3>Usuario Encontrado</h3>
+        <asp:Label ID="LabelActivo" runat="server" Text="" Visible="false"></asp:Label>
+        <%
+            if (LabelActivo.Text == "Activo")
+            {
+
+        %>
         <asp:GridView ID="dgvUsuarioEncontrado" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvUsuarioEncontrado_SelectedIndexChanged">
+
             <Columns>
                 <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
                 <asp:BoundField HeaderText="Nombre" DataField="Cliente.Nombre" />
@@ -34,37 +55,48 @@
                 <asp:BoundField HeaderText="Dni" DataField="Cliente.Dni" />
                 <asp:BoundField HeaderText="Telefono" DataField="Cliente.Telefono" />
                 <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
-                <asp:CommandField HeaderText="Agendar Mantenimiento" SelectText="Agendar" ShowSelectButton="true" />
+                <asp:BoundField HeaderText="Estado" DataField="Estado" />
 
+                <asp:ButtonField HeaderText="Modificar" Text="Modificar" ButtonType="Link" CommandName="Modificar_onClick" />
+                <asp:ButtonField HeaderText="Baja" Text="Baja" ButtonType="Link" CommandName="BajaLogica_onClick" />
+                <asp:ButtonField HeaderText="Agendar Mantenimiento" Text="Agendar" ButtonType="Link" CommandName="agendarMantenimiento_onClick" />
+                <asp:ButtonField HeaderText="Historial" Text="Ver" ButtonType="Link" CommandName="Historial_onClick" />
             </Columns>
+
         </asp:GridView>
-    </div>
-   
-    <div style="margin: 20px">
-        <h3>Usuarios Inactivos</h3>
-        <asp:GridView ID="dgvListaClientesInactivos" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvListaClientesInactivos_SelectedIndexChanged">
+        <%}
+            if (LabelActivo.Text == "Inactivo")
+            {
+
+
+        %>
+        <asp:GridView ID="dgvUsuarioInactivo" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false">
+
             <Columns>
-                <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
-                <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-                <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
-                <asp:BoundField HeaderText="Dni" DataField="Dni" />
-                <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
-                <asp:CommandField HeaderText="Activar Servicio" SelectText="Activar" ShowSelectButton="true" />
+                <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
+                <asp:BoundField HeaderText="Nombre" DataField="Cliente.Nombre" />
+                <asp:BoundField HeaderText="Domicilio" DataField="Domicilio.Direccion" />
+                <asp:BoundField HeaderText="Dni" DataField="Cliente.Dni" />
+                <asp:BoundField HeaderText="Telefono" DataField="Cliente.Telefono" />
+                <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
+                <asp:BoundField HeaderText="Estado" DataField="Estado" />
 
+                <asp:ButtonField HeaderText="Activar" Text="Activar" ButtonType="Link" CommandName="Activar_onClick" />
+                
             </Columns>
-        </asp:GridView>
-    </div>
 
+        </asp:GridView>
+        <%}
+            %>
+
+
+    </div>
 
     <div style="margin: 40px 20px">
 
         <h3>Funcionalidades</h3>
 
         <asp:Button Style="margin: 20px 0px; display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo Cliente" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
-
-
-
-
 
     </div>
 </asp:Content>

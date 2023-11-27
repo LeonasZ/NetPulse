@@ -36,10 +36,17 @@ namespace NetPulse
             Servicio aux = new Servicio();
             List<Servicio> listaAux= new List<Servicio>();
 
+            LabelEstado.Text = "Usuario No encontrado";
 
+            dgvUsuarioInactivo.DataSource = null;
+            dgvUsuarioInactivo.DataBind();
+
+            dgvUsuarioEncontrado.DataSource = null;
+            dgvUsuarioEncontrado.DataBind();
 
             foreach (var item in listaServicios)
             {
+
 
                 if (item.Cliente.Dni == inputDNI.Text && item.Estado == true)
                 {
@@ -54,13 +61,33 @@ namespace NetPulse
                     aux.Cliente.Telefono= item.Cliente.Telefono;
                     aux.FechaAlta = item.FechaAlta;
                     listaAux.Add(aux);
+                    LabelActivo.Text = "Activo";
 
-                   
-
+                    dgvUsuarioEncontrado.DataSource = listaAux;
+                    dgvUsuarioEncontrado.DataBind();
                 }
+
+                if (item.Cliente.Dni == inputDNI.Text && item.Estado == false)
+                {
+                    LabelEstado.Text = "Servicio Inactivo Encontrado";
+                    aux.IdServicio = item.IdServicio;
+
+                    aux.Cliente = new Cliente();
+                    aux.Cliente.Nombre = item.Cliente.Nombre;
+                    aux.Domicilio = new Domicilio();
+                    aux.Domicilio.Direccion = item.Domicilio.Direccion;
+                    aux.Cliente.Dni = item.Cliente.Dni;
+                    aux.Cliente.Telefono = item.Cliente.Telefono;
+                    aux.FechaAlta = item.FechaAlta;
+                    listaAux.Add(aux);
+                    LabelActivo.Text = "Inactivo";
+
+                    dgvUsuarioInactivo.DataSource = listaAux;
+                    dgvUsuarioInactivo.DataBind();
+                }
+
             }
-            dgvUsuarioEncontrado.DataSource = listaAux;
-            dgvUsuarioEncontrado.DataBind();
+          
 
         }
 

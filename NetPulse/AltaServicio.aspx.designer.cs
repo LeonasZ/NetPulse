@@ -15,6 +15,15 @@ namespace NetPulse
     {
 
         /// <summary>
+        /// dgvListaClientesInactivos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvListaClientesInactivos;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Label LabelEstado;
 
         /// <summary>
+        /// LabelActivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelActivo;
+
+        /// <summary>
         /// dgvUsuarioEncontrado control.
         /// </summary>
         /// <remarks>
@@ -60,13 +78,13 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.GridView dgvUsuarioEncontrado;
 
         /// <summary>
-        /// dgvListaClientesInactivos control.
+        /// dgvUsuarioInactivo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvListaClientesInactivos;
+        protected global::System.Web.UI.WebControls.GridView dgvUsuarioInactivo;
 
         /// <summary>
         /// btnAgregarNuevo control.
