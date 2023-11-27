@@ -34,6 +34,7 @@
             <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
             <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
             <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
+            <asp:BoundField HeaderText="FechaRealizado" DataField="FechaRealizado" />
             <asp:BoundField HeaderText="TecnicoACargo" DataField="Tecnico.Nombre" />
             <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
             <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />

@@ -15,7 +15,7 @@ namespace Negocio
             List<Mantenimiento> lista = new List<Mantenimiento>();
             AccesoDatos datos = new AccesoDatos();
 
-            datos.setConsulta("select IdMantenimiento,IdServicio,Fecha,M.IdTecnico,T.Nombre as NombreTecnico,Descripcion,M.IdTipoMantenimiento,TM.Nombre as TipoMantenimiento,M.Comentarios,M.EstadoRealizacion from Mantenimiento M\r\ninner join Tecnico T on M.IdTecnico = T.IdTecnico\r\ninner join TipoMantenimiento TM on M.IdTipoMantenimiento = TM.IdTipoMantenimiento\r\n");
+            datos.setConsulta("select IdMantenimiento,IdServicio,Fecha,FechaRealizado,M.IdTecnico,T.Nombre as NombreTecnico,Descripcion,M.IdTipoMantenimiento,TM.Nombre as TipoMantenimiento,M.Comentarios,M.EstadoRealizacion from Mantenimiento M\r\ninner join Tecnico T on M.IdTecnico = T.IdTecnico\r\ninner join TipoMantenimiento TM on M.IdTipoMantenimiento = TM.IdTipoMantenimiento\r\n");
             datos.ejecutarLectura();
 
             while (datos.Lector.Read())
@@ -25,6 +25,7 @@ namespace Negocio
                 aux.IdMantenimiento = (int)datos.Lector["IdMantenimiento"];
                 aux.IdServicio = (int)datos.Lector["IdServicio"];
                 aux.Fecha = (DateTime)datos.Lector["Fecha"];
+                aux.FechaRealizado = (DateTime)datos.Lector["FechaRealizado"];
                 aux.Descripcion = (string)datos.Lector["Descripcion"];
                 aux.Comentarios = (string)datos.Lector["Comentarios"];
                 aux.EstadoRealizacion = (bool)datos.Lector["EstadoRealizacion"];
@@ -49,19 +50,21 @@ namespace Negocio
             int idMantenimiento = -1;
             int IdServicio = mantenimiento.IdServicio;
             DateTime Fecha = mantenimiento.Fecha;
+            DateTime FechaRealizado = mantenimiento.FechaRealizado;
             int IdTecnico = mantenimiento.Tecnico.IdTecnico;
             string Descripcion = mantenimiento.Descripcion;
             int IdTipoMantenimiento = mantenimiento.TipoMantenimiento.IdTipoMantenimiento;
             string Comentarios = mantenimiento.Comentarios;
             bool EstadoRealizacion = mantenimiento.EstadoRealizacion;
 
-            string query = "insert into Mantenimiento(IdServicio,Fecha,IdTecnico,Descripcion,IdTipoMantenimiento,Comentarios,EstadoRealizacion) values(@IdServicio,@Fecha,@IdTecnico,@Descripcion,@IdTipoMantenimiento,@Comentarios,@EstadoRealizacion)" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID";
+            string query = "insert into Mantenimiento(IdServicio,Fecha,FechaRealizado,IdTecnico,Descripcion,IdTipoMantenimiento,Comentarios,EstadoRealizacion) values(@IdServicio,@Fecha,@IdTecnico,@Descripcion,@IdTipoMantenimiento,@Comentarios,@EstadoRealizacion)" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID";
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.setConsulta(query);
                 datos.setearParametro("@IdServicio", IdServicio);
                 datos.setearParametro("@Fecha", Fecha);
+                datos.setearParametro("@FechaRealizado", FechaRealizado);
                 datos.setearParametro("@IdTecnico", IdTecnico);
                 datos.setearParametro("@Descripcion", Descripcion);
                 datos.setearParametro("@IdTipoMantenimiento", IdTipoMantenimiento);
@@ -90,10 +93,12 @@ namespace Negocio
         {
             try
             {
+                DateTime FechaRealizado = DateTime.Now;
                 AccesoDatos Datos = new AccesoDatos();
-                Datos.setConsulta("update Mantenimiento set EstadoRealizacion = 1, Comentarios = @Comentarios where IdMantenimiento = @IdMantenimiento");
+                Datos.setConsulta("update Mantenimiento set EstadoRealizacion = 1, Comentarios = @Comentarios, FechaRealizado = @FechaRealizado  where IdMantenimiento = @IdMantenimiento");
                 Datos.setearParametro("@IdMantenimiento", IdMantenimiento);
                 Datos.setearParametro("@Comentarios", Comentarios);
+                Datos.setearParametro("@FechaRealizado",FechaRealizado);
                 Datos.ejecutarAccion();
             }
             catch (Exception ex)

@@ -11,6 +11,8 @@ namespace Dominio
         public int IdMantenimiento { get; set; }
         public int IdServicio{ get; set; }
         public DateTime Fecha { get; set; }
+        public DateTime FechaRealizado { get; set; }
+
         public Tecnico Tecnico{ get; set; }
         public string Descripcion { get; set; }
         public TipoMantenimiento TipoMantenimiento { get; set; }

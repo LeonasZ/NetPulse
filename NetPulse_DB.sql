@@ -84,6 +84,7 @@ CREATE TABLE Mantenimiento(
     IdMantenimiento int primary key not null identity (1, 1),
     IdServicio int not null,
     Fecha DATETIME not null,
+    FechaRealizado DATETIME not null,
     IdTecnico int not null,
     Descripcion text,
     --Costo REVISAR
@@ -179,22 +180,22 @@ INSERT INTO TipoMantenimiento (Nombre)
 VALUES
     ('Mantenimiento Preventivo'),
     ('Mantenimiento Correctivo'),
-    ('Mantenimiento Predictivo'),
+    ('Instalacion'),
     ('Mantenimiento de Emergencia');
 GO
 
-INSERT INTO Mantenimiento (IdServicio, Fecha, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
+INSERT INTO Mantenimiento (IdServicio, Fecha,FechaRealizado, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
 VALUES
-    (1, GETDATE(), 1, 'Mantenimiento 1', 1, 'Estaba todo sucio', 1),
-    (2, GETDATE(), 2, 'Mantenimiento 2', 2, '', 0),
-    (3, GETDATE(), 1, 'Mantenimiento 3', 3, '', 1),
-    (4, GETDATE(), 3, 'Mantenimiento 4', 4, '', 0),
-    (5, GETDATE(), 2, 'Mantenimiento 5', 1, '', 1),
-    (6, GETDATE(), 1, 'Mantenimiento 6', 2, '', 0),
-    (7, GETDATE(), 3, 'Mantenimiento 7', 3, '', 1),
-    (8, GETDATE(), 2, 'Mantenimiento 8', 4, '', 0),
-    (9, GETDATE(), 1, 'Mantenimiento 9', 1, '', 1),
-    (10, GETDATE(), 3, 'Mantenimiento 10', 2, '', 0);
+    (1, GETDATE(),GETDATE(), 1, 'Mantenimiento 1', 1, 'Estaba todo sucio', 1),
+    (2, GETDATE(),GETDATE(), 2, 'Mantenimiento 2', 2, '', 0),
+    (3, GETDATE(),GETDATE(), 1, 'Mantenimiento 3', 3, '', 1),
+    (4, GETDATE(),GETDATE(), 3, 'Mantenimiento 4', 4, '', 0),
+    (5, GETDATE(),GETDATE(), 2, 'Mantenimiento 5', 1, '', 1),
+    (6, GETDATE(),GETDATE(), 1, 'Mantenimiento 6', 2, '', 0),
+    (7, GETDATE(),GETDATE(), 3, 'Mantenimiento 7', 3, '', 1),
+    (8, GETDATE(),GETDATE(), 2, 'Mantenimiento 8', 4, '', 0),
+    (9, GETDATE(),GETDATE(), 1, 'Mantenimiento 9', 1, '', 1),
+    (10, GETDATE(),GETDATE(), 3, 'Mantenimiento 10', 2, '', 0);
 GO
 
 Create View VistaServicios as (
@@ -218,3 +219,4 @@ IdPlan, CantidadMegas, Precio,
 IdDomicilio, Direccion,Barrio, Ciudad, DireccionComentarios,
 FechaAltaServicio, Estado, ComentarioServicios from VistaServicios*/
 
+select * from Mantenimiento
