@@ -85,6 +85,9 @@ namespace NetPulse
             mantenimiento.Comentarios = ""; // esto considero que lo deberia agregar el tecnico una vez realizado el mantenimiento
             mantenimiento.EstadoRealizacion = false;
             mantenimiento.Fecha = DateTime.Now;
+            mantenimiento.FechaRealizado = DateTime.Now;
+
+
             mantenimiento.IdServicio = int.Parse(Request.QueryString["IdServicio"]);
 
             mantenimiento.IdMantenimiento = mantenimientoNegocio.agregarMantenimiento(mantenimiento);

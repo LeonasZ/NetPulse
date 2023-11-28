@@ -57,7 +57,7 @@ namespace Negocio
             string Comentarios = mantenimiento.Comentarios;
             bool EstadoRealizacion = mantenimiento.EstadoRealizacion;
 
-            string query = "insert into Mantenimiento(IdServicio,Fecha,FechaRealizado,IdTecnico,Descripcion,IdTipoMantenimiento,Comentarios,EstadoRealizacion) values(@IdServicio,@Fecha,@IdTecnico,@Descripcion,@IdTipoMantenimiento,@Comentarios,@EstadoRealizacion)" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID";
+            string query = "insert into Mantenimiento(IdServicio,Fecha,FechaRealizado,IdTecnico,Descripcion,IdTipoMantenimiento,Comentarios,EstadoRealizacion) values(@IdServicio,@Fecha,@FechaRealizado,@IdTecnico,@Descripcion,@IdTipoMantenimiento,@Comentarios,@EstadoRealizacion)" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID";
             AccesoDatos datos = new AccesoDatos();
             try
             {

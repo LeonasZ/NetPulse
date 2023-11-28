@@ -21,7 +21,7 @@
     </Columns>
 </asp:GridView>
 
-        <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
+        <asp:Button ID="Cancelar" runat="server" Text="Volver" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
 
     </div>
     

@@ -150,6 +150,7 @@ namespace NetPulse
 
 
             mantenimiento.Fecha = DateTime.Now;
+            mantenimiento.FechaRealizado = DateTime.Now;
             mantenimiento.Comentarios = "";
 
             //asigno el tecnico a cargo de las instalaciones -- hay que ver si va a haber un tecnico encargado de instalaciones o sino la forma de poder seleccionar el tecnico acargo
