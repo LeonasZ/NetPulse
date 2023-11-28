@@ -36,6 +36,9 @@
     </style>
 </head>
 <body class="bg-light">
+    <div style="margin:20px; text-align:center">
+        <h1>NetPulse</h1>
+    </div>
     <div class="wrapper">
         <div class="formcontent">
             <form id="formLogin" runat="server">

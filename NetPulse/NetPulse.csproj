@@ -77,6 +77,7 @@
     <Content Include="FinalizarMantenimiento.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="HistorialMantenimientos.aspx" />
     <Content Include="InfoCliente.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MainTecnico.aspx" />
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialMantenimientos.aspx.cs">
+      <DependentUpon>HistorialMantenimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistorialMantenimientos.aspx.designer.cs">
+      <DependentUpon>HistorialMantenimientos.aspx</DependentUpon>
     </Compile>
     <Compile Include="InfoCliente.aspx.cs">
       <DependentUpon>InfoCliente.aspx</DependentUpon>

@@ -156,7 +156,7 @@ namespace NetPulse
 
             if (e.CommandName == "Historial_onClick")
             {
-                Response.Redirect("HistorialServicios.aspx?IdServicio=" + IdServicio);
+                Response.Redirect("HistorialMantenimientos.aspx?IdServicio=" + IdServicio);
                 //Falta Implementacion
             }
 
