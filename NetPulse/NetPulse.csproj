@@ -82,6 +82,7 @@
     <Content Include="Login.aspx" />
     <Content Include="MainTecnico.aspx" />
     <Content Include="Mantenimientos.aspx" />
+    <Content Include="ModificarServicio.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Servicios.aspx" />
     <Content Include="Tecnicos.aspx" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="MasterTecnico.Master.designer.cs">
       <DependentUpon>MasterTecnico.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarServicio.aspx.cs">
+      <DependentUpon>ModificarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarServicio.aspx.designer.cs">
+      <DependentUpon>ModificarServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
