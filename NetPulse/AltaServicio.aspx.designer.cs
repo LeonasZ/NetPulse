@@ -15,84 +15,48 @@ namespace NetPulse
     {
 
         /// <summary>
-        /// dgvListaClientesInactivos control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvListaClientesInactivos;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Label1 control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// inputDNI control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputDNI;
+        protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
-        /// btnBuscarDni control.
+        /// Button4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarDni;
+        protected global::System.Web.UI.WebControls.Button Button4;
 
         /// <summary>
-        /// LabelEstado control.
+        /// Button5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelEstado;
-
-        /// <summary>
-        /// LabelActivo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelActivo;
-
-        /// <summary>
-        /// dgvUsuarioEncontrado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvUsuarioEncontrado;
-
-        /// <summary>
-        /// dgvUsuarioInactivo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvUsuarioInactivo;
-
-        /// <summary>
-        /// btnAgregarNuevo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarNuevo;
+        protected global::System.Web.UI.WebControls.Button Button5;
     }
 }

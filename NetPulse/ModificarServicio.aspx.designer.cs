@@ -15,102 +15,48 @@ namespace NetPulse
     {
 
         /// <summary>
-        /// inputDireccion control.
+        /// ModificarDireccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputDireccion;
+        protected global::System.Web.UI.WebControls.Button ModificarDireccion;
 
         /// <summary>
-        /// inputBarrio control.
+        /// ModificarPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputBarrio;
+        protected global::System.Web.UI.WebControls.Button ModificarPlan;
 
         /// <summary>
-        /// inputCiudad control.
+        /// ModificarFormaDePago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCiudad;
+        protected global::System.Web.UI.WebControls.Button ModificarFormaDePago;
 
         /// <summary>
-        /// inputComentarios control.
+        /// DardeBaja control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputComentarios;
+        protected global::System.Web.UI.WebControls.Button DardeBaja;
 
         /// <summary>
-        /// DDLPlanes control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLPlanes;
-
-        /// <summary>
-        /// inputIdPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputIdPlan;
-
-        /// <summary>
-        /// inputCantMegas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCantMegas;
-
-        /// <summary>
-        /// inputPrecio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputPrecio;
-
-        /// <summary>
-        /// DDLMedioDePago control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLMedioDePago;
-
-        /// <summary>
-        /// inputComentariosServicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputComentariosServicio;
-
-        /// <summary>
-        /// Modificar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Modificar;
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

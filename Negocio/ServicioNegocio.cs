@@ -148,5 +148,32 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public List<Cliente> listarClientesSinServicios()
+        {
+            List<Cliente> lista = new List<Cliente>();
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setConsulta("select C.IdCliente as IdCliente, Nombre, Telefono, Mail, Dni, C.FechaAlta as FechaAlta, Activo from Cliente C\r\nleft join Servicio as S on S.IdCliente = C.IdCliente\r\nwhere S.IdServicio is null");
+            datos.ejecutarLectura();
+
+            while (datos.Lector.Read())
+            {
+                Cliente aux = new Cliente();
+                aux.IdCliente = (int)datos.Lector["IdCliente"];
+                aux.Nombre = (string)datos.Lector["Nombre"];
+                aux.Telefono = (string)datos.Lector["telefono"];
+                aux.Mail = (string)datos.Lector["mail"];
+                aux.Dni = (string)datos.Lector["Dni"];
+                aux.FechaAlta = (DateTime)datos.Lector["FechaAlta"];
+                aux.Activo = (bool)datos.Lector["Activo"];
+
+
+                lista.Add(aux);
+            }
+
+            return lista;
+        }
+
     }
 }

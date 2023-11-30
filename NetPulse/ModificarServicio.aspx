@@ -5,82 +5,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div style="margin: 20px">
-        <h3>Domicilio</h3>
+        <h3>Modificar Servicios</h3>
     </div>
 
-    <div class="row g-3" style="margin: 20px">
-        <div class="col-md-6">
-            <label for="inputDireccion" class="form-label">Direccion</label>
-            <asp:TextBox type="text" class="form-control" ID="inputDireccion" placeholder="Calle 123" runat="server"></asp:TextBox>
-        </div>
-
-        <div class="col-md-6">
-            <label for="inputBarrio" class="form-label">Barrio</label>
-            <asp:TextBox type="text" class="form-control" ID="inputBarrio" placeholder="Barrio" runat="server"></asp:TextBox>
-        </div>
-
-        <div class="col-6">
-            <label for="inputCiudad" class="form-label">Ciudad</label>
-            <asp:TextBox type="text" class="form-control" ID="inputCiudad" placeholder="Ciudad" runat="server"></asp:TextBox>
-        </div>
-
-        <div class="col-6">
-            <label for="inputComentarios" class="form-label">Comentarios</label>
-            <asp:TextBox type="text" class="form-control" ID="inputComentarios" placeholder="Especificaciones sobre el domicilio..." runat="server"></asp:TextBox>
-        </div>
-
+    <div class="col-3" style="margin: 20px 20px;display:block">
+        <asp:Button ID="ModificarDireccion" runat="server" Text="Modificar Direccion" type="submit" CssClass="btn btn-primary" OnClick="ModificarDireccion_Click" />
     </div>
-
-    <div style="margin: 20px">
-        <h3>Plan Elegido</h3>
+    <div class="col-3" style="margin: 20px 20px;display:block">
+        <asp:Button ID="ModificarPlan" runat="server" Text="Modificar Plan" type="submit" CssClass="btn btn-primary" OnClick="ModificarPlan_Click" />
     </div>
-
-    <div class="row g-3" style="margin: 20px">
-
-        <div class="col-12">
-            <label for="inputState" class="form-label">Plan</label>
-            <asp:DropDownList ID="DDLPlanes" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
-        </div>
-
-        <div class="col-6">
-            <label for="inputIdPlan" class="form-label">ID</label>
-            <asp:TextBox type="text" class="form-control" ID="inputIdPlan" placeholder="someone@example.com" aria-label="Disabled input" ReadOnly="true" runat="server"></asp:TextBox>
-        </div>
-
-        <div class="col-6">
-            <label for="inputCantMegas" class="form-label">CantMegas</label>
-            <asp:TextBox type="text" class="form-control" ID="inputCantMegas" placeholder="XX-XXX-XXX" aria-label="Disabled input" ReadOnly="true" runat="server"></asp:TextBox>
-        </div>
-
-        <div class="col-6">
-            <label for="inputPrecio" class="form-label">Precio</label>
-            <asp:TextBox type="text" class="form-control" ID="inputPrecio" placeholder="XX-XXX-XXX" aria-label="Disabled input" ReadOnly="true" runat="server"></asp:TextBox>
-        </div>
-
+    <div class="col-3" style="margin: 20px 20px;display:block">
+        <asp:Button ID="ModificarFormaDePago" runat="server" Text="Modificar Forma de Pago" type="submit" CssClass="btn btn-primary" OnClick="ModificarFormaDePago_Click" />
     </div>
-
-    <div style="margin: 20px">
-        <h3>Forma de Pago</h3>
+    <div class="col-3" style="margin: 20px 20px;display:block">
+        <asp:Button ID="DardeBaja" runat="server" Text="Baja del Servicio" type="submit" CssClass="btn btn-primary" OnClick="DardeBaja_Click" />
     </div>
-
-    <div class="row g-3" style="margin: 20px">
-        <div class="col-12">
-            <label for="inputPago" class="form-label">Medio de pago</label>
-            <asp:DropDownList ID="DDLMedioDePago" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
-        </div>
-
-    </div>
-
-    <div style="margin: 20px">
-        <h3>Observaciones</h3>
-    </div>
-
-    <div class="row g-3" style="margin: 20px">
-        <asp:TextBox type="text" class="form-control" ID="inputComentariosServicio" placeholder="Especificaciones sobre el servicio..." runat="server"></asp:TextBox>
-    </div>
-
-    <div class="col-3" style="margin: 20px;">
-        <asp:Button ID="Modificar" runat="server" Text="Modificar" type="submit" CssClass="btn btn-success" />
-    </div>
-
+    
+    <asp:Label ID="Label1" runat="server" Text="Crear Dgv Historial de modificaciones. Para eso 
+        crear una nueva tabla en db con las modificaciones"></asp:Label>
 </asp:Content>

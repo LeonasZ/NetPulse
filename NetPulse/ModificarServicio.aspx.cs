@@ -11,47 +11,30 @@ namespace NetPulse
 {
     public partial class ModificarServicio : System.Web.UI.Page
     {
-        List<FormaPago> formaPagos = new List<FormaPago>();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            PlanNegocio planNegocio = new PlanNegocio();
-            List<TPlan> plans = new List<TPlan>();
-            plans = planNegocio.listar();
-            FormaPagoNegocio servicioFP = new FormaPagoNegocio();
-            formaPagos = servicioFP.listar();
+           
+        }
 
-            ServicioNegocio servicioNegocio = new ServicioNegocio();
-            List<Servicio> listaServicios = servicioNegocio.listarServicios();
-            Servicio servicioAux;
+        protected void ModificarDireccion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Modificaciones.aspx?Id=" + 1);
+        }
 
-            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+        protected void ModificarPlan_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Modificaciones.aspx?Id=" + 2);
+        }
 
-            foreach (var item in listaServicios)
-            {
-                if (item.IdServicio == IdServicio)
-                {
-                    servicioAux = item;
-                    inputDireccion.Text = servicioAux.Domicilio.Direccion;
-                    inputCiudad.Text = servicioAux.Domicilio.Ciudad;
-                    inputBarrio.Text = servicioAux.Domicilio.Barrio;
-                    
-                }
-            }
-            if (!IsPostBack)
-            {
-                foreach (var item in plans)
-                {
-                    DDLPlanes.Items.Add(item.IdPlan.ToString());
-                }
-                foreach (var item in formaPagos)
-                {
-                    DDLMedioDePago.Items.Add(item.Nombre.ToString());
-                }
-            }
+        protected void ModificarFormaDePago_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Modificaciones.aspx?Id=" + 3);
+        }
 
-            inputPrecio.Text = plans[DDLPlanes.SelectedIndex].Precio.ToString();
-            inputCantMegas.Text = plans[DDLPlanes.SelectedIndex].CantidadMegas.ToString();
-            inputIdPlan.Text = plans[DDLPlanes.SelectedIndex].IdPlan.ToString();
+        protected void DardeBaja_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Modificaciones.aspx?Id=" + 4);
         }
     }
 }
