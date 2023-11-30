@@ -44,7 +44,7 @@
         }
     </style>
 </head>
-<body class="bg-light">
+<body class="bg-secondary">
     <div style="margin:20px; text-align:center">
         <h1>NetPulse</h1>
     </div>

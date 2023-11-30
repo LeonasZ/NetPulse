@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <nav class="navbar navbar-expand-lg bg-secondary sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand">NetPulse</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,16 +41,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Reclamos.aspx">Reclamos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Login.aspx">Cerrar</a>
-                        </li>
                     </ul>
-                    <ul class="navbar-nav bg-success ms-auto" style="border-radius: 0.25rem">
+                    <ul class="navbar-nav bg-secondary ms-auto" style="border-radius: 0.25rem; border: 1px solid black;">
                         <li class="nav-item">
                             <a class="nav-link" href="Perfil.aspx">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Perfil2.aspx">Perfil2</a>
+                            <a class="nav-link" href="Login.aspx">Cerrar</a>
                         </li>
                     </ul>
                 </div>
