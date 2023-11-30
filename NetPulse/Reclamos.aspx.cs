@@ -13,5 +13,10 @@ namespace NetPulse
         {
 
         }
+
+        protected void btnReclamo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
