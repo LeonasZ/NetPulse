@@ -85,6 +85,7 @@
     <Content Include="Mantenimientos.aspx" />
     <Content Include="Modificaciones.aspx" />
     <Content Include="ModificarServicio.aspx" />
+    <Content Include="Perfil.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Reclamos.aspx" />
     <Content Include="Servicios.aspx" />
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="ModificarServicio.aspx.designer.cs">
       <DependentUpon>ModificarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
