@@ -10,28 +10,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        h1 {
+            color: white;
+        }
+
         .wrapper {
             display: flex;
+            width: 100%;
+            min-height: 100%;
+            padding-top: 2%;
             align-items: center;
             flex-direction: column;
             justify-content: center;
-            width: 100%;
-            min-height: 100%;
-            padding: 20px;
         }
 
         .formcontent {
-            -webkit-border-radius: 10px 10px 10px 10px;
-            border-radius: 10px 10px 10px 10px;
-            background: #fff;
-            padding: 30px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: #383838;
             width: 90%;
-            max-width: 450px;
+            max-width: 40%;
             position: relative;
-            padding: 0px;
+            padding: 10px;
             -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
             box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
             text-align: center;
+            display: inline-block;
+        }
+
+        .form-control {
+            max-height: 300px;
+            overflow-y: auto;
         }
     </style>
 </head>

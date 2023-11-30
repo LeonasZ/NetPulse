@@ -45,6 +45,14 @@
                             <a class="nav-link" href="Login.aspx">Cerrar</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav bg-success ms-auto" style="border-radius: 0.25rem">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Perfil.aspx">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Perfil2.aspx">Perfil2</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
