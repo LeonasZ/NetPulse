@@ -71,6 +71,7 @@
     <Content Include="AgendarMantenimiento.aspx" />
     <Content Include="AgregarCliente.aspx" />
     <Content Include="AgregarPlan.aspx" />
+    <Content Include="AgregarServicio.aspx" />
     <Content Include="AgregarTecnico.aspx" />
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
@@ -85,6 +86,7 @@
     <Content Include="Modificaciones.aspx" />
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Planes.aspx" />
+    <Content Include="Reclamos.aspx" />
     <Content Include="Servicios.aspx" />
     <Content Include="Tecnicos.aspx" />
     <Content Include="Web.config" />
@@ -117,6 +119,13 @@
     </Compile>
     <Compile Include="AgregarPlan.aspx.designer.cs">
       <DependentUpon>AgregarPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarServicio.aspx.cs">
+      <DependentUpon>AgregarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarServicio.aspx.designer.cs">
+      <DependentUpon>AgregarServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="AgregarTecnico.aspx.cs">
       <DependentUpon>AgregarTecnico.aspx</DependentUpon>
@@ -220,6 +229,13 @@
       <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reclamos.aspx.cs">
+      <DependentUpon>Reclamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reclamos.aspx.designer.cs">
+      <DependentUpon>Reclamos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Servicios.aspx.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -4,9 +4,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="margin: 20px">
-        <h3>Lista De CLientes</h3>    
-    <asp:GridView ID="dgvListaClientes" runat="server" CssClass="table table-bordered table-responsive  ">
-    </asp:GridView>
+        <h3 style="margin:20px 0px">Lista De Clientes</h3>
+        <asp:GridView ID="dgvListaClientes" runat="server" CssClass="table table-bordered table-responsive  " AutoGenerateColumns="false" OnRowDataBound="dgvListaClientes_rowDataBound">
+            <Columns>
+                <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
+                <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+                <asp:BoundField HeaderText="Dni" DataField="Dni" />
+                <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
+                <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
+                <asp:BoundField HeaderText="Estado de Instalacion" DataField="Activo" />
+            </Columns>
+        </asp:GridView>
     </div>
     <div style="margin: 20px">
 
@@ -35,31 +43,28 @@
                 {
 
             %>
-            <asp:GridView ID="dgvUsuarioEncontrado" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesActivos_RowCommand">
+            <asp:GridView ID="dgvUsuarioEncontrado" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesActivos_RowCommand" OnRowDataBound="GridViedgvListaClientes_rowDataBound">
 
                 <Columns>
-                    <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
-                    <asp:BoundField HeaderText="Nombre" DataField="Cliente.Nombre" />
-                    <asp:BoundField HeaderText="Domicilio" DataField="Domicilio.Direccion" />
-                    <asp:BoundField HeaderText="Dni" DataField="Cliente.Dni" />
-                    <asp:BoundField HeaderText="Telefono" DataField="Cliente.Telefono" />
+                    <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
+                    <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+                    <asp:BoundField HeaderText="Dni" DataField="Dni" />
+                    <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
                     <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
-                    <asp:CheckBoxField HeaderText="Estado" DataField="Estado" />
+                    <asp:BoundField HeaderText="Estado de Instalacion" DataField="Activo" />
 
                     <asp:ButtonField HeaderText="Modificar" Text="Modificar" ButtonType="Link" CommandName="Modificar_onClick" />
-                    <asp:ButtonField HeaderText="Baja" Text="Baja" ButtonType="Link" CommandName="BajaLogica_onClick" />
-                    <asp:ButtonField HeaderText="Agregar Servicio" Text="Agregar" ButtonType="Link" CommandName="agendarMantenimiento_onClick" />
+                    <asp:ButtonField HeaderText="Agregar Servicio" Text="Agregar" ButtonType="Link" CommandName="AgregarServicio_onClick" />
                     <asp:ButtonField HeaderText="Historial de Modificaciones" Text="Ver" ButtonType="Link" CommandName="Historial_onClick" />
                 </Columns>
 
             </asp:GridView>
             <%} %>
-                
         </div>
 
         <div style="margin: 20px 0px">
             <h3>Funcionalidades</h3>
-            <asp:Button Style=" display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo Cliente" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
+            <asp:Button Style="display: block; margin-bottom: 20px" ID="btnAgregarNuevo" runat="server" Text="Agregar Nuevo Cliente" type="submit" class="btn btn-primary" OnClick="btnAgregarNuevo_Click" />
 
         </div>
 

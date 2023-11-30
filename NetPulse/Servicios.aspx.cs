@@ -27,8 +27,7 @@ namespace NetPulse
         }
         protected void dgvListaClientesInactivos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //int IdCliente = int.Parse(dgvListaClientesInactivos.SelectedDataKey.Value.ToString());
-            //Response.Redirect("ActivarServicio.aspx?IdCliente=" + IdCliente);
+            Response.Redirect("AgregarServicio.aspx");
         }
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {

@@ -36,7 +36,10 @@
                             <a class="nav-link" href="Planes.aspx">Planes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="AltaServicio.aspx">Alta</a>
+                            <a class="nav-link" href="AltaServicio.aspx">Historial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Reclamos.aspx">Reclamos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Login.aspx">Cerrar</a>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services.Description;
 
 namespace NetPulse
 {
@@ -16,32 +17,65 @@ namespace NetPulse
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             dgvListaClientes.DataSource = clienteNegocio.listarClientes();
             dgvListaClientes.DataBind();
-                      
+            
         }
 
+        protected void GridViedgvListaClientes_rowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Obtener el valor del campo bool
+                bool valor = Convert.ToBoolean(DataBinder.Eval(e.Row.DataItem, "Activo"));
+
+                // Modificar el valor del campo si es true
+                if (valor)
+                {
+                    e.Row.Cells[5].Text = "Instalado";
+                }
+                else
+                {
+                    e.Row.Cells[5].Text = "Usuario Nuevo o Pendiente a Baja";
+                }
+            }
+        }
+        protected void dgvListaClientes_rowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Obtener el valor del campo bool
+                bool valor = Convert.ToBoolean(DataBinder.Eval(e.Row.DataItem, "Activo"));
+
+                // Modificar el valor del campo si es true
+                if (valor)
+                {
+                    e.Row.Cells[5].Text = "Instalado";
+                }
+                else
+                {
+                    e.Row.Cells[5].Text = "Usuario Nuevo o Pendiente a Baja";
+                }
+            }
+        }
+        
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
-            //List<Cliente> listaClientes = new List<Cliente>();
-            //ClienteNegocio clienteNegocio = new ClienteNegocio();
-            //listaClientes = clienteNegocio.listarClientes();
-
-            List<Servicio> listaServicios = new List<Servicio>();
-            ServicioNegocio servicioNegocio = new ServicioNegocio();
-            listaServicios = servicioNegocio.listarServicios();
+            List<Cliente> listaClientes = new List<Cliente>();
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            listaClientes = clienteNegocio.listarClientes();
 
             //hacer un servicio negocio que filtre por dni cliente para esta parte...
 
-            List<Servicio> listaAux = new List<Servicio>();
+            List<Cliente> listaAux = new List<Cliente>();
 
             LabelEstado.Text = "Usuario No encontrado";
 
             dgvUsuarioEncontrado.DataSource = null;
             dgvUsuarioEncontrado.DataBind();
 
-            foreach (var item in listaServicios)
+            foreach (var item in listaClientes)
             {
 
-                if (item.Cliente.Dni == inputDNI.Text && item.Estado == true)
+                if (item.Dni == inputDNI.Text)
                 {
                     LabelEstado.Text = "Usuario Encontrado";
   
@@ -79,29 +113,27 @@ namespace NetPulse
 
             if (e.CommandName == "Modificar_onClick")
             {
-                Response.Redirect("ModificarServicio.aspx?IdServicio=" + IdServicio);
-                //Falta Implementacion
+                Response.Redirect("AgregarCliente.aspx");
+                
             }
 
-            if (e.CommandName == "BajaLogica_onClick")
+            if (e.CommandName == "AgregarServicio_onClick")
             {
-                ServicioNegocio servicioNegocio = new ServicioNegocio();
-                servicioNegocio.BajaLogica(int.Parse(IdServicio));
                 Response.Redirect("Servicios.aspx");
-                //Funcionando
-            }
-
-            if (e.CommandName == "agendarMantenimiento_onClick")
-            {
-                Response.Redirect("AgendarMantenimiento.aspx?IdServicio=" + IdServicio);
-                //Funcionando
             }
 
             if (e.CommandName == "Historial_onClick")
             {
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Implementacion no Encontrada" + "');", true);
+
+
+            }
+            /*
+            if (e.CommandName == "Historial_onClick")
+            {
                 Response.Redirect("HistorialMantenimientos.aspx?IdServicio=" + IdServicio);
                 //Falta Implementacion
-            }
+            }*/
 
         }
 
