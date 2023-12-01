@@ -39,18 +39,16 @@ namespace NetPulse
                     string nombreUsuario = dt.Rows[0]["Usuario"].ToString();
                     string tipoUsuario = dt.Rows[0]["TipoUsuario"].ToString();
 
+                    Session["NombreUsuario"] = nombreUsuario;
+                    Session["TipoUsuario"] = tipoUsuario;
                     if (dt.Rows[0][1].ToString() == "Admin")
                     {
                         //Response.Write("<script>alert('Ingresaste como Administrador');</script>");
-                        Session["NombreUsuario"] = nombreUsuario;
-                        Session["TipoUsuario"] = tipoUsuario;
                         Response.Redirect("Default.aspx");
                     }
                     else if (dt.Rows[0][1].ToString() == "Tecnico")
                     {
                         //Response.Write("<script>alert('Ingresaste como Usuario');</script>");
-                        Session["NombreUsuario"] = nombreUsuario;
-                        Session["TipoUsuario"] = tipoUsuario;
                         Response.Redirect("MainTecnico.aspx");
                     }
 

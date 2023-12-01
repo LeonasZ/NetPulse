@@ -22,7 +22,7 @@ namespace NetPulse
             //lblUsuarioTec.Text = Session["NombreUsuario"].ToString();
 
             PerfilNegocio perfilNegocio = new PerfilNegocio();
-            dgvPerfilTec.DataSource = perfilNegocio.ListarPerfiles(Usuario);
+            dgvPerfilTec.DataSource = perfilNegocio.ObtenerPerfil(Usuario);
 
             dgvPerfilTec.AutoGenerateColumns = false;
             dgvPerfilTec.Columns.Clear();
