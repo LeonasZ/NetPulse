@@ -6,6 +6,6 @@
     <div style="margin: 20px">
         <asp:GridView ID="dgvPerfiles" runat="server" CssClass="table table-bordered table-responsive">
         </asp:GridView>
-        <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
     </div>
 </asp:Content>

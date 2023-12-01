@@ -15,12 +15,24 @@ namespace NetPulse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["NombreUsuario"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+
             string Usuario = Session["NombreUsuario"].ToString();
 
-            lblNombreUsuario.Text = Session["NombreUsuario"].ToString();
+            //lblUsuario.Text = Session["NombreUsuario"].ToString();
 
             PerfilNegocio perfilNegocio = new PerfilNegocio();
             dgvPerfiles.DataSource = perfilNegocio.ListarPerfiles(Usuario);
+
+            dgvPerfiles.AutoGenerateColumns = false;
+            dgvPerfiles.Columns.Clear();
+            dgvPerfiles.Columns.Add(new BoundField { DataField = "IdUsuario", HeaderText = "ID Usuario" });
+            dgvPerfiles.Columns.Add(new BoundField { DataField = "Nombre", HeaderText = "Nombre" });
+            dgvPerfiles.Columns.Add(new BoundField { DataField = "Usuario", HeaderText = "Usuario" });
+            dgvPerfiles.Columns.Add(new BoundField { DataField = "TipoUsuario", HeaderText = "Tipo de Usuario" });
             dgvPerfiles.DataBind();
         }
 

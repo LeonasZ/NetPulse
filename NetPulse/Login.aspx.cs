@@ -26,7 +26,7 @@ namespace NetPulse
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select Nombre, TipoUsuario From Usuarios Where Usuario = @usuario and Contraseña = @pass", con);
+                SqlCommand cmd = new SqlCommand("Select Usuario, TipoUsuario From Usuarios Where Usuario = @usuario and Contraseña = @pass", con);
                 cmd.Parameters.AddWithValue("usuario", usuario);
                 cmd.Parameters.AddWithValue("pass", contrasena);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -35,7 +35,8 @@ namespace NetPulse
 
                 if (dt.Rows.Count == 1)
                 {
-                    string nombreUsuario = dt.Rows[0]["Nombre"].ToString();
+                    //string nombreUsuario = dt.Rows[0]["Nombre"].ToString();
+                    string nombreUsuario = dt.Rows[0]["Usuario"].ToString();
                     string tipoUsuario = dt.Rows[0]["TipoUsuario"].ToString();
 
                     if (dt.Rows[0][1].ToString() == "Admin")
