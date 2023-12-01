@@ -25,8 +25,6 @@ namespace NetPulse
                 string Usuario = Session["NombreUsuario"].ToString();
                 PerfilNegocio perfilNegocio = new PerfilNegocio();
 
-                lblUser.Text = Session["NombreUsuario"].ToString();
-
                 Dominio.Perfil perfil = new Dominio.Perfil();
                 perfil = perfilNegocio.ObtenerPerfil(Usuario);
                 lblNombre.Text = perfil.Nombre;

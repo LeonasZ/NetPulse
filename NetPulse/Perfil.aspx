@@ -36,7 +36,6 @@
         <asp:Label runat="server" Text="Tipo Usuario"></asp:Label>
         <asp:TextBox ID="lblTipo" runat="server" CssClass="text-field" Enabled="false"></asp:TextBox>
 
-        <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
     </div>
 </asp:Content>
 
