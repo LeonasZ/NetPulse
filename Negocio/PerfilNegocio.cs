@@ -39,7 +39,7 @@ namespace Negocio
             List<Perfil> lista = new List<Perfil>();
             AccesoDatosL datos = new AccesoDatosL();
 
-            datos.setConsulta("Select IdUsuario, Nombre, Usuario, TipoUsuario FROM Usuarios Where Usuario = @Usuario");
+            datos.setConsulta("Select IdUsuario, Nombre, Apellido, Usuario, Mail, Telefono, TipoUsuario From Usuarios Where Usuario = @Usuario");
             datos.setearParametro("@Usuario", Usuario);
             datos.ejecutarLectura();
 
@@ -48,8 +48,10 @@ namespace Negocio
                 Perfil perfil = new Perfil();
                 perfil.IdUsuario = (int)datos.Lector["IdUsuario"];
                 perfil.Nombre = (string)datos.Lector["Nombre"];
+                perfil.Apellido = (string)datos.Lector["Apellido"];
                 perfil.Usuario = (string)datos.Lector["Usuario"];
-                //aux.Contraseña = (string)datos.Lector["Contraseña"];
+                perfil.Mail = (string)datos.Lector["Mail"];
+                perfil.Telefono = (string)datos.Lector["Telefono"];
                 perfil.TipoUsuario = (string)datos.Lector["TipoUsuario"];
 
                 lista.Add(perfil);

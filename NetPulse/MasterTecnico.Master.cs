@@ -20,7 +20,6 @@ namespace NetPulse
             {
                 string nombreUsuario = Session["NombreUsuario"].ToString();
                 string tipoUsuario = Session["TipoUsuario"].ToString();
-
             }
 
             if (Session["NombreUsuario"] != null && Session["TipoUsuario"].ToString() != "Tecnico")
