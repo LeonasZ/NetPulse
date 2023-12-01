@@ -26,7 +26,7 @@ namespace NetPulse
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select Usuario, TipoUsuario From Usuarios Where Usuario = @usuario and Contraseña = @pass", con);
+                SqlCommand cmd = new SqlCommand("Select IdUsuario, Usuario, TipoUsuario From Usuarios Where Usuario = @usuario and Contraseña = @pass", con);
                 cmd.Parameters.AddWithValue("usuario", usuario);
                 cmd.Parameters.AddWithValue("pass", contrasena);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -35,18 +35,20 @@ namespace NetPulse
 
                 if (dt.Rows.Count == 1)
                 {
-                    //string nombreUsuario = dt.Rows[0]["Nombre"].ToString();
+                    int IdUsuario = int.Parse(dt.Rows[0]["IdUsuario"].ToString());
                     string nombreUsuario = dt.Rows[0]["Usuario"].ToString();
                     string tipoUsuario = dt.Rows[0]["TipoUsuario"].ToString();
 
+                    Session["IdUsuario"] = IdUsuario;
                     Session["NombreUsuario"] = nombreUsuario;
                     Session["TipoUsuario"] = tipoUsuario;
-                    if (dt.Rows[0][1].ToString() == "Admin")
+
+                    if (tipoUsuario == "Admin")
                     {
                         //Response.Write("<script>alert('Ingresaste como Administrador');</script>");
                         Response.Redirect("Default.aspx");
                     }
-                    else if (dt.Rows[0][1].ToString() == "Tecnico")
+                    else if (tipoUsuario == "Tecnico")
                     {
                         //Response.Write("<script>alert('Ingresaste como Usuario');</script>");
                         Response.Redirect("MainTecnico.aspx");
@@ -62,6 +64,7 @@ namespace NetPulse
             {
                 //MessageBox.Show(e.ToString());
                 //Agregar para ver el error de forma correcta ya que MessageBox no existe acá
+                throw e;
             }
             finally
             {
