@@ -6,7 +6,7 @@ GO
 Create Table Usuarios(
     IdUsuario int not null primary key identity (1, 1),
     Nombre varchar(50) null,
-    Usuario varchar(50) null,
+    Usuario varchar(50) not null unique,
     Contraseña varchar(50) null,
     TipoUsuario varchar(50) null
 )

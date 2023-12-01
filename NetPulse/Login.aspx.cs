@@ -52,6 +52,7 @@ namespace NetPulse
                         Session["TipoUsuario"] = tipoUsuario;
                         Response.Redirect("MainTecnico.aspx");
                     }
+
                 }
                 else
                 {

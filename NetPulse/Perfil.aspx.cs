@@ -15,12 +15,12 @@ namespace NetPulse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string nUsuario = Session["NombreUsuario"].ToString();
+            string Usuario = Session["NombreUsuario"].ToString();
 
             lblNombreUsuario.Text = Session["NombreUsuario"].ToString();
 
             PerfilNegocio perfilNegocio = new PerfilNegocio();
-            dgvPerfiles.DataSource = perfilNegocio.ListarPerfiles(nUsuario);
+            dgvPerfiles.DataSource = perfilNegocio.ListarPerfiles(Usuario);
             dgvPerfiles.DataBind();
         }
 

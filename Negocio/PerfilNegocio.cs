@@ -34,13 +34,13 @@ namespace Negocio
             return lista;
         }*/
 
-        public List<Perfil> ListarPerfiles(string nombreU)
+        public List<Perfil> ListarPerfiles(string Usuario)
         {
             List<Perfil> lista = new List<Perfil>();
             AccesoDatosL datos = new AccesoDatosL();
 
-            datos.setConsulta("Select IdUsuario, Nombre, Usuario, Contraseña, TipoUsuario FROM Usuarios Where Nombre = @nombreU");
-            datos.setearParametro("@nombreU", nombreU);
+            datos.setConsulta("Select IdUsuario, Nombre, Usuario, Contraseña, TipoUsuario FROM Usuarios Where Nombre = @Usuario");
+            datos.setearParametro("@Usuario", Usuario);
             datos.ejecutarLectura();
 
             while (datos.Lector.Read())
