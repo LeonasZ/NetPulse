@@ -76,6 +76,7 @@
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FinalizarMantenimiento.aspx" />
+    <Content Include="FormActivarServicio.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HistorialMantenimientos.aspx" />
@@ -90,6 +91,7 @@
     <Content Include="Planes.aspx" />
     <Content Include="Reclamos.aspx" />
     <Content Include="Servicios.aspx" />
+    <Content Include="ServiciosMorosos.aspx" />
     <Content Include="Tecnicos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -156,6 +158,13 @@
     </Compile>
     <Compile Include="FinalizarMantenimiento.aspx.designer.cs">
       <DependentUpon>FinalizarMantenimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormActivarServicio.aspx.cs">
+      <DependentUpon>FormActivarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormActivarServicio.aspx.designer.cs">
+      <DependentUpon>FormActivarServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormEditMantenimiento.aspx.cs">
       <DependentUpon>FormEditMantenimiento.aspx</DependentUpon>
@@ -258,6 +267,13 @@
     </Compile>
     <Compile Include="Servicios.aspx.designer.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiciosMorosos.aspx.cs">
+      <DependentUpon>ServiciosMorosos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiciosMorosos.aspx.designer.cs">
+      <DependentUpon>ServiciosMorosos.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiteMaster.Master.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>

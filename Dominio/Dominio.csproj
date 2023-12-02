@@ -44,6 +44,7 @@
     <Compile Include="AbonoMensual.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Domicilio.cs" />
+    <Compile Include="EstadoServicio.cs" />
     <Compile Include="FormaPago.cs" />
     <Compile Include="Mantenimiento.cs" />
     <Compile Include="Perfil.cs" />

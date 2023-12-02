@@ -16,7 +16,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
 
 
-            datos.setConsulta("select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, IdAbonoMensual, IdFormaPagoAm,\nFechaVencimiento1, FechaVencimiento2, Pagado, IdFormaPago, FormaPago, IdPlan, CantidadMegas, Precio, IdDomicilio, Direccion,\nBarrio, Ciudad, DireccionComentarios, FechaAltaServicio, Estado, ComentarioServicios from VistaServicios");
+            datos.setConsulta("select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, IdAbonoMensual, IdFormaPagoAm,\nFechaVencimiento1, FechaVencimiento2, Pagado, IdFormaPago, FormaPago, IdPlan, CantidadMegas, Precio, IdDomicilio, Direccion,\nBarrio, Ciudad, DireccionComentarios, FechaAltaServicio,ID_Estado, Estado, ComentarioServicios from VistaServicios");
             datos.ejecutarLectura();
 
             while (datos.Lector.Read())
@@ -26,7 +26,11 @@ namespace Negocio
                 aux.IdServicio = (int)datos.Lector["IdServicio"];
                 aux.Comentarios = (string)datos.Lector["ComentarioServicios"];
                 aux.FechaAlta = (DateTime)datos.Lector["FechaAltaServicio"];
-                aux.Estado = (bool)datos.Lector["Estado"];
+
+                EstadoServicio estadoAux = new EstadoServicio();
+                estadoAux.Id = (int)datos.Lector["ID_Estado"];
+                estadoAux.Descripcion = (string)datos.Lector["Estado"];
+                aux.Estado = estadoAux;
 
                 //Datos Cliente
                 Cliente ClienteAux = new Cliente();

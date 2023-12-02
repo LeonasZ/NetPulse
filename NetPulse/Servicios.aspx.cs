@@ -11,91 +11,66 @@ namespace NetPulse
 {
     public partial class Servicios : System.Web.UI.Page
     {
+        List<Servicio> listaServicios = new List<Servicio>();
+        ServicioNegocio servicioNegocio = new ServicioNegocio();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ServicioNegocio ServicioNegocio = new ServicioNegocio();
-            dgvListaServicios.DataSource = ServicioNegocio.listarServicios();
-            dgvListaServicios.DataBind();
+            listaServicios = servicioNegocio.listarServicios();
+            List<Servicio> listaPendientesActivacion = new List<Servicio>();
+            List<Servicio> listaActivos = new List<Servicio>();
+            List<Servicio> listaDesinstalados = new List<Servicio>();
+            foreach (var item in listaServicios)
+            {
+                if (item.Estado.Id == 1)
+                {
+                    listaPendientesActivacion.Add(item);
+                }
+                if (item.Estado.Id == 3 || item.Estado.Id == 3)
+                {
+                    listaActivos.Add(item);
+                }
+                if (item.Estado.Id == 6)
+                {
+                    listaDesinstalados.Add(item);
+                }
+            }
+            dgvPendienteActivacion.DataSource = listaPendientesActivacion;
+            dgvPendienteActivacion.DataBind();
 
-            Session.Add("listaServicios", ServicioNegocio.listarServicios());
+            dgvDesinstalados.DataSource = listaDesinstalados;
+            dgvDesinstalados.DataBind();
 
-            ServicioNegocio servicioNegocio = new ServicioNegocio();
-            dgvListaClientesInactivos.DataSource = servicioNegocio.listarClientesSinServicios();
-            dgvListaClientesInactivos.DataBind();
-
-
+            DgvListaActivos.DataSource = listaActivos;
+            DgvListaActivos.DataBind();
         }
-        protected void dgvListaClientesInactivos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Response.Redirect("AgregarServicio.aspx");
-        }
+
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
-
-            List<Servicio> listaServicios = new List<Servicio>();
-            ServicioNegocio servicioNegocio = new ServicioNegocio();
             listaServicios = servicioNegocio.listarServicios();
-
             //hacer un servicio negocio que filtre por dni cliente para esta parte...
             List<Servicio> listaAux = new List<Servicio>();
-
-            LabelEstado.Text = "El usuario no existe o no tiene servicios asociados";
-
-            dgvServicioInactivo.DataSource = null;
-            dgvServicioInactivo.DataBind();
-
+            LabelEstado.Text = "Servicio No Encontrado";
             dgvServicioEncontrado.DataSource = null;
             dgvServicioEncontrado.DataBind();
 
             foreach (var item in listaServicios)
             {
-
-
-                if (item.Cliente.Dni == inputDNI.Text && item.Estado == true)
+                if (item.Cliente.Dni == inputDNI.Text && (item.Estado.Id == 2 || item.Estado.Id == 3))
                 {
                     LabelEstado.Text = "Servicio Activo Encontrado";
                     listaAux.Add(item);
 
-                    LabelActivo.Text = "Activo";
-
                     dgvServicioEncontrado.DataSource = listaAux;
                     dgvServicioEncontrado.DataBind();
-                }
 
-                if (item.Cliente.Dni == inputDNI.Text && item.Estado == false)
-                {
-                    LabelEstado.Text = "Servicio Inactivo Encontrado";
-
-                    listaAux.Add(item);
-                    LabelActivo.Text = "Inactivo";
-
-                    dgvServicioInactivo.DataSource = listaAux;
-                    dgvServicioInactivo.DataBind();
                 }
 
             }
 
-
         }
 
-
-        protected void DgvListaServiciosInactivos_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            int rowIndex = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = dgvServicioInactivo.Rows[rowIndex];
-
-            string IdServicio = row.Cells[0].Text;
-
-
-            if (e.CommandName == "Activar_onClick")
-            {
-                ServicioNegocio servicioNegocio = new ServicioNegocio();
-                servicioNegocio.activarServicio(int.Parse(IdServicio));
-                Response.Redirect("Servicios.aspx");
-            }
-        }
-
-        protected void DgvListaServiciosActivos_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void DgvListaServiciosEncontrados_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument);
             GridViewRow row = dgvServicioEncontrado.Rows[rowIndex];
@@ -112,5 +87,57 @@ namespace NetPulse
 
         }
 
+        protected void DgvListaServiciosActivos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = DgvListaActivos.Rows[rowIndex];
+
+            string IdServicio = row.Cells[0].Text;
+
+
+            if (e.CommandName == "btnGestionar_OnClick")
+            {
+                Response.Redirect("ModificarServicio.aspx?IdServicio=" + IdServicio);
+                //Falta Implementacion
+            }
+
+
+        }
+
+
+        protected void dgvListaServicios_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                /*int IdEstado = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "IdServicio").ToString());
+                if(IdEstado == 1)
+                {
+                    e.Row.ForeColor = System.Drawing.Color.Green;
+                    e.Row.BackColor = System.Drawing.Color.Red;
+                }*/
+                if (e.Row.Cells[6].Text == "Pendiente a Activacion")
+                {
+                    //e.Row.BorderWidth = 5;
+                    //e.Row.BorderColor = System.Drawing.Color.Green;
+                }
+            }
+        }
+
+        protected void DgvListaServiciosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvPendienteActivacion.Rows[rowIndex];
+
+            string IdServicio = row.Cells[0].Text;
+
+
+            if (e.CommandName == "btnActivar_OnClick")
+            {
+                Response.Redirect("FormActivarServicio.aspx?IdServicio=" + IdServicio);
+                //Falta Implementacion
+            }
+
+
+        }
     }
 }

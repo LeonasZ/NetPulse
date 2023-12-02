@@ -17,7 +17,11 @@ namespace NetPulse
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             dgvListaClientes.DataSource = clienteNegocio.listarClientes();
             dgvListaClientes.DataBind();
-            
+
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+            dgvListaClientesInactivos.DataSource = servicioNegocio.listarClientesSinServicios();
+            dgvListaClientesInactivos.DataBind();
+
         }
 
         protected void GridViedgvListaClientes_rowDataBound(object sender, GridViewRowEventArgs e)
@@ -48,15 +52,15 @@ namespace NetPulse
                 // Modificar el valor del campo si es true
                 if (valor)
                 {
-                    e.Row.Cells[5].Text = "Instalado";
+                    //e.Row.Cells[5].Text = "Instalado";
                 }
                 else
                 {
-                    e.Row.Cells[5].Text = "Usuario Nuevo o Pendiente a Baja";
+                    //e.Row.Cells[5].Text = "Usuario Nuevo o Pendiente a Baja";
                 }
             }
         }
-        
+
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
             List<Cliente> listaClientes = new List<Cliente>();
@@ -78,13 +82,13 @@ namespace NetPulse
                 if (item.Dni == inputDNI.Text)
                 {
                     LabelEstado.Text = "Usuario Encontrado";
-  
+
                     listaAux.Add(item);
                     LabelActivo.Text = "Activo";
 
                     dgvUsuarioEncontrado.DataSource = listaAux;
                     dgvUsuarioEncontrado.DataBind();
-                }   
+                }
 
             }
 
@@ -93,7 +97,7 @@ namespace NetPulse
         protected void btnAgregarNuevo_Click(object sender, EventArgs e)
         {
             Response.Redirect("AgregarCliente.aspx");
-        }       
+        }
 
         protected void dgvUsuarioEncontrado_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,7 +105,11 @@ namespace NetPulse
 
             Response.Redirect("AgendarMantenimiento.aspx?IdServicio=" + IdServicio);
         }
-
+        protected void dgvListaClientesInactivos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int IdCliente = int.Parse(dgvListaClientesInactivos.SelectedDataKey.Value.ToString());
+            Response.Redirect("ActivarServicio.aspx?IdCliente=" + IdCliente);
+        }
 
         protected void DgvListaClientesActivos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -114,7 +122,7 @@ namespace NetPulse
             if (e.CommandName == "Modificar_onClick")
             {
                 Response.Redirect("AgregarCliente.aspx");
-                
+
             }
 
             if (e.CommandName == "AgregarServicio_onClick")

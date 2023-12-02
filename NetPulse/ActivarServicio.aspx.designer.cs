@@ -15,111 +15,48 @@ namespace NetPulse
     {
 
         /// <summary>
-        /// inputDireccion control.
+        /// AgregarDireccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputDireccion;
+        protected global::System.Web.UI.WebControls.Button AgregarDireccion;
 
         /// <summary>
-        /// inputBarrio control.
+        /// AgregarPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputBarrio;
+        protected global::System.Web.UI.WebControls.Button AgregarPlan;
 
         /// <summary>
-        /// inputCiudad control.
+        /// AgregarFormaDePago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCiudad;
+        protected global::System.Web.UI.WebControls.Button AgregarFormaDePago;
 
         /// <summary>
-        /// inputComentarios control.
+        /// btnFinalizar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputComentarios;
+        protected global::System.Web.UI.WebControls.Button btnFinalizar;
 
         /// <summary>
-        /// DDLPlanes control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLPlanes;
-
-        /// <summary>
-        /// inputIdPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputIdPlan;
-
-        /// <summary>
-        /// inputCantMegas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCantMegas;
-
-        /// <summary>
-        /// inputPrecio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputPrecio;
-
-        /// <summary>
-        /// DDLMedioDePago control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLMedioDePago;
-
-        /// <summary>
-        /// inputComentariosServicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputComentariosServicio;
-
-        /// <summary>
-        /// Activar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Activar;
-
-        /// <summary>
-        /// Cancelar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Cancelar;
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

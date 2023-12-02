@@ -15,15 +15,6 @@ namespace NetPulse
     {
 
         /// <summary>
-        /// dgvListaClientes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvListaClientes;
-
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -85,5 +76,23 @@ namespace NetPulse
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarNuevo;
+
+        /// <summary>
+        /// dgvListaClientesInactivos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvListaClientesInactivos;
+
+        /// <summary>
+        /// dgvListaClientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvListaClientes;
     }
 }

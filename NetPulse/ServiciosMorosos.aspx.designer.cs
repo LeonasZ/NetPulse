@@ -11,7 +11,7 @@ namespace NetPulse
 {
 
 
-    public partial class Servicios
+    public partial class ServiciosMorosos
     {
 
         /// <summary>
@@ -42,48 +42,21 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Button btnBuscarDni;
 
         /// <summary>
-        /// LabelEstado control.
+        /// dgvListaDeudores control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelEstado;
+        protected global::System.Web.UI.WebControls.GridView dgvListaDeudores;
 
         /// <summary>
-        /// dgvServicioEncontrado control.
+        /// DgvListaInactivos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvServicioEncontrado;
-
-        /// <summary>
-        /// dgvPendienteActivacion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvPendienteActivacion;
-
-        /// <summary>
-        /// DgvListaActivos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DgvListaActivos;
-
-        /// <summary>
-        /// dgvDesinstalados control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvDesinstalados;
+        protected global::System.Web.UI.WebControls.GridView DgvListaInactivos;
     }
 }

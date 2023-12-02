@@ -4,6 +4,12 @@ Go
 USE BD_NetPulse
 Go
 
+CREATE TABLE ESTADO_SERVICIO (
+	ID INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+	DESCRIPCION VARCHAR(50) NOT NULL
+)
+
+
 CREATE TABLE Cliente(
     IdCliente INT PRIMARY KEY not null identity (1, 1),
     Nombre VARCHAR(255) NOT NULL,
@@ -55,13 +61,14 @@ CREATE TABLE Servicio(
     IdPlan int not null,
     IdAbonoMensual int not null,
     FechaAlta datetime not null,
-    Estado bit not null,
+    Estado INT not null,
     --TecnicoResponsable VARCHAR(255),
     Comentarios text,
     FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
     FOREIGN KEY (IdDomicilio) REFERENCES Domicilio (IdDomicilio),
     FOREIGN KEY (IdPlan) REFERENCES TPlan (IdPlan),
-    FOREIGN KEY (IdAbonoMensual) REFERENCES AbonoMensual (IdAbonoMensual)
+    FOREIGN KEY (IdAbonoMensual) REFERENCES AbonoMensual (IdAbonoMensual),
+	FOREIGN KEY (ESTADO) REFERENCES ESTADO_SERVICIO (ID)
 )
 Go
 
@@ -88,15 +95,26 @@ CREATE TABLE Mantenimiento(
     IdTecnico int not null,
     Descripcion text,
     --Costo REVISAR
-    IdTipoMantenimiento int not null,
+    IdTipoMantenimiento INT not null,
     --ComponentesCambiados text,
     Comentarios text,
-    EstadoRealizacion bit not null,
+    EstadoRealizacion BIT not null,
     FOREIGN KEY (IdServicio) REFERENCES Servicio (IdServicio),
     FOREIGN KEY (IdTecnico) REFERENCES Tecnico (IdTecnico),
-    FOREIGN KEY (IdTipoMantenimiento) REFERENCES TipoMantenimiento (IdTipoMantenimiento),
+    FOREIGN KEY (IdTipoMantenimiento) REFERENCES TipoMantenimiento (IdTipoMantenimiento)
 )
 Go
+
+
+INSERT INTO ESTADO_SERVICIO (DESCRIPCION) 
+VALUES 
+	('Pendiente a Activacion'),
+	('Pendiente a Instalacion'),
+	('Instalado'),
+	('Inhabilitado'),
+	('Inactivo'),
+	('Desinstalado'),
+	('Registra Deuda')
 
 INSERT INTO Cliente (Nombre, Telefono, Mail, Dni, FechaAlta, Activo)
 VALUES
@@ -158,15 +176,15 @@ GO
 INSERT INTO Servicio (IdCliente, IdDomicilio, IdPlan, IdAbonoMensual, FechaAlta, Estado, Comentarios)
 VALUES
     (1, 1, 1, 1, GETDATE(), 1, ''),
-    (2, 2, 2, 2, GETDATE(), 0, ''),
-    (3, 3, 3, 3, GETDATE(), 1, ''),
-    (4, 4, 4, 4, GETDATE(), 0, ''),
-    (5, 5, 1, 5, GETDATE(), 1, ''),
-    (6, 6, 2, 6, GETDATE(), 0, ''),
-    (7, 7, 3, 7, GETDATE(), 1, ''),
-    (8, 8, 4, 8, GETDATE(), 0, ''),
-    (9, 9, 1, 9, GETDATE(), 1, ''),
-    (10, 10, 2, 10, GETDATE(), 0, '');
+    (2, 2, 2, 2, GETDATE(), 1, ''),
+    (3, 3, 3, 3, GETDATE(), 2, ''),
+    (4, 4, 4, 4, GETDATE(), 3, ''),
+    (5, 5, 1, 5, GETDATE(), 4, ''),
+    (6, 6, 2, 6, GETDATE(), 5, ''),
+    (7, 7, 3, 7, GETDATE(), 6, ''),
+    (8, 8, 4, 8, GETDATE(), 3, ''),
+    (9, 9, 1, 9, GETDATE(), 2, ''),
+    (10, 10, 2, 10, GETDATE(), 4, '');
 GO
 
 INSERT INTO Tecnico (Nombre, Contacto, FechaIncorporacion, Estado)
@@ -204,12 +222,13 @@ Am.IdAbonoMensual, Am.IdFormaPago as IdFormaPagoAm, Am.FechaVencimiento1, Am.Fec
 Fp.IdFormaPago, Fp.Nombre as FormaPago, 
 P.IdPlan,P.CantidadMegas, P.Precio,
 D.IdDomicilio,D.Direccion, D.Barrio, D.Ciudad, D.Comentario as DireccionComentarios,
-S.FechaAlta as FechaAltaServicio,S.Estado,S.Comentarios as ComentarioServicios from Servicio S
+S.FechaAlta as FechaAltaServicio,E_S.ID as ID_Estado,E_S.DESCRIPCION as Estado,S.Comentarios as ComentarioServicios from Servicio S
 inner join Cliente as C on C.IdCliente = S.IdCliente
 inner join AbonoMensual as Am on Am.IdAbonoMensual = S.IdAbonoMensual
 inner join FormaPago as Fp on Fp.IdFormaPago = Am.IdFormaPago
 inner join TPlan as P on P.IdPlan = S.IdPlan
 inner join Domicilio as D on D.IdDomicilio = S.IdDomicilio
+inner join ESTADO_SERVICIO as E_S on E_S.ID = S.Estado
 )
 
 /*select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, 

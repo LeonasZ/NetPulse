@@ -14,7 +14,7 @@ namespace Dominio
         public TPlan Plan { get; set; }
         public AbonoMensual AbonoMensual { get; set; }
         public DateTime FechaAlta { get; set; }
-        public bool Estado { get; set; }
+        public EstadoServicio Estado { get; set; }
         public string Comentarios { get; set; }
     }
 }
