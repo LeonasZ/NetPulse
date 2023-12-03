@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="ServiciosMorosos.aspx">Mora</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="GestionEstados.aspx">Actividad</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav bg-secondary ms-auto" style="border-radius: 0.25rem; border: 1px solid black;">
                         <li class="nav-item">
