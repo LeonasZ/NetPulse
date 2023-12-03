@@ -11,7 +11,7 @@ namespace Negocio
     {
         public List<TipoMantenimiento> listar()
         {
-            List<TipoMantenimiento> listaTipoMantenimiento= new List<TipoMantenimiento>();
+            List<TipoMantenimiento> listaTipoMantenimiento = new List<TipoMantenimiento>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -21,7 +21,7 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     TipoMantenimiento aux = new TipoMantenimiento();
-                    aux.IdTipoMantenimiento= (int)datos.Lector["IdTipoMantenimiento"];
+                    aux.IdTipoMantenimiento = (int)datos.Lector["IdTipoMantenimiento"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
 
                     listaTipoMantenimiento.Add(aux);
@@ -55,7 +55,7 @@ namespace Negocio
                     if (!(db.Lector["IdTipoMantenimiento"] is DBNull)) tipoMantenimiento.IdTipoMantenimiento = (int)db.Lector["IdTipoMantenimiento"];
                     if (!(db.Lector["Nombre"] is DBNull)) tipoMantenimiento.Nombre = (string)db.Lector["Nombre"];
                 }
-                
+
 
 
                 return tipoMantenimiento;

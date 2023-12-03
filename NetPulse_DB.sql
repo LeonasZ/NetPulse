@@ -103,6 +103,7 @@ CREATE TABLE Mantenimiento(
     FOREIGN KEY (IdTecnico) REFERENCES Tecnico (IdTecnico),
     FOREIGN KEY (IdTipoMantenimiento) REFERENCES TipoMantenimiento (IdTipoMantenimiento)
 )
+
 Go
 
 
@@ -196,24 +197,25 @@ GO
 
 INSERT INTO TipoMantenimiento (Nombre)
 VALUES
-    ('Mantenimiento Preventivo'),
-    ('Mantenimiento Correctivo'),
+    ('Prioridad Alta'),
+    ('Prioridad Media'),
     ('Instalacion'),
-    ('Mantenimiento de Emergencia');
+    ('Prioridad Baja'),
+    ('Desinstalación');
 GO
 
 INSERT INTO Mantenimiento (IdServicio, Fecha,FechaRealizado, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
 VALUES
-    (1, GETDATE(),GETDATE(), 1, 'Mantenimiento 1', 1, 'Estaba todo sucio', 1),
-    (2, GETDATE(),GETDATE(), 2, 'Mantenimiento 2', 2, '', 0),
-    (3, GETDATE(),GETDATE(), 1, 'Mantenimiento 3', 3, '', 1),
-    (4, GETDATE(),GETDATE(), 3, 'Mantenimiento 4', 4, '', 0),
-    (5, GETDATE(),GETDATE(), 2, 'Mantenimiento 5', 1, '', 1),
-    (6, GETDATE(),GETDATE(), 1, 'Mantenimiento 6', 2, '', 0),
-    (7, GETDATE(),GETDATE(), 3, 'Mantenimiento 7', 3, '', 1),
-    (8, GETDATE(),GETDATE(), 2, 'Mantenimiento 8', 4, '', 0),
-    (9, GETDATE(),GETDATE(), 1, 'Mantenimiento 9', 1, '', 1),
-    (10, GETDATE(),GETDATE(), 3, 'Mantenimiento 10', 2, '', 0);
+    (1, GETDATE(),GETDATE(), 1, 'Mantenimiento Correctivo', 2, 'Estaba todo sucio', 1),
+    (2, GETDATE(),GETDATE(), 2, 'Mantenimiento Emergencia', 1, 'Antena caida', 0),
+    (3, GETDATE(),GETDATE(), 1, 'Instalacion', 3, '', 1),
+    (4, GETDATE(),GETDATE(), 3, 'Mantenimiento Preventivo', 4, 'Antena movida', 0),
+    (5, GETDATE(),GETDATE(), 2, 'Mantenimiento Emergencia', 1, 'Router quemado', 1),
+    (6, GETDATE(),GETDATE(), 1, 'Mantenimiento Correctivo', 2, 'Antena movida', 0),
+    (7, GETDATE(),GETDATE(), 3, 'Instalacion', 3, '', 1),
+    (8, GETDATE(),GETDATE(), 2, 'Mantenimiento Preventivo', 4, 'Cambio de contraseña', 0),
+    (9, GETDATE(),GETDATE(), 1, 'Mantenimiento Emergencia', 1, 'Cable router cortado', 1),
+    (10, GETDATE(),GETDATE(), 3, 'Mantenimiento Correctivo', 2, 'Antena movida', 0);
 GO
 
 Create View VistaServicios as (
