@@ -86,76 +86,84 @@ namespace NetPulse
 
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
-
-            int idServicio = int.Parse(inputIdServicio.Text); // chequear si el input es nulo porque explota...
-
-            MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
-
-
-            List<Mantenimiento> listaInstalacionesPendientes = new List<Mantenimiento>();
-            List<Mantenimiento> listaPendienteAltaPrioridad = new List<Mantenimiento>();
-            List<Mantenimiento> listaPendientes = new List<Mantenimiento>();
-            List<Mantenimiento> listaDesinstalacionesPendientes = new List<Mantenimiento>();
-            List<Mantenimiento> listaRealizados = new List<Mantenimiento>();
-            List<Mantenimiento> mantenimientos = mantenimientoNegocio.listarMantenimientos();
-
-            bool encontrado = false;
-
-            foreach (var item in mantenimientos)
+            if(inputIdServicio.Text != "" && inputIdServicio.Text != null) // chequea si el input es nulo o vacio
             {
-                if (item.IdServicio == idServicio)
+                int idServicio = int.Parse(inputIdServicio.Text); 
+
+                MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
+
+
+                List<Mantenimiento> listaInstalacionesPendientes = new List<Mantenimiento>();
+                List<Mantenimiento> listaPendienteAltaPrioridad = new List<Mantenimiento>();
+                List<Mantenimiento> listaPendientes = new List<Mantenimiento>();
+                List<Mantenimiento> listaDesinstalacionesPendientes = new List<Mantenimiento>();
+                List<Mantenimiento> listaRealizados = new List<Mantenimiento>();
+                List<Mantenimiento> mantenimientos = mantenimientoNegocio.listarMantenimientos();
+
+                bool encontrado = false;
+
+                foreach (var item in mantenimientos)
                 {
-                    encontrado = true;
-                    if (item.EstadoRealizacion == true)
+                    if (item.IdServicio == idServicio)
                     {
-                        listaRealizados.Add(item);
+                        encontrado = true;
+                        if (item.EstadoRealizacion == true)
+                        {
+                            listaRealizados.Add(item);
+                        }
+                        else if (item.EstadoRealizacion == false && item.TipoMantenimiento.IdTipoMantenimiento == 1)
+                        {
+                            listaPendienteAltaPrioridad.Add(item);
+                        }
+                        else if (item.EstadoRealizacion == false && item.TipoMantenimiento.IdTipoMantenimiento == 3)
+                        {
+                            listaInstalacionesPendientes.Add(item);
+                        }
+                        else if (item.EstadoRealizacion == false && item.TipoMantenimiento.IdTipoMantenimiento == 5)
+                        {
+                            listaDesinstalacionesPendientes.Add(item);
+                        }
+                        else if (item.EstadoRealizacion == false && (item.TipoMantenimiento.IdTipoMantenimiento == 4 || item.TipoMantenimiento.IdTipoMantenimiento == 2))
+                        {
+                            listaPendientes.Add(item);
+                        }
                     }
-                    else if (item.EstadoRealizacion == false && item.TipoMantenimiento.IdTipoMantenimiento == 1)
-                    {
-                        listaPendienteAltaPrioridad.Add(item);
-                    }
-                    else if (item.EstadoRealizacion == false && item.TipoMantenimiento.IdTipoMantenimiento == 3)
-                    {
-                        listaInstalacionesPendientes.Add(item);
-                    }
-                    else if (item.EstadoRealizacion == false && item.TipoMantenimiento.IdTipoMantenimiento == 5)
-                    {
-                        listaDesinstalacionesPendientes.Add(item);
-                    }
-                    else if (item.EstadoRealizacion == false && (item.TipoMantenimiento.IdTipoMantenimiento == 4 || item.TipoMantenimiento.IdTipoMantenimiento == 2))
-                    {
-                        listaPendientes.Add(item);
-                    }
+
+
+
+                    dgvInstalacionesPendientes.DataSource = listaInstalacionesPendientes;
+                    dgvInstalacionesPendientes.DataBind();
+
+                    dgvMantenimientosAltaPrioridad.DataSource = listaPendienteAltaPrioridad;
+                    dgvMantenimientosAltaPrioridad.DataBind();
+
+                    DgvMantenimientosPendientes.DataSource = listaPendientes;
+                    DgvMantenimientosPendientes.DataBind();
+
+                    DgvDesinstalacionesPendientes.DataSource = listaDesinstalacionesPendientes;
+                    DgvDesinstalacionesPendientes.DataBind();
+
+                    DgvMantenimientosRealizados.DataSource = listaRealizados;
+                    DgvMantenimientosRealizados.DataBind();
                 }
 
+                if (encontrado == false)
+                {
+                    LabelServicioEncontrado.Text = "El Servicio buscado no corresponde a un servicio en sistema...";
 
+                }
+                else
+                {
+                    LabelServicioEncontrado.Text = "Servicio registrado en sistema...";
 
-                dgvInstalacionesPendientes.DataSource = listaInstalacionesPendientes;
-                dgvInstalacionesPendientes.DataBind();
-
-                dgvMantenimientosAltaPrioridad.DataSource = listaPendienteAltaPrioridad;
-                dgvMantenimientosAltaPrioridad.DataBind();
-
-                DgvMantenimientosPendientes.DataSource = listaPendientes;
-                DgvMantenimientosPendientes.DataBind();
-
-                DgvDesinstalacionesPendientes.DataSource = listaDesinstalacionesPendientes;
-                DgvDesinstalacionesPendientes.DataBind();
-
-                DgvMantenimientosRealizados.DataSource = listaRealizados;
-                DgvMantenimientosRealizados.DataBind();
-            }
-
-            if (encontrado == false)
-            {
-                LabelServicioEncontrado.Text = "El Servicio buscado no corresponde a un servicio en sistema...";
-
+                }
             }
             else
             {
-                LabelServicioEncontrado.Text = "Servicio registrado en sistema...";
+                LabelServicioEncontrado.Text = "Ingresar un Id de Servicio válido...";
 
             }
+
         }
     }
 }
