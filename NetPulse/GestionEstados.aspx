@@ -7,8 +7,20 @@
         <h3>Administrador de Estados Transitorios</h3>
     </div>
     <div style="margin: 20px">
-        <h3>Operaciones pendientes a aprobacion</h3>
-        <asp:Label ID="Label1" runat="server" Text="dgv operaciones a aprobar"></asp:Label>
+        <h3>Servicios pendientes a Activacion</h3>
+        <asp:GridView ID="dgvPendienteActivacion" runat="server" CssClass="table table-bordered table-responsive table-primary" AutoGenerateColumns="false" BorderColor="Blue" OnRowCommand="DgvListaServiciosPendientes_RowCommand">
+            <Columns>
+                <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
+                <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombre" />
+                <asp:BoundField HeaderText="FormaPago" DataField="AbonoMensual.FormaPago.Nombre" />
+                <asp:BoundField HeaderText="CantMegas" DataField="Plan.CantidadMegas" />
+                <asp:BoundField HeaderText="Direccion" DataField="Domicilio.Direccion" />
+                <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
+                <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
+                <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
+                <asp:ButtonField HeaderText="Activar" ButtonType="Link" Text="Activar" CommandName="btnActivar_OnClick" />
+            </Columns>
+        </asp:GridView>
     </div>
     <div style="margin: 40px 20px">
         <h3>Servicios pendientes a Mantenimientos</h3>
@@ -22,7 +34,7 @@
                 <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                 <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
-               
+
             </Columns>
         </asp:GridView>
     </div>

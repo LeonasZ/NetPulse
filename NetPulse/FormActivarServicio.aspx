@@ -33,9 +33,10 @@
         </asp:GridView>
     </div>
 
-    <div>
-        <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" />
-        <asp:Button ID="Button2" runat="server" Text="Cancelar" />
+    <div style="margin:20px" >
+        <asp:Button ID="btnActivarServicio" runat="server" type="submit" class="btn btn-success" Text="Aceptar" OnClick="btnActivarServicio_Click" />
+        <asp:Button ID="btnModificarServicio" runat="server" type="submit" class="btn btn-warning" Text="Modificar" OnClick="btnModificarServicio_Click" />
+        <asp:Button ID="btnCancelar" runat="server" type="submit" class="btn btn-danger" Text="Cancelar" OnClick="btnCancelar_Click" />
     </div>
 
 

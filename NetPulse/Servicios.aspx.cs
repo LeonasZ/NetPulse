@@ -17,15 +17,12 @@ namespace NetPulse
         protected void Page_Load(object sender, EventArgs e)
         {
             listaServicios = servicioNegocio.listarServicios();
-            List<Servicio> listaPendientesActivacion = new List<Servicio>();
+            
             List<Servicio> listaActivos = new List<Servicio>();
             List<Servicio> listaDesinstalados = new List<Servicio>();
             foreach (var item in listaServicios)
             {
-                if (item.Estado.Id == 1)
-                {
-                    listaPendientesActivacion.Add(item);
-                }
+ 
                 if (item.Estado.Id == 3 || item.Estado.Id == 3)
                 {
                     listaActivos.Add(item);
@@ -35,8 +32,7 @@ namespace NetPulse
                     listaDesinstalados.Add(item);
                 }
             }
-            dgvPendienteActivacion.DataSource = listaPendientesActivacion;
-            dgvPendienteActivacion.DataBind();
+            
 
             dgvDesinstalados.DataSource = listaDesinstalados;
             dgvDesinstalados.DataBind();
@@ -123,21 +119,6 @@ namespace NetPulse
             }
         }
 
-        protected void DgvListaServiciosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            int rowIndex = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = dgvPendienteActivacion.Rows[rowIndex];
-
-            string IdServicio = row.Cells[0].Text;
-
-
-            if (e.CommandName == "btnActivar_OnClick")
-            {
-                Response.Redirect("FormActivarServicio.aspx?IdServicio=" + IdServicio);
-                //Falta Implementacion
-            }
-
-
-        }
+      
     }
 }

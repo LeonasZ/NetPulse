@@ -251,6 +251,23 @@ namespace Negocio
 
             return lista;
         }
+        public void EditarEstado(int IdServicio, int IdEstado)
+        {
+            try
+            {
+                DateTime FechaRealizado = DateTime.Now;
+                AccesoDatos Datos = new AccesoDatos();
+                Datos.setConsulta("Update Servicio set Estado = @IdEstado where IdServicio = @IdServicio");
+                Datos.setearParametro("@IdServicio", IdServicio);
+                Datos.setearParametro("@IdEstado", IdEstado);
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
     }
 }

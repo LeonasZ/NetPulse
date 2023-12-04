@@ -47,22 +47,6 @@
 </div>
 
 <div style="margin: 60px 20px">
-    <h3>Lista de Servicios pendientes a Activacion</h3>
-    <asp:GridView ID="dgvPendienteActivacion" runat="server" CssClass="table table-bordered table-responsive table-primary" AutoGenerateColumns="false" BorderColor="Blue"  OnRowCommand="DgvListaServiciosPendientes_RowCommand">
-        <Columns>
-            <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
-            <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombre" />
-            <asp:BoundField HeaderText="FormaPago" DataField="AbonoMensual.FormaPago.Nombre" />
-            <asp:BoundField HeaderText="CantMegas" DataField="Plan.CantidadMegas" />
-            <asp:BoundField HeaderText="Direccion" DataField="Domicilio.Direccion" />
-            <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
-            <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
-            <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
-            <asp:ButtonField HeaderText="Activar" ButtonType="Link" Text="Activar" CommandName="btnActivar_OnClick"  />
-        </Columns>
-    </asp:GridView>
-</div>
-<div style="margin: 60px 20px">
 
     <h3>Lista de Servicios Activos</h3>
     <asp:GridView ID="DgvListaActivos" runat="server" CssClass="table table-bordered table-responsive table-success" BorderColor="Green" AutoGenerateColumns="false" OnRowCommand="DgvListaServiciosActivos_RowCommand" >
