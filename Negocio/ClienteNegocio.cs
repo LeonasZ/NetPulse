@@ -9,8 +9,7 @@ namespace Negocio
 {
     public class ClienteNegocio
     {
-        
-
+       
         public List<Cliente> listarClientes()
         {
             List<Cliente> lista = new List<Cliente>();
@@ -122,6 +121,32 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+        public List<Cliente> buscarCliente(int IdCliente)
+        {
+            List<Cliente> lista = new List<Cliente>();
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setConsulta("select IdCliente, Nombre, Telefono, Mail, Dni, FechaAlta, Activo from Cliente where IdCliente = @IdCliente");
+            datos.setearParametro("@IdCliente", IdCliente);
+            datos.ejecutarLectura();
+
+            while (datos.Lector.Read())
+            {                
+                Cliente ClienteAux = new Cliente();
+                ClienteAux.IdCliente = (int)datos.lector["IdCliente"];
+                ClienteAux.Nombre = (string)datos.Lector["Nombre"];
+                ClienteAux.Telefono = (string)datos.lector["Telefono"];
+                ClienteAux.Mail = (string)datos.lector["Mail"];
+                ClienteAux.Dni = (string)datos.lector["Dni"];
+                ClienteAux.FechaAlta = (DateTime)datos.lector["FechaAlta"];
+                ClienteAux.Activo = (bool)datos.lector["Activo"];
+
+                lista.Add(ClienteAux);
+            }
+
+                return lista;
         }
     }
 

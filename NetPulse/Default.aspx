@@ -40,11 +40,10 @@
                 <asp:BoundField HeaderText="Dni" DataField="Dni" />
                 <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
                 <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
-                
-
-                <asp:ButtonField HeaderText="Modificar" Text="Modificar" ButtonType="Link" CommandName="Modificar_onClick" />
+               
                 <asp:ButtonField HeaderText="Agregar Servicio" Text="Agregar" ButtonType="Link" CommandName="AgregarServicio_onClick" />
                 <asp:ButtonField HeaderText="Historial de Modificaciones" Text="Ver" ButtonType="Link" CommandName="Historial_onClick" />
+                <asp:ButtonField HeaderText="Modificaciones" Text="Modificar" ButtonType="Link" CommandName="Modificar_onClick" />
             </Columns>
 
         </asp:GridView>

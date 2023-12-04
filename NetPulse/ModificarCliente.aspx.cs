@@ -9,11 +9,18 @@ using System.Web.UI.WebControls;
 
 namespace NetPulse
 {
-    public partial class AgregarCliente : System.Web.UI.Page
+    public partial class ModificarCliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            ClienteNegocio negocio = new ClienteNegocio();
+            List<Cliente> lista = negocio.buscarCliente(IdCliente);
+            inputName.Text = lista[0].Nombre.ToString();
+            inputDNI.Text = lista[0].Dni.ToString();
+            inputEmail.Text = lista[0].Mail.ToString();
+            inputTelefono.Text = lista[0].Telefono.ToString();
+            
         }
 
         protected void agregarCliente_Click(object sender, EventArgs e)

@@ -86,6 +86,7 @@
     <Content Include="MainTecnico.aspx" />
     <Content Include="Mantenimientos.aspx" />
     <Content Include="Modificaciones.aspx" />
+    <Content Include="ModificarCliente.aspx" />
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="PerfilTec.aspx" />
@@ -232,6 +233,13 @@
     </Compile>
     <Compile Include="Modificaciones.aspx.designer.cs">
       <DependentUpon>Modificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarCliente.aspx.cs">
+      <DependentUpon>ModificarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarCliente.aspx.designer.cs">
+      <DependentUpon>ModificarCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarServicio.aspx.cs">
       <DependentUpon>ModificarServicio.aspx</DependentUpon>

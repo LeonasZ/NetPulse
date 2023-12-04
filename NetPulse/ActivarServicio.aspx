@@ -11,7 +11,7 @@
      <asp:Button ID="AgregarDireccion" runat="server" Text="Agregar Direccion" type="submit" CssClass="btn btn-primary" OnClick="AgregarDireccion_Click" />
  </div>
  <div class="col-3" style="margin: 20px 20px; display: block">
-     <asp:Button ID="AgregarPlan" runat="server" Text="Modificar Plan" type="submit" CssClass="btn btn-primary" OnClick="AgregarPlan_Click" />
+     <asp:Button ID="AgregarPlan" runat="server" Text="Agregar Plan" type="submit" CssClass="btn btn-primary" OnClick="AgregarPlan_Click" />
  </div>
  <div class="col-3" style="margin: 20px 20px; display: block">
      <asp:Button ID="AgregarFormaDePago" runat="server" Text="Agregar Forma de Pago" type="submit" CssClass="btn btn-primary" OnClick="AgregarFormaDePago_Click" />

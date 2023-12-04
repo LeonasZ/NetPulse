@@ -116,12 +116,12 @@ namespace NetPulse
             int rowIndex = Convert.ToInt32(e.CommandArgument);
             GridViewRow row = dgvUsuarioEncontrado.Rows[rowIndex];
 
-            string IdServicio = row.Cells[0].Text;
+            string IdCliente = row.Cells[0].Text;
 
 
             if (e.CommandName == "Modificar_onClick")
             {
-                Response.Redirect("AgregarCliente.aspx");
+                Response.Redirect("ModificarCliente.aspx?IdCliente=" + IdCliente);
 
             }
 
