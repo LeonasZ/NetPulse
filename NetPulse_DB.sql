@@ -32,6 +32,7 @@ Go
 
 Create Table TPlan(
     IdPlan INT PRIMARY KEY not null identity (1, 1),
+	Nombre varchar(50) not null,
     CantidadMegas int not null,
     Precio money not null
 )
@@ -145,12 +146,12 @@ VALUES
     ('Av. 9 de Julio 2223', 'San Nicolás', 'Buenos Aires', 'Piso 10');
 GO
 
-INSERT INTO TPlan (CantidadMegas, Precio)
+INSERT INTO TPlan (Nombre, CantidadMegas, Precio)
 VALUES
-    (10, 29.99),
-    (25, 69.99),
-    (50, 119.99),
-    (100, 229.99);
+    ('Base',10, 29.99),
+    ('Bronce',25, 69.99),
+    ('Plata',50, 119.99),
+    ('Oro',100, 229.99);
 GO
 
 INSERT INTO FormaPago (Nombre)

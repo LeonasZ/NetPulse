@@ -16,7 +16,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
 
 
-            datos.setConsulta("select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, IdAbonoMensual, IdFormaPagoAm,\nFechaVencimiento1, FechaVencimiento2, Pagado, IdFormaPago, FormaPago, IdPlan, CantidadMegas, Precio, IdDomicilio, Direccion,\nBarrio, Ciudad, DireccionComentarios, FechaAltaServicio,ID_Estado, Estado, ComentarioServicios from VistaServicios");
+            datos.setConsulta("select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, IdAbonoMensual, IdFormaPagoAm,\nFechaVencimiento1, FechaVencimiento2, Pagado, IdFormaPago, FormaPago, IdPlan, CantidadMegas, Precio,NombrePlan, IdDomicilio, Direccion,\nBarrio, Ciudad, DireccionComentarios, FechaAltaServicio,ID_Estado, Estado, ComentarioServicios from VistaServicios");
             datos.ejecutarLectura();
 
             while (datos.Lector.Read())
@@ -64,6 +64,7 @@ namespace Negocio
                 planAux.IdPlan = (int)datos.lector["IdPlan"];
                 planAux.CantidadMegas = (int)datos.lector["CantidadMegas"];
                 planAux.Precio = (decimal)datos.lector["Precio"];
+                planAux.Nombre = (string)datos.lector["NombrePlan"];
                 aux.Plan = planAux;
 
                 // Datos Domicilio
@@ -184,7 +185,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
 
 
-            datos.setConsulta("select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, IdAbonoMensual, IdFormaPagoAm,\nFechaVencimiento1, FechaVencimiento2, Pagado, IdFormaPago, FormaPago, IdPlan, CantidadMegas, Precio, IdDomicilio, Direccion,\nBarrio, Ciudad, DireccionComentarios, FechaAltaServicio,ID_Estado, Estado, ComentarioServicios from VistaServicios where IdServicio = @IdServicio");
+            datos.setConsulta("select IdServicio, IdCliente, NombreCliente, Telefono, Mail, Dni, FACliente, ActivoCliente, IdAbonoMensual, IdFormaPagoAm,\nFechaVencimiento1, FechaVencimiento2, Pagado, IdFormaPago, FormaPago, IdPlan, CantidadMegas, Precio,NombrePlan , IdDomicilio, Direccion,\nBarrio, Ciudad, DireccionComentarios, FechaAltaServicio,ID_Estado, Estado, ComentarioServicios from VistaServicios where IdServicio = @IdServicio");
             datos.setearParametro("@IdServicio", IdServicio);
             datos.ejecutarLectura();
 
@@ -233,6 +234,7 @@ namespace Negocio
                 planAux.IdPlan = (int)datos.lector["IdPlan"];
                 planAux.CantidadMegas = (int)datos.lector["CantidadMegas"];
                 planAux.Precio = (decimal)datos.lector["Precio"];
+                planAux.Nombre = (string)datos.lector["NombrePlan"];
                 aux.Plan = planAux;
 
                 // Datos Domicilio

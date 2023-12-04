@@ -17,12 +17,13 @@ namespace Negocio
 
             try
             {
-                datos.setConsulta("select IdPlan,CantidadMegas,Precio from TPlan");
+                datos.setConsulta("select IdPlan,Nombre,CantidadMegas,Precio from TPlan");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
                     TPlan aux = new TPlan();
                     aux.IdPlan = (int)datos.Lector["IdPlan"];
+                    aux.Nombre = (String)datos.Lector["Nombre"];
                     aux.CantidadMegas = (int)datos.Lector["CantidadMegas"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
 
@@ -46,11 +47,12 @@ namespace Negocio
             int idplan = -1;
             int cantidadMegas = nuevo.CantidadMegas;
             decimal precio = nuevo.Precio;
+            string nombre = nuevo.Nombre;
              
             AccesoDatos db = new AccesoDatos();
             try
             {
-                db.setConsulta($"insert into TPlan(CantidadMegas,Precio) VALUES({cantidadMegas},{precio});" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID;");
+                db.setConsulta($"insert into TPlan(Nombre,CantidadMegas,Precio) VALUES({nombre},{cantidadMegas},{precio});" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID;");
                 db.ejecutarLectura();
 
                 if (db.Lector.Read())
@@ -71,10 +73,10 @@ namespace Negocio
 
         }
 
-        public int modificar(int cantMegas, int idPlan,decimal precio)
+        public int modificar(int cantMegas, int idPlan,decimal precio, string Nombre)
         {
             AccesoDatos db = new AccesoDatos();
-            string query = "UPDATE TPlan set CantidadMegas = @cantMegas,Precio = @precio where IdPlan = @idPlan";
+            string query = "UPDATE TPlan set CantidadMegas = @cantMegas,Precio = @precio, Nombre = @Nombre where IdPlan = @idPlan";
             int rowsAffected = 0;
             try
             {
@@ -82,6 +84,7 @@ namespace Negocio
                 db.setearParametro("@cantMegas", cantMegas);
                 db.setearParametro("@idPlan", idPlan);
                 db.setearParametro("@precio", precio);
+                db.setearParametro("@Nombre", Nombre);
                 rowsAffected = db.ejecutarAccion();
                 return rowsAffected;
             }

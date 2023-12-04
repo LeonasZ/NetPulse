@@ -9,6 +9,7 @@ namespace Dominio
     public class TPlan
     {
         public int IdPlan { get; set; }
+        public string Nombre { get; set; }
         public int CantidadMegas { get; set; }
         public decimal Precio { get; set; }
     }

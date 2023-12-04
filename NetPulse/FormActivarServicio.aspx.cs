@@ -15,8 +15,24 @@ namespace NetPulse
         {
             int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
             ServicioNegocio servicioNegocio = new ServicioNegocio();
-            dgvServicio.DataSource = servicioNegocio.buscarServicio(IdServicio);
-            dgvServicio.DataBind();
+            List < Servicio > listaServicios = servicioNegocio.buscarServicio(IdServicio); ;
+
+            List<Cliente> ListaClientes = new List<Cliente>();
+            List<Domicilio> domicilio = new List<Domicilio>();
+            List<TPlan> plan = new List<TPlan>();
+            ListaClientes.Add( listaServicios[0].Cliente);
+            domicilio.Add(listaServicios[0].Domicilio);
+            plan.Add(listaServicios[0].Plan);
+
+            dgvDatosCliente.DataSource = ListaClientes;
+            dgvDatosCliente.DataBind();
+
+            DgvDomicilio.DataSource = domicilio;
+            DgvDomicilio.DataBind();
+
+            DgvPlan.DataSource = plan;
+            DgvPlan.DataBind();
+            
 
         }
 

@@ -15,13 +15,31 @@ namespace NetPulse
     {
 
         /// <summary>
-        /// dgvServicio control.
+        /// dgvDatosCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvServicio;
+        protected global::System.Web.UI.WebControls.GridView dgvDatosCliente;
+
+        /// <summary>
+        /// DgvDomicilio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView DgvDomicilio;
+
+        /// <summary>
+        /// DgvPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView DgvPlan;
 
         /// <summary>
         /// Button1 control.
