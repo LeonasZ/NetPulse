@@ -15,22 +15,85 @@ namespace NetPulse
     {
 
         /// <summary>
-        /// dgvListaMantenimientosPendientes control.
+        /// BuscarMantenimiento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvListaMantenimientosPendientes;
+        protected global::System.Web.UI.WebControls.Label BuscarMantenimiento;
 
         /// <summary>
-        /// dgvListaMantenimientosRealizados control.
+        /// inputIdServicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvListaMantenimientosRealizados;
+        protected global::System.Web.UI.WebControls.TextBox inputIdServicio;
+
+        /// <summary>
+        /// btnBuscarDni control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarDni;
+
+        /// <summary>
+        /// LabelServicioEncontrado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelServicioEncontrado;
+
+        /// <summary>
+        /// dgvInstalacionesPendientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvInstalacionesPendientes;
+
+        /// <summary>
+        /// dgvMantenimientosAltaPrioridad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvMantenimientosAltaPrioridad;
+
+        /// <summary>
+        /// DgvMantenimientosPendientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView DgvMantenimientosPendientes;
+
+        /// <summary>
+        /// DgvDesinstalacionesPendientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView DgvDesinstalacionesPendientes;
+
+        /// <summary>
+        /// DgvMantenimientosRealizados control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView DgvMantenimientosRealizados;
 
         /// <summary>
         /// BtnAgendarMantenimiento control.
