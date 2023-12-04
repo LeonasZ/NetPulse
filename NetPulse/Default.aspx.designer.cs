@@ -42,6 +42,15 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Button btnBuscarDni;
 
         /// <summary>
+        /// btnAgregarNuevo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarNuevo;
+
+        /// <summary>
         /// LabelEstado control.
         /// </summary>
         /// <remarks>
@@ -69,15 +78,6 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.GridView dgvUsuarioEncontrado;
 
         /// <summary>
-        /// btnAgregarNuevo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarNuevo;
-
-        /// <summary>
         /// dgvListaClientesInactivos control.
         /// </summary>
         /// <remarks>
@@ -85,6 +85,15 @@ namespace NetPulse
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvListaClientesInactivos;
+
+        /// <summary>
+        /// lblClientesSinServicios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblClientesSinServicios;
 
         /// <summary>
         /// dgvListaClientes control.

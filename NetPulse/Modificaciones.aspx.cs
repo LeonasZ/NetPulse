@@ -27,7 +27,7 @@ namespace NetPulse
                 {
                     foreach (var item in plans)
                     {
-                        DDLPlanes.Items.Add(item.IdPlan.ToString());
+                        DDLPlanes.Items.Add(item.Nombre.ToString());
                     }
                     foreach (var item in formaPagos)
                     {

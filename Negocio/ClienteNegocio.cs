@@ -123,6 +123,42 @@ namespace Negocio
             }
         }
 
+        public void modificarCliente(int idcliente,Cliente cliente)
+        {
+           
+            AccesoDatos datos = new AccesoDatos();
+           
+            string nombre = cliente.Nombre;
+            string telefono = cliente.Telefono;
+            string mail = cliente.Mail;
+            string dni = cliente.Dni;
+            DateTime fechaalta = cliente.FechaAlta;
+            bool activo = cliente.Activo;
+            try
+            {
+                datos.setConsulta("update Cliente set Nombre = @Nombre, Telefono=@Telefono, Mail=@Mail, Dni = @Dni, FechaAlta = @FechaAlta, Activo = @Activo where IdCliente = @IdCliente");
+                datos.setearParametro("@IdCliente", idcliente);
+                datos.setearParametro("@Nombre", nombre);
+                datos.setearParametro("@Telefono", telefono);
+                datos.setearParametro("@Mail", mail);
+                datos.setearParametro("@Dni", dni);
+                datos.setearParametro("@FechaAlta", fechaalta);
+                datos.setearParametro("@Activo", activo);
+                datos.ejecutarAccion();
+
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public List<Cliente> buscarCliente(int IdCliente)
         {
             List<Cliente> lista = new List<Cliente>();

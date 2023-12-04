@@ -60,7 +60,7 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
-        /// ModificarCliente control.
+        /// Modificar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

@@ -15,7 +15,7 @@ namespace NetPulse
         {
             ServicioNegocio servicioNegocio = new ServicioNegocio();
             List<Servicio> listaServicios;
-            List<Servicio> listaInactivos = new List<Servicio>();
+            
             List<Servicio> listaInhabilitados = new List<Servicio>();
             listaServicios = servicioNegocio.listarServicios();
             foreach (var item in listaServicios)
@@ -24,15 +24,10 @@ namespace NetPulse
                 {
                     listaInhabilitados.Add(item);
                 }
-                if (item.Estado.Id == 5)
-                {
-                    listaInactivos.Add(item);
-                }
             }
             dgvListaDeudores.DataSource = listaInhabilitados;
             dgvListaDeudores.DataBind();
-            DgvListaInactivos.DataSource = listaInactivos;
-            DgvListaInactivos.DataBind();
+
         }
 
         protected void btnBuscarDni_Click(object sender, EventArgs e)

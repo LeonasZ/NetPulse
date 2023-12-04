@@ -33,19 +33,5 @@
             </Columns>
         </asp:GridView>
     </div>
-    <div style="margin: 20px">
-        <h3>Lista de Servicios Inactivos</h3>
-        <asp:GridView ID="DgvListaInactivos" runat="server" CssClass="table table-bordered table-responsive table-danger" AutoGenerateColumns="false" BorderColor="Red">
-            <Columns>
-                <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
-                <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombre" />
-                <asp:BoundField HeaderText="FormaPago" DataField="AbonoMensual.FormaPago.Nombre" />
-                <asp:BoundField HeaderText="CantMegas" DataField="Plan.CantidadMegas" />
-                <asp:BoundField HeaderText="Direccion" DataField="Domicilio.Direccion" />
-                <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
-                <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
-                <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
-            </Columns>
-        </asp:GridView>
-    </div>
+
 </asp:Content>

@@ -16,48 +16,40 @@ namespace NetPulse
             int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
             ClienteNegocio negocio = new ClienteNegocio();
             List<Cliente> lista = negocio.buscarCliente(IdCliente);
-            inputName.Text = lista[0].Nombre.ToString();
-            inputDNI.Text = lista[0].Dni.ToString();
-            inputEmail.Text = lista[0].Mail.ToString();
-            inputTelefono.Text = lista[0].Telefono.ToString();
+            if (!IsPostBack)
+            {
+                inputName.Text = lista[0].Nombre.ToString();
+                inputDNI.Text = lista[0].Dni.ToString();
+                inputEmail.Text = lista[0].Mail.ToString();
+                inputTelefono.Text = lista[0].Telefono.ToString();
+                Calendar1.SelectedDate = lista[0].FechaAlta;
+            }
             
-        }
-
-        protected void agregarCliente_Click(object sender, EventArgs e)
-        {
-            /*Capturar datos de el form*/
-            ClienteNegocio negocio = new ClienteNegocio();
-            Cliente cliente = new Cliente();
-
-            cliente.Nombre = inputName.Text;
-            cliente.Telefono = inputTelefono.Text;
-            cliente.Dni = inputDNI.Text;
-            cliente.Activo = false;
-            cliente.Mail = inputEmail.Text;
-            cliente.FechaAlta = Calendar1.SelectedDate;
-
-            cliente.IdCliente = negocio.agregarCliente(cliente);
-
-            /*Agregar a Clientes*/
-
-            //if (cliente.IdCliente != -1)
-            //{
-            //    lblclienteAgregado.Text = "El Cliente " + cliente.Nombre +" fue agregado exitosamente";
-            //}
-            //else
-            //{
-            //    lblclienteAgregado.Text = "Se produjo un error";
-            //}
-
-
-
-            Response.Redirect("Default.aspx");
         }
 
         protected void Cancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx");
 
+        }
+
+        protected void Modificar_Click(object sender, EventArgs e)
+        {
+            /*Capturar datos de el form*/
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            ClienteNegocio negocio = new ClienteNegocio();
+            Cliente cliente = new Cliente();
+
+            cliente.Nombre = inputName.Text;
+            cliente.Telefono = inputTelefono.Text;
+            cliente.Dni = inputDNI.Text;
+            cliente.Activo = true;
+            cliente.Mail = inputEmail.Text;
+            cliente.FechaAlta = Calendar1.SelectedDate;
+
+            negocio.modificarCliente(IdCliente,cliente);
+
+            Response.Redirect("Default.aspx");
         }
     }
 }

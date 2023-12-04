@@ -10,7 +10,7 @@
 
         <div class="col-md-6">
             <label for="inputName" class="form-label">Nombre</label>
-            <asp:TextBox type="text" class="form-control" ID="inputName" placeholder="Nombre, Apellido" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="inputName" placeholder="Nombre, Apellido" runat="server" ></asp:TextBox>
         </div>
 
         <div class="col-md-6">
@@ -25,7 +25,7 @@
 
         <div class="col-6">
             <label for="inputDNI" class="form-label">DNI</label>
-            <asp:TextBox type="text" class="form-control" ID="inputDNI" placeholder="XX-XXX-XXX" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="inputDNI" placeholder="XX-XXX-XXX" runat="server" ></asp:TextBox>
         </div>
 
         <div class="col-md-6">
@@ -35,7 +35,7 @@
 
         <div class="col-12">
 
-            <asp:Button ID="Modificar" runat="server" Text="Crear" type="submit" class="btn btn-primary" OnClick="agregarCliente_Click" />
+            <asp:Button ID="Modificar" runat="server" Text="Modificar" type="submit" class="btn btn-primary" OnClick="Modificar_Click" />
             <asp:Button ID="Cancelar" runat="server" Text="Cancelar" type="button" class="btn btn-warning" OnClick="Cancelar_Click" />
 
         </div>

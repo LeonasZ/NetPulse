@@ -19,29 +19,20 @@ namespace NetPulse
             dgvListaClientes.DataBind();
 
             ServicioNegocio servicioNegocio = new ServicioNegocio();
-            dgvListaClientesInactivos.DataSource = servicioNegocio.listarClientesSinServicios();
-            dgvListaClientesInactivos.DataBind();
-
-        }
-
-        protected void GridViedgvListaClientes_rowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            List<Cliente> listaSinServicios = servicioNegocio.listarClientesSinServicios();
+            if(listaSinServicios.Count > 0)
             {
-                // Obtener el valor del campo bool
-                bool valor = Convert.ToBoolean(DataBinder.Eval(e.Row.DataItem, "Activo"));
-
-                // Modificar el valor del campo si es true
-                if (valor)
-                {
-                    e.Row.Cells[5].Text = "Instalado";
-                }
-                else
-                {
-                    e.Row.Cells[5].Text = "Usuario Nuevo o Pendiente a Baja";
-                }
+                dgvListaClientesInactivos.DataSource = listaSinServicios;
+                dgvListaClientesInactivos.DataBind();
             }
+            if(listaSinServicios.Count == 0)
+            {
+                lblClientesSinServicios.Visible = true;
+            }
+
         }
+
+        
         protected void dgvListaClientes_rowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -127,7 +118,7 @@ namespace NetPulse
 
             if (e.CommandName == "AgregarServicio_onClick")
             {
-                Response.Redirect("Servicios.aspx");
+                Response.Redirect("ActivarServicio.aspx");
             }
 
             if (e.CommandName == "Historial_onClick")
