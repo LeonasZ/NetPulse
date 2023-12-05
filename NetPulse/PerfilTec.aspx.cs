@@ -17,20 +17,24 @@ namespace NetPulse
                 Response.Redirect("~/Login.aspx");
             }
 
-            string Usuario = Session["NombreUsuario"].ToString();
+            try
+            {
+                string Usuario = Session["NombreUsuario"].ToString();
+                PerfilNegocio perfilNegocio = new PerfilNegocio();
 
-            //lblUsuarioTec.Text = Session["NombreUsuario"].ToString();
-
-            PerfilNegocio perfilNegocio = new PerfilNegocio();
-            dgvPerfilTec.DataSource = perfilNegocio.ObtenerPerfil(Usuario);
-
-            dgvPerfilTec.AutoGenerateColumns = false;
-            dgvPerfilTec.Columns.Clear();
-            dgvPerfilTec.Columns.Add(new BoundField { DataField = "IdUsuario", HeaderText = "ID Usuario" });
-            dgvPerfilTec.Columns.Add(new BoundField { DataField = "Nombre", HeaderText = "Nombre" });
-            dgvPerfilTec.Columns.Add(new BoundField { DataField = "Usuario", HeaderText = "Usuario" });
-            dgvPerfilTec.Columns.Add(new BoundField { DataField = "TipoUsuario", HeaderText = "Tipo de Usuario" });
-            dgvPerfilTec.DataBind();
+                Dominio.Perfil perfil = new Dominio.Perfil();
+                perfil = perfilNegocio.ObtenerPerfil(Usuario);
+                lblNombre.Text = perfil.Nombre;
+                lblApellido.Text = perfil.Apellido;
+                lblUsuario.Text = perfil.Usuario;
+                lblMail.Text = perfil.Mail;
+                lblTelefono.Text = perfil.Telefono;
+                lblTipo.Text = perfil.TipoUsuario;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }
