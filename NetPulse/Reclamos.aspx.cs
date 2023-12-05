@@ -13,16 +13,23 @@ namespace NetPulse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+            
             TecnicoNegocio tecnicoNegocio = new TecnicoNegocio();
             List<Tecnico> listaTecnicos = tecnicoNegocio.listarTecnicos();
+            TipoMantenimientoNegocio tipoNegocio = new TipoMantenimientoNegocio();
+            List<TipoMantenimiento> listaTipos = tipoNegocio.listar();
             int cant = 0;
             string aux;
             if (!IsPostBack)
             {
-                DDLPrioridad.Items.Add("Baja");
-                DDLPrioridad.Items.Add("Media"); 
-                DDLPrioridad.Items.Add("Alta");
+                foreach (var item in listaTipos)
+                {
+                    if(item.Nombre != "Instalacion")
+                    {
+                        DDLPrioridad.Items.Add(item.Nombre);
+                    }
+                }
+  
                 foreach (var item in listaTecnicos)
                 {
                     aux = "";
@@ -49,15 +56,38 @@ namespace NetPulse
 
         protected void btnReclamo_Click(object sender, EventArgs e)
         {
-            Mantenimiento mantenimiento = new Mantenimiento();
-            mantenimiento.Descripcion = inputReclamos.Text;
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
 
+            Mantenimiento mantenimiento = new Mantenimiento();
+
+            mantenimiento.IdServicio = IdServicio;
+
+            mantenimiento.Fecha = System.DateTime.Today;
+            mantenimiento.FechaRealizado = System.DateTime.Today;
+            mantenimiento.Descripcion = inputReclamos.Text;
+            mantenimiento.Comentarios = "";
+
+            mantenimiento.EstadoRealizacion = false;
             TecnicoNegocio tecnicoNegocio = new TecnicoNegocio();
 
             //Buscar Tecnico
-            mantenimiento.Tecnico = tecnicoNegocio.buscarPorNombre(DDLTecnicos.SelectedValue);
+            mantenimiento.Tecnico = tecnicoNegocio.buscarPorId(DDLTecnicos.SelectedIndex+1);
             // Buscar Tipo Mantenimiento
-            mantenimiento.TipoMantenimiento.IdTipoMantenimiento = DDLPrioridad.SelectedIndex;
+            TipoMantenimientoNegocio TMNegocio = new TipoMantenimientoNegocio();
+
+            mantenimiento.TipoMantenimiento = TMNegocio.buscarPorNombre( DDLPrioridad.SelectedValue);
+
+            // Agendo Mantenimiento
+            MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
+            mantenimientoNegocio.agregarMantenimiento(mantenimiento);
+            lblSuccess.Visible = true;
+            
+            //Response.Redirect("Reclamos.aspx");
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarServicio.aspx");
         }
     }
 }

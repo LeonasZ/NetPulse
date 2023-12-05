@@ -33,11 +33,14 @@
         </asp:GridView>
     </div>
 
-    <div style="margin:20px" >
+    <div style="margin: 20px">
         <asp:Button ID="btnActivarServicio" runat="server" type="submit" class="btn btn-success" Text="Aceptar" OnClick="btnActivarServicio_Click" />
         <asp:Button ID="btnModificarServicio" runat="server" type="submit" class="btn btn-warning" Text="Modificar" OnClick="btnModificarServicio_Click" />
-        <asp:Button ID="btnCancelar" runat="server" type="submit" class="btn btn-danger" Text="Cancelar" OnClick="btnCancelar_Click" />
+        <asp:Button ID="btnCancelar" runat="server" type="submit" class="btn btn-primary" Text="Volver" OnClick="btnCancelar_Click" />
     </div>
 
-
+    <div style="margin:20px">
+        <asp:Label ID="lblServicioActivo" ForeColor="Green" runat="server" Text="Servicio Activado con Exito, " Visible="false"></asp:Label>
+        <asp:Label ID="lblInstalacion" ForeColor="Green" runat="server" Text="Se Agendo un Mantenimiento de Tipo Instalacion" Visible="false"></asp:Label>
+    </div>
 </asp:Content>

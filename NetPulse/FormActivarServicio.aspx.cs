@@ -43,8 +43,11 @@ namespace NetPulse
             List<Servicio> listaServicios = servicioNegocio.buscarServicio(IdServicio);
 
             servicioNegocio.EditarEstado(IdServicio, 2);
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Se Genero un pedido de Instalacion para el Servicio Solicitado" + "');", true);
-            Response.Redirect("GestionEstados.aspx");
+
+            lblServicioActivo.Visible = true;
+            lblInstalacion.Visible = true;
+            
+            
         }
 
         protected void btnModificarServicio_Click(object sender, EventArgs e)

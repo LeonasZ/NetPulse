@@ -36,7 +36,11 @@
     </div>
     <%} %>
     <asp:Button ID="btnReclamos" Style="margin: 20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Finalizar" OnClick="btnReclamo_Click" />
-
+    <asp:Button ID="btnVolver" type="submit" CssClass="btn btn-primary" runat="server" Text="Volver" OnClick="btnVolver_Click" />
+    <div style="margin:20px">
+        <asp:Label ID="lblSuccess" runat="server" Visible="false" ForeColor="Green" Text="Mantenimiento Agregado con exito"></asp:Label>
+    </div>
+    
     <div style="margin: 40px 20px">
         <h3>Historial de Reclamos</h3>
     </div>
