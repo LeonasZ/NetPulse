@@ -23,6 +23,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="form-title">Perfil</div>
+        <div style="text-align: center;">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagen/Admin.jpg" style="display: block; margin-left: auto; margin-right: auto;" />
+        </div>
         <asp:Label runat="server" Text="Nombre"></asp:Label>
         <asp:TextBox ID="lblNombre" runat="server" CssClass="text-field" Enabled="false"></asp:TextBox>
         <asp:Label runat="server" Text="Apellido"></asp:Label>
