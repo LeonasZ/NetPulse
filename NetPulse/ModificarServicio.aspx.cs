@@ -36,5 +36,10 @@ namespace NetPulse
         {
             Response.Redirect("Modificaciones.aspx?Id=" + 4);
         }
+        protected void btnAgendarMantenimiento_Click(object sender, EventArgs e)
+        {
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+            Response.Redirect("Reclamos.aspx?IdServicio=" + IdServicio);
+        }
     }
 }

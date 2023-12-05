@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -98,6 +99,31 @@ namespace Negocio
                 throw ex;
             }
             finally { db.cerrarConexion(); }
+        }
+
+        public int cantMantenimientosPendientes (int IdTecnico)
+        {
+            AccesoDatos db = new AccesoDatos();
+            int cantMantPendientes = 0;
+            try
+            {
+                db.setConsulta("select COUNT(*) as CantPendientes from Mantenimiento where EstadoRealizacion = 0 and IdTecnico = @IdTecnico group by IdTecnico");
+                db.setearParametro("@IdTecnico", IdTecnico);
+                db.ejecutarLectura();
+                if (db.Lector.Read())
+                {
+                    cantMantPendientes = (int)db.lector["CantPendientes"];
+                }
+                    return cantMantPendientes;
+            }
+            catch (Exception ex)
+            {
+                return cantMantPendientes;
+                throw ex;
+            }
+            finally { db.cerrarConexion(); }
+
+            
         }
     }
 }
