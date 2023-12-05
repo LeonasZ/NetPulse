@@ -106,7 +106,67 @@ CREATE TABLE Mantenimiento(
 )
 
 Go
+GO
+create table Tipo_Cambio_Historial(
+    ID int PRIMARY KEY not null identity(1,1),
+    Descripcion varchar(50)
+)
 
+GO
+CREATE TABLE HistorialCliente(
+    ID int PRIMARY KEY not NULL identity(1,1),
+    IdCliente int not NULL,
+    Fecha DATETIME not null,
+    IdTipoCambio int not null,
+    FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
+    FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID),
+
+)
+CREATE TABLE HistorialServicio(
+    ID int PRIMARY KEY not NULL identity(1,1),
+    IdCliente int not NULL,
+    IdServicio int not null,
+    Fecha DATETIME not null,
+    IdTipoCambio int not null,
+    FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
+    FOREIGN KEY (IdServicio) REFERENCES Servicio (IdServicio),
+    FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID),
+
+)
+insert into Tipo_Cambio_Historial(Descripcion)
+VALUES
+    ('Alta'),
+    ('Instalacion'),
+	('Modificacion de datos'),
+	('Cambio de plan'),
+	('Cambio de Forma de Pago'),
+	('Cambio de estado de servicio'),
+	('Reclamo'),
+    ('Mantenimiento Realizado'),
+    ('Desinstalacion'),
+	('Baja')
+	
+Go
+insert into HistorialServicio(IdServicio,IdCliente,Fecha,IdTipoCambio)
+Values
+(1,1,'2023-11-05',1),
+(1,1,'2023-11-10',2),
+(1,1,'2023-11-11',4),
+(1,1,'2023-11-18',6),
+(1,1,'2023-11-20',7),
+(1,1,'2023-11-22',8),
+(1,1,'2023-11-24',7),
+(1,1,'2023-11-25',8),
+(1,1,'2023-11-30',9),
+(1,1,'2023-12-02',10)
+
+Go
+insert into HistorialCliente(IdCliente,Fecha,IdTipoCambio)
+Values
+(1,'2023-11-05',1),
+(2,'2023-10-15',3),
+(2,'2023-10-15',1),
+(1,'2023-12-02',10)
 
 INSERT INTO ESTADO_SERVICIO (DESCRIPCION) 
 VALUES 

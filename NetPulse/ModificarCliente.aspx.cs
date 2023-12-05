@@ -29,7 +29,9 @@ namespace NetPulse
 
         protected void Cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+
+            Response.Redirect("DetalleCliente.aspx?IdCliente=" + IdCliente);
 
         }
 
@@ -49,7 +51,8 @@ namespace NetPulse
 
             negocio.modificarCliente(IdCliente,cliente);
 
-            Response.Redirect("Default.aspx");
+            Response.Redirect("DetalleCliente.aspx?IdCliente=" + IdCliente);
+
         }
     }
 }

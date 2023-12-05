@@ -46,11 +46,14 @@
     <Compile Include="Domicilio.cs" />
     <Compile Include="EstadoServicio.cs" />
     <Compile Include="FormaPago.cs" />
+    <Compile Include="HistorialCliente.cs" />
+    <Compile Include="HistorialServicio.cs" />
     <Compile Include="Mantenimiento.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicio.cs" />
     <Compile Include="Tecnico.cs" />
+    <Compile Include="TipoCambioHistorial.cs" />
     <Compile Include="TipoMantenimiento.cs" />
     <Compile Include="TPlan.cs" />
   </ItemGroup>

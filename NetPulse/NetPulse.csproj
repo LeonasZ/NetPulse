@@ -75,6 +75,7 @@
     <Content Include="AgregarTecnico.aspx" />
     <Content Include="AltaServicio.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DetalleCliente.aspx" />
     <Content Include="FinalizarMantenimiento.aspx" />
     <Content Include="FormActivarServicio.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
@@ -153,6 +154,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleCliente.aspx.cs">
+      <DependentUpon>DetalleCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleCliente.aspx.designer.cs">
+      <DependentUpon>DetalleCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="FinalizarMantenimiento.aspx.cs">
       <DependentUpon>FinalizarMantenimiento.aspx</DependentUpon>

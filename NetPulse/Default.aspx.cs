@@ -49,7 +49,9 @@ namespace NetPulse
                 {
                     //e.Row.Cells[5].Text = "Usuario Nuevo o Pendiente a Baja";
                 }
+
             }
+            
         }
 
         protected void btnBuscarDni_Click(object sender, EventArgs e)
@@ -109,30 +111,17 @@ namespace NetPulse
 
             string IdCliente = row.Cells[0].Text;
 
-
-            if (e.CommandName == "Modificar_onClick")
-            {
-                Response.Redirect("ModificarCliente.aspx?IdCliente=" + IdCliente);
-
-            }
-
             if (e.CommandName == "AgregarServicio_onClick")
             {
                 Response.Redirect("ActivarServicio.aspx");
             }
 
-            if (e.CommandName == "Historial_onClick")
+            if (e.CommandName == "Detalle_onClick")
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Implementacion no Encontrada" + "');", true);
-
+                Response.Redirect("DetalleCliente.aspx?IdCliente=" + IdCliente);
 
             }
-            /*
-            if (e.CommandName == "Historial_onClick")
-            {
-                Response.Redirect("HistorialMantenimientos.aspx?IdServicio=" + IdServicio);
-                //Falta Implementacion
-            }*/
+            
 
         }
 

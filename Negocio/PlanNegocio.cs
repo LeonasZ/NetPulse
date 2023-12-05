@@ -23,7 +23,7 @@ namespace Negocio
                 {
                     TPlan aux = new TPlan();
                     aux.IdPlan = (int)datos.Lector["IdPlan"];
-                    aux.Nombre = (String)datos.Lector["Nombre"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.CantidadMegas = (int)datos.Lector["CantidadMegas"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
 

@@ -33,7 +33,7 @@
             {
 
         %>
-        <asp:GridView ID="dgvUsuarioEncontrado" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesActivos_RowCommand">
+        <asp:GridView ID="dgvUsuarioEncontrado" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesActivos_RowCommand">
 
             <Columns>
                 <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
@@ -44,8 +44,7 @@
                 <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
                
                 <asp:ButtonField HeaderText="Agregar Servicio" Text="Agregar" ButtonType="Link" CommandName="AgregarServicio_onClick" />
-                <asp:ButtonField HeaderText="Historial de Modificaciones" Text="Ver" ButtonType="Link" CommandName="Historial_onClick" />
-                <asp:ButtonField HeaderText="Modificaciones" Text="Modificar" ButtonType="Link" CommandName="Modificar_onClick" />
+                <asp:ButtonField HeaderText="Detalle Cliente" Text="Ver" ButtonType="Link" CommandName="Detalle_onClick" />
             </Columns>
 
         </asp:GridView>
@@ -81,6 +80,7 @@
                <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
                <asp:BoundField HeaderText="Mail" DataField="Mail" />
                <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
+
       
            </Columns>
        </asp:GridView>
