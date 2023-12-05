@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .container {
-            margin: 20px;
+            margin: 20px auto;
         }
         .form-title {
             text-align: center;
@@ -35,7 +35,6 @@
         <asp:TextBox ID="lblTelefono" runat="server" CssClass="text-field" Enabled="false"></asp:TextBox>
         <asp:Label runat="server" Text="Tipo Usuario"></asp:Label>
         <asp:TextBox ID="lblTipo" runat="server" CssClass="text-field" Enabled="false"></asp:TextBox>
-
     </div>
 </asp:Content>
 
