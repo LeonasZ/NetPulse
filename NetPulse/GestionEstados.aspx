@@ -21,6 +21,7 @@
                 <asp:ButtonField HeaderText="Activar" ButtonType="Link" Text="Activar" CommandName="btnActivar_OnClick" />
             </Columns>
         </asp:GridView>
+       
     </div>
     <div style="margin: 40px 20px">
         <h3>Servicios pendientes a Mantenimientos</h3>

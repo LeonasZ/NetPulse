@@ -24,6 +24,24 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.TextBox inputReclamos;
 
         /// <summary>
+        /// cbxResolucionTelefonica control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbxResolucionTelefonica;
+
+        /// <summary>
+        /// lblResolucionTelefonica control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResolucionTelefonica;
+
+        /// <summary>
         /// cbxMantenimiento control.
         /// </summary>
         /// <remarks>
@@ -42,6 +60,33 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Label lblMantenimiento;
 
         /// <summary>
+        /// lblEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstado;
+
+        /// <summary>
+        /// DDLPrioridad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLPrioridad;
+
+        /// <summary>
+        /// DDLTecnicos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLTecnicos;
+
+        /// <summary>
         /// btnReclamos control.
         /// </summary>
         /// <remarks>
@@ -49,6 +94,24 @@ namespace NetPulse
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReclamos;
+
+        /// <summary>
+        /// btnVolver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVolver;
+
+        /// <summary>
+        /// lblSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuccess;
 
         /// <summary>
         /// Label1 control.

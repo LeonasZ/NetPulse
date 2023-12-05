@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Resolvers;
 
 namespace NetPulse
 {
@@ -39,12 +40,37 @@ namespace NetPulse
         protected void btnActivarServicio_Click(object sender, EventArgs e)
         {
             int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
-            ServicioNegocio servicioNegocio = new ServicioNegocio();
-            List<Servicio> listaServicios = servicioNegocio.buscarServicio(IdServicio);
 
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+            TecnicoNegocio tecnicoNegocio = new TecnicoNegocio();
+            MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
+            TipoMantenimientoNegocio tipoMantenimientoNegocio = new TipoMantenimientoNegocio();
+
+            List<Servicio> servicio = servicioNegocio.buscarServicio(IdServicio);
+
+            //Edito el estado de servicio
             servicioNegocio.EditarEstado(IdServicio, 2);
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Se Genero un pedido de Instalacion para el Servicio Solicitado" + "');", true);
-            Response.Redirect("GestionEstados.aspx");
+
+            // Agendo mantenimiento de tipo instalacion
+          
+            Mantenimiento mantenimiento = new Mantenimiento();
+
+            // datos del mantenimiento
+            mantenimiento.TipoMantenimiento = tipoMantenimientoNegocio.buscarPorNombre("Instalacion");
+            Tecnico tecnico = tecnicoNegocio.buscarPorId(tecnicoNegocio.TecnicoLibre());
+            mantenimiento.Tecnico = tecnico;
+            mantenimiento.IdServicio = IdServicio;
+            mantenimiento.Fecha = System.DateTime.Today;
+            mantenimiento.FechaRealizado = System.DateTime.Today;
+            mantenimiento.Descripcion = "Instalacion";
+            mantenimiento.Comentarios = "";
+            mantenimiento.EstadoRealizacion = false;
+
+            mantenimientoNegocio.agregarMantenimiento(mantenimiento);
+
+            lblServicioActivo.Visible = true;
+            lblInstalacion.Visible = true;
+            lblInstalacion.Text += "Con el tecnico : " + tecnico.Nombre;        
         }
 
         protected void btnModificarServicio_Click(object sender, EventArgs e)

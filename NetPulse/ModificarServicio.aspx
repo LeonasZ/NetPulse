@@ -8,19 +8,22 @@
         <h3>Modificar Servicios</h3>
     </div>
 
-    <div class="col-3" style="margin: 20px 20px;display:block">
+    <div class="col-3" style="margin: 20px 20px; display: block">
         <asp:Button ID="ModificarDireccion" runat="server" Text="Modificar Direccion" type="submit" CssClass="btn btn-primary" OnClick="ModificarDireccion_Click" />
     </div>
-    <div class="col-3" style="margin: 20px 20px;display:block">
+    <div class="col-3" style="margin: 20px 20px; display: block">
         <asp:Button ID="ModificarPlan" runat="server" Text="Modificar Plan" type="submit" CssClass="btn btn-primary" OnClick="ModificarPlan_Click" />
     </div>
-    <div class="col-3" style="margin: 20px 20px;display:block">
+    <div class="col-3" style="margin: 20px 20px; display: block">
         <asp:Button ID="ModificarFormaDePago" runat="server" Text="Modificar Forma de Pago" type="submit" CssClass="btn btn-primary" OnClick="ModificarFormaDePago_Click" />
     </div>
-    <div class="col-3" style="margin: 20px 20px;display:block">
+    <div class="col-3" style="margin: 20px 20px; display: block">
         <asp:Button ID="DardeBaja" runat="server" Text="Baja del Servicio" type="submit" CssClass="btn btn-primary" OnClick="DardeBaja_Click" />
     </div>
-    
+    <div class="col-3" style="margin: 20px 20px; display: block">
+        <asp:Button ID="btnAgendarMantenimiento" runat="server" Text="Registrar Reclamo" type="submit" CssClass="btn btn-primary" Enabled="true" OnClick="btnAgendarMantenimiento_Click" />
+    </div>
+
     <asp:Label ID="Label1" runat="server" Text="Crear Dgv Historial de modificaciones. Para eso 
         crear una nueva tabla en db con las modificaciones"></asp:Label>
 </asp:Content>
