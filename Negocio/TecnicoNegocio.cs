@@ -155,8 +155,30 @@ namespace Negocio
                 throw ex;
             }
             finally { db.cerrarConexion(); }
+         
+        }
 
-            
+        public int TecnicoLibre()
+        {
+            AccesoDatos db = new AccesoDatos();
+            int tecnico = 0;
+            try
+            {
+                db.setConsulta("select top(1) IdTecnico, COUNT(*) as CantPendientes from Mantenimiento where EstadoRealizacion = 0 group by IdTecnico");
+                
+                db.ejecutarLectura();
+                if (db.Lector.Read())
+                {
+                    tecnico = (int)db.lector["IdTecnico"];
+                }
+                return tecnico;
+            }
+            catch (Exception ex)
+            {
+                return tecnico;
+                throw ex;
+            }
+            finally { db.cerrarConexion(); }
         }
     }
 }
