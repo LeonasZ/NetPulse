@@ -125,5 +125,18 @@ namespace NetPulse
 
         }
 
+        protected void dgvListaClientesInactivos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvListaClientesInactivos.Rows[rowIndex];
+
+            string IdCliente = row.Cells[0].Text;
+
+            if (e.CommandName == "Detalle_onClick")
+            {
+                Response.Redirect("DetalleCliente.aspx?IdCliente=" + IdCliente);
+
+            }
+        }
     }
 }

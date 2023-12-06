@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Services.Description;
@@ -57,6 +58,7 @@ namespace NetPulse
         protected void btnDireccion_Click(object sender, EventArgs e)
         {
             int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+
             Domicilio domicilio = new Domicilio();
             DomicilioNegocio DomNegocio = new DomicilioNegocio();
             ServicioNegocio servicioNegocio = new ServicioNegocio();
@@ -70,6 +72,19 @@ namespace NetPulse
 
             DomNegocio.modificarDomicilio(servicio[0].Domicilio);
 
+
+            //guardo el historial de la modificacion de datos
+
+            HistorialServicio historialServicio = new HistorialServicio();
+            HistorialServicioNegocio historialServicioNegocio= new HistorialServicioNegocio();
+
+            historialServicio.Fecha = DateTime.Now;
+            historialServicio.IdServicio= IdServicio;
+            historialServicio.TipoCambio = new TipoCambioHistorial();
+            historialServicio.TipoCambio.Id = 3; //nro 3 modif datos
+
+            historialServicioNegocio.guardar(historialServicio);
+
             Response.Redirect("GestionServicio.aspx?Estado=" + 0 + "&IdServicio=" + IdServicio);
         }
 
@@ -82,6 +97,19 @@ namespace NetPulse
 
             int idPlan = int.Parse(inputIdPlan.Text.ToString());
             servicioNegocio.modificarPlan(IdServicio, idPlan);
+
+
+            //guardo el historial de la modificacion de plan
+
+            HistorialServicio historialServicio = new HistorialServicio();
+            HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
+
+            historialServicio.Fecha = DateTime.Now;
+            historialServicio.IdServicio = IdServicio;
+            historialServicio.TipoCambio = new TipoCambioHistorial();
+            historialServicio.TipoCambio.Id = 4; //nro 4 modif plan
+
+            historialServicioNegocio.guardar(historialServicio);
 
             Response.Redirect("GestionServicio.aspx?Estado=" + 0 + "&IdServicio=" + IdServicio);
         }
@@ -97,6 +125,20 @@ namespace NetPulse
 
             AbonoMensualNegocio abonoMensualNegocio = new AbonoMensualNegocio();
             abonoMensualNegocio.modificarFormaPago(servicio[0].AbonoMensual.IdAbonoMensual, IdFormaPago);
+
+
+            //guardo el historial de la modificacion de forma de pago
+
+            HistorialServicio historialServicio = new HistorialServicio();
+            HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
+
+            historialServicio.Fecha = DateTime.Now;
+            historialServicio.IdServicio = IdServicio;
+            historialServicio.TipoCambio = new TipoCambioHistorial();
+            historialServicio.TipoCambio.Id = 5; //nro 5 modif forma pago
+
+            historialServicioNegocio.guardar(historialServicio);
+
             Response.Redirect("GestionServicio.aspx?Estado=" + 0 + "&IdServicio=" + IdServicio);
         }
 
@@ -106,6 +148,20 @@ namespace NetPulse
             ServicioNegocio servicioNegocio = new ServicioNegocio();
 
             servicioNegocio.EditarEstado(IdServicio, 5);
+
+            //guardo el historial de la modificacion de plan
+
+            HistorialServicio historialServicio = new HistorialServicio();
+            HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
+
+            historialServicio.Fecha = DateTime.Now;
+            historialServicio.IdServicio = IdServicio;
+            historialServicio.TipoCambio = new TipoCambioHistorial();
+            historialServicio.TipoCambio.Id = 10; //nro 10 la baja
+
+            historialServicioNegocio.guardar(historialServicio);
+
+
             Response.Redirect("GestionEstados.aspx");
         }
     }

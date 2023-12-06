@@ -37,7 +37,7 @@
                 <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
 
-                <asp:ButtonField HeaderText="Modificar" Text="Modificar" ButtonType="Link" CommandName="Modificar_onClick" />
+                <asp:ButtonField HeaderText="Gestionar" Text="Gestionar" ButtonType="Link" CommandName="Modificar_onClick" />
             </Columns>
 
         </asp:GridView>

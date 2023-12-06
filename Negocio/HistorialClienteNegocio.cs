@@ -42,5 +42,39 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public int guardar(HistorialCliente nuevo)
+        {
+            int idhistorial = -1;
+
+            int IdCliente = nuevo.IdCliente;
+            DateTime Fecha = nuevo.Fecha;
+            int IdTipoCambio = nuevo.TipoCambio.Id;
+            string query = "insert into HistorialCliente(IdCliente,Fecha,IdTipoCambio) VALUES(@IdCliente,@Fecha,@IdTipoCambio);" + "SELECT CAST(SCOPE_IDENTITY() AS INT) AS ID;";
+            AccesoDatos db = new AccesoDatos();
+            try
+            {
+                db.setConsulta(query);
+                db.setearParametro("IdCliente", IdCliente);
+                db.setearParametro("Fecha", Fecha);
+                db.setearParametro("IdTipoCambio", IdTipoCambio);
+                db.ejecutarLectura();
+
+                if (db.Lector.Read())
+                {
+                    idhistorial = (int)db.Lector["ID"];
+                }
+
+                return idhistorial;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.cerrarConexion();
+            }
+
+        }
     }
 }

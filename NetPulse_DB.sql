@@ -124,11 +124,9 @@ CREATE TABLE HistorialCliente(
 Go
 CREATE TABLE HistorialServicio(
     ID int PRIMARY KEY not NULL identity(1,1),
-    IdCliente int not NULL,
     IdServicio int not null,
     Fecha DATETIME not null,
     IdTipoCambio int not null,
-    FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
     FOREIGN KEY (IdServicio) REFERENCES Servicio (IdServicio),
     FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID)
 )
@@ -268,18 +266,18 @@ VALUES
     (10, GETDATE(),GETDATE(), 3, 'Mantenimiento Correctivo', 2, 'Antena movida', 0);
 GO
 
-Insert into HistorialServicio(IdServicio, IdCliente, Fecha, IdTipoCambio)
+Insert into HistorialServicio(IdServicio, Fecha, IdTipoCambio)
 Values
-(1,1,'2023-11-05',1),
-(1,1,'2023-11-10',2),
-(1,1,'2023-11-11',4),
-(1,1,'2023-11-18',6),
-(1,1,'2023-11-20',7),
-(1,1,'2023-11-22',8),
-(1,1,'2023-11-24',7),
-(1,1,'2023-11-25',8),
-(1,1,'2023-11-30',9),
-(1,1,'2023-12-02',10)
+(1,'2023-11-05',1),
+(1,'2023-11-10',2),
+(1,'2023-11-11',4),
+(1,'2023-11-18',6),
+(1,'2023-11-20',7),
+(1,'2023-11-22',8),
+(1,'2023-11-24',7),
+(1,'2023-11-25',8),
+(1,'2023-11-30',9),
+(1,'2023-12-02',10)
 Go
 
 

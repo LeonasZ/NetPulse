@@ -51,6 +51,18 @@ namespace NetPulse
 
             negocio.modificarCliente(IdCliente,cliente);
 
+            //guardo el historial de modificacion del cliente 
+
+            HistorialCliente historialCliente = new HistorialCliente();
+            HistorialClienteNegocio historialClienteNegocio = new HistorialClienteNegocio();
+
+            historialCliente.Fecha = Calendar1.SelectedDate;
+            historialCliente.IdCliente = IdCliente;
+            historialCliente.TipoCambio = new TipoCambioHistorial();
+            historialCliente.TipoCambio.Id = 3; //tipo cambio nro 3 - modificacion de datos
+
+            historialClienteNegocio.guardar(historialCliente);
+
             Response.Redirect("DetalleCliente.aspx?IdCliente=" + IdCliente);
 
         }

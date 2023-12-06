@@ -9,7 +9,6 @@ namespace Dominio
     public class HistorialServicio
     {
         public int IdServicio { get; set; }
-        public int IdCliente { get; set; }
         public TipoCambioHistorial TipoCambio { get; set; }
         public DateTime Fecha { get; set; }
 

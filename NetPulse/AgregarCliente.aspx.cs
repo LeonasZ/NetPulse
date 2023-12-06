@@ -31,17 +31,17 @@ namespace NetPulse
 
             cliente.IdCliente = negocio.agregarCliente(cliente);
 
-            /*Agregar a Clientes*/
+          //guardo el historial del alta cliente 
 
-            //if (cliente.IdCliente != -1)
-            //{
-            //    lblclienteAgregado.Text = "El Cliente " + cliente.Nombre +" fue agregado exitosamente";
-            //}
-            //else
-            //{
-            //    lblclienteAgregado.Text = "Se produjo un error";
-            //}
+            HistorialCliente historialCliente = new HistorialCliente();
+            HistorialClienteNegocio historialClienteNegocio = new HistorialClienteNegocio();
 
+            historialCliente.Fecha = Calendar1.SelectedDate;
+            historialCliente.IdCliente = cliente.IdCliente;
+            historialCliente.TipoCambio = new TipoCambioHistorial();
+            historialCliente.TipoCambio.Id = 1;
+
+            historialClienteNegocio.guardar(historialCliente);
 
 
             Response.Redirect("Default.aspx");
