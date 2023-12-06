@@ -3,28 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
-
     <h1 class="display-5" style="text-align: left; margin: 20px">Administrador De Mantenimientos</h1>
-
-    <div style="margin: 60px 20px"> 
-
+    <div style="margin: 60px 20px">
         <h3>Busqueda de Mantenimientos</h3>
-   
         <asp:Label Style="margin-bottom: 10px" ID="BuscarMantenimiento" runat="server" Text="Filtrar por Id Servicio"></asp:Label>
-
         <div style="margin-bottom: 10px; margin-top: 10px" class="col-3">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">Id Servicio</label>
             <asp:TextBox ID="inputIdServicio" class="form-control" placeholder="0" runat="server"></asp:TextBox>
         </div>
-
         <div style="margin-bottom: 10px" class="col-12">
             <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" type="submit" class="btn btn-primary" OnClick="btnBuscarDni_Click" />
         </div>
-    <asp:Label Style="color: darkgray" ID="LabelServicioEncontrado" runat="server" Text=""></asp:Label>
-
-
+        <asp:Label Style="color: darkgray" ID="LabelServicioEncontrado" runat="server" Text=""></asp:Label>
     </div>
 
     <div style="margin: 60px 20px">
@@ -38,10 +28,10 @@
                 <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
                 <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />
                 <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
-
             </Columns>
         </asp:GridView>
     </div>
+
     <div style="margin: 40px 20px">
         <h3>Mantenimientos Pendientes</h3>
         <asp:GridView ID="dgvMantenimientosAltaPrioridad" runat="server" CssClass="table table-bordered table-responsive table-danger" AutoGenerateColumns="false" BorderColor="Red">
@@ -55,7 +45,6 @@
                 <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
             </Columns>
         </asp:GridView>
-
         <asp:GridView ID="DgvMantenimientosPendientes" runat="server" CssClass="table table-bordered table-responsive table-secondary" AutoGenerateColumns="false">
             <Columns>
                 <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
@@ -70,7 +59,6 @@
     </div>
 
     <div style="margin: 60px 20px">
-
         <h3>Desinstalaciones Pendientes </h3>
         <asp:GridView ID="DgvDesinstalacionesPendientes" runat="server" CssClass="table table-bordered table-responsive table-secondary" AutoGenerateColumns="false">
             <Columns>
@@ -86,7 +74,6 @@
     </div>
 
     <div style="margin: 60px 20px">
-
         <h3>Mantenimientos Realizados </h3>
         <asp:GridView ID="DgvMantenimientosRealizados" runat="server" CssClass="table table-bordered table-responsive table-success" BorderColor="Green" AutoGenerateColumns="false">
             <Columns>
@@ -101,8 +88,6 @@
             </Columns>
         </asp:GridView>
     </div>
-
-
 
     <div style="margin: 20px">
         <h3>Funcionalidades</h3>
