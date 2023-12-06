@@ -106,7 +106,7 @@ namespace NetPulse
             ServicioNegocio servicioNegocio = new ServicioNegocio();
 
             servicioNegocio.EditarEstado(IdServicio, 5);
-            Response.Redirect("AgendarMantenimiento.aspx");
+            Response.Redirect("GestionEstados.aspx");
         }
     }
 }

@@ -75,7 +75,8 @@ namespace NetPulse
 
         protected void btnModificarServicio_Click(object sender, EventArgs e)
         {
-
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+            Response.Redirect("GestionServicio.aspx?Estado=" + 1 + "&IdServicio=" + IdServicio);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
