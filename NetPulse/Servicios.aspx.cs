@@ -93,7 +93,7 @@ namespace NetPulse
 
             if (e.CommandName == "btnGestionar_OnClick")
             {
-                Response.Redirect("ModificarServicio.aspx?IdServicio=" + IdServicio);
+                Response.Redirect("GestionServicio.aspx?IdServicio=" + IdServicio);
                 //Falta Implementacion
             }
 

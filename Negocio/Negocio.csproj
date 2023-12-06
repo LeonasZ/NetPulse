@@ -47,6 +47,8 @@
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="DomicilioNegocio.cs" />
     <Compile Include="FormaPagoNegocio.cs" />
+    <Compile Include="HistorialClienteNegocio.cs" />
+    <Compile Include="HistorialServicioNegocio.cs" />
     <Compile Include="MantenimientoNegocio.cs" />
     <Compile Include="PerfilNegocio.cs" />
     <Compile Include="PlanNegocio.cs" />

@@ -22,6 +22,14 @@ namespace NetPulse
 
             dgvDatosCliente.DataSource = ListaClientes;
             dgvDatosCliente.DataBind();
+
+            List<HistorialCliente> listaHistorialCliente = new List<HistorialCliente>();
+            HistorialClienteNegocio historialClienteNegocio = new HistorialClienteNegocio();
+
+            listaHistorialCliente = historialClienteNegocio.listar(IdCliente);
+
+            dgvHistorialCliente.DataSource = listaHistorialCliente;
+            dgvHistorialCliente.DataBind();
         }
 
         protected void dgvDatosCliente_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -37,6 +45,11 @@ namespace NetPulse
                 Response.Redirect("ModificarCliente.aspx?IdCliente=" + IdCliente);
 
             }
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 }

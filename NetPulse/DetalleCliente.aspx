@@ -21,11 +21,16 @@
 
     <div style="margin: 60px 20px">
         <h3>Historial </h3>
-        <%--<asp:GridView ID="dgvHistorialCliente" runat="server" CssClass="table table-bordered table-responsive table-warning" AutoGenerateColumns="false" BorderColor="Yellow">
+        <asp:GridView ID="dgvHistorialCliente" runat="server" CssClass="table table-bordered table-responsive table-warning" AutoGenerateColumns="false" BorderColor="Yellow">
             <Columns>
                 <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
                 <asp:BoundField HeaderText="TipoCambio" DataField="TipoCambio.Descripcion" />
             </Columns>
-        </asp:GridView>--%>
+        </asp:GridView>
     </div>
+    <div style="margin: 60px 20px">
+        <asp:Button ID="btnCancelar" runat="server" type="submit" class="btn btn-primary" Text="Volver" OnClick="btnCancelar_Click" />
+    </div>
+
 </asp:Content>
+

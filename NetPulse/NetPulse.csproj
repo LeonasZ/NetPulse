@@ -80,6 +80,7 @@
     <Content Include="FormActivarServicio.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="GestionEstados.aspx" />
+    <Content Include="GestionServicio.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HistorialMantenimientos.aspx" />
     <Content Include="InfoCliente.aspx" />
@@ -189,6 +190,13 @@
     </Compile>
     <Compile Include="GestionEstados.aspx.designer.cs">
       <DependentUpon>GestionEstados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionServicio.aspx.cs">
+      <DependentUpon>GestionServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionServicio.aspx.designer.cs">
+      <DependentUpon>GestionServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
