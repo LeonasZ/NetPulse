@@ -44,5 +44,23 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
 
         }
+        public void modificarFormaPago(int IdAbono, int IdFormaPago)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("Update AbonoMensual set IdFormaPago = @IdFormaPago Where IdAbonoMensual = @IdAbono");
+                datos.setearParametro("@IdFormaPago", IdFormaPago);
+                datos.setearParametro("@IdAbono", IdAbono);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
     }
 }

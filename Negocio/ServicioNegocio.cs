@@ -268,6 +268,60 @@ namespace Negocio
                 throw ex;
             }
         }
+        public void modificarDomicilio (int IdServicio, int IdDomicilio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("Update Servicio set IdDomicilio = @IdDomicilio where IdServicio = @IdServicio");
+                datos.setearParametro("@IdDomicilio", IdDomicilio);
+                datos.setearParametro("@IdServicio", IdServicio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void modificarPlan(int IdServicio, int IdPlan)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("Update Servicio set IdPlan = @IdPlan where IdServicio = @IdServicio");
+                datos.setearParametro("@IdPlan", IdPlan);
+                datos.setearParametro("@IdServicio", IdServicio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void modificarFormaPago(int IdServicio, int IdAbono)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("Update Servicio set IdAbonoMensual = @IdAbono where IdServicio = @IdServicio");
+                datos.setearParametro("@IdAbono", IdAbono);
+                datos.setearParametro("@IdServicio", IdServicio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
 
     }
 }

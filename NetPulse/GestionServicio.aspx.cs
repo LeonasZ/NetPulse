@@ -51,38 +51,62 @@ namespace NetPulse
             dgvHistorialServicio.DataSource = listaHistorialServicio;
             dgvHistorialServicio.DataBind();
 
+            // ddl
+            if (!IsPostBack)
+            {
+                DDLModificaciones.Items.Add("Modificar Domicilio");
+                DDLModificaciones.Items.Add("Modificar Plan");
+                DDLModificaciones.Items.Add("Modificar Forma de Pago");
+                DDLOtros.Items.Add("Dar De Baja");
+                DDLOtros.Items.Add("Agendar Mantenimiento");
+            }
+            int Estado = int.Parse(Request.QueryString["Estado"]);
+            if (Estado == 0)
+            {
+                lblSuccess.Visible = true;
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Servicios.aspx");
-        }
+        }             
 
-
-        protected void ModificarDireccion_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Modificaciones.aspx?Id=" + 1);
-        }
-
-        protected void ModificarPlan_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Modificaciones.aspx?Id=" + 2);
-        }
-
-        protected void ModificarFormaDePago_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Modificaciones.aspx?Id=" + 3);
-        }
-
-        protected void DardeBaja_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Modificaciones.aspx?Id=" + 4);
-        }
-        protected void btnAgendarMantenimiento_Click(object sender, EventArgs e)
+        protected void btnGestionar_Click(object sender, EventArgs e)
         {
             int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
-            Response.Redirect("Reclamos.aspx?IdServicio=" + IdServicio);
+            //Baja
+            if (DDLOtros.SelectedIndex == 0)
+            {
+                Response.Redirect("Modificaciones.aspx?Id=" + 4 + "&IdServicio=" + IdServicio);
+
+            }
+            //Mantenimiento
+            if (DDLOtros.SelectedIndex == 1)
+            {
+                Response.Redirect("Reclamos.aspx?IdServicio=" + IdServicio);
+            }
         }
 
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+            //Domicilio
+            if (DDLModificaciones.SelectedIndex == 0)
+            {
+
+                Response.Redirect("Modificaciones.aspx?Id=" + 1 + "&IdServicio=" + IdServicio);
+            }
+            //Plan
+            if (DDLModificaciones.SelectedIndex == 1)
+            {
+                Response.Redirect("Modificaciones.aspx?Id=" + 2 + "&IdServicio=" + IdServicio);
+            }
+            //Forma De pago
+            if (DDLModificaciones.SelectedIndex == 2)
+            {
+                Response.Redirect("Modificaciones.aspx?Id=" + 3 + "&IdServicio=" + IdServicio);
+            }
+        }
     }
 }

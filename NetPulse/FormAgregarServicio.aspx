@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Modificaciones.aspx.cs" Inherits="NetPulse.Modificaciones" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="FormAgregarServicio.aspx.cs" Inherits="NetPulse.FormAgregarServicio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <asp:Label ID="labelCheck" runat="server" Text="" Visible="false"></asp:Label>
 
     <%if (labelCheck.Text == "1")
@@ -33,9 +32,9 @@
             <label for="inputComentarios" class="form-label">Comentarios</label>
             <asp:TextBox type="text" class="form-control" ID="inputComentarios" placeholder="Especificaciones sobre el domicilio..." runat="server"></asp:TextBox>
         </div>
-        
+
     </div>
-    <asp:Button ID="btnDireccion" style="margin:20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnDireccion_Click" />
+    <asp:Button ID="btnDireccion" Style="margin: 20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Siguiente" OnClick="btnDireccion_Click" />
     <%} %>
 
     <%if (labelCheck.Text == "2")
@@ -67,7 +66,7 @@
             <asp:TextBox type="text" class="form-control" ID="inputPrecio" placeholder="XX-XXX-XXX" aria-label="Disabled input" ReadOnly="true" runat="server"></asp:TextBox>
         </div>
     </div>
-        <asp:Button ID="Button1" style="margin:20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnPlan_Click" />
+    <asp:Button ID="Button1" Style="margin: 20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Siguiente" OnClick="btnPlan_Click" />
     <%} %>
 
     <%if (labelCheck.Text == "3")
@@ -81,23 +80,10 @@
         <div class="col-12">
             <label for="inputPago" class="form-label">Medio de pago</label>
             <asp:DropDownList ID="DDLMedioDePago" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
-        </div>      
-    </div>
-     <asp:Button ID="btnFDP" style="margin:20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnFDP_Click" />
-    <%} %>
-
-    <%if (labelCheck.Text == "4")
-        {  %>
-
-    <div style="margin: 20px">
-        <h3>Baja De Servicio</h3>
-        <div class="row g-3" style="margin-top:20px; margin-bottom:20px">
-            <asp:TextBox type="text" class="form-control" ID="inputComentariosServicio" placeholder="Causa de la baja..." runat="server"></asp:TextBox>
         </div>
-        <asp:Button ID="btnBaja" type="submit" CssClass="btn btn-danger" runat="server" Text="Eliminar Servicio" OnClick="btnBaja_Click" />
     </div>
-    
-
+    <asp:Button ID="btnFDP" Style="margin: 20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Siguiente" OnClick="btnFDP_Click" />
     <%} %>
 
+   
 </asp:Content>

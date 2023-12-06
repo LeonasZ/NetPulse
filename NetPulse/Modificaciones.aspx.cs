@@ -17,69 +17,96 @@ namespace NetPulse
         {
             int Id = int.Parse(Request.QueryString["Id"]);
             labelCheck.Text = Id.ToString();
-            
-                PlanNegocio planNegocio = new PlanNegocio();
-                List<TPlan> plans = new List<TPlan>();
-                plans = planNegocio.listar();
-                FormaPagoNegocio servicioFP = new FormaPagoNegocio();
-                formaPagos = servicioFP.listar();
 
-                if (!IsPostBack)
+            PlanNegocio planNegocio = new PlanNegocio();
+            List<TPlan> plans = new List<TPlan>();
+            plans = planNegocio.listar();
+            FormaPagoNegocio servicioFP = new FormaPagoNegocio();
+            formaPagos = servicioFP.listar();
+
+            if (!IsPostBack)
+            {
+                foreach (var item in plans)
                 {
-                    foreach (var item in plans)
-                    {
-                        DDLPlanes.Items.Add(item.Nombre.ToString());
-                    }
-                    foreach (var item in formaPagos)
-                    {
-                        DDLMedioDePago.Items.Add(item.Nombre.ToString());
-                    }
+                    DDLPlanes.Items.Add(item.Nombre.ToString());
                 }
-
-                inputPrecio.Text = plans[DDLPlanes.SelectedIndex].Precio.ToString();
-                inputCantMegas.Text = plans[DDLPlanes.SelectedIndex].CantidadMegas.ToString();
-                inputIdPlan.Text = plans[DDLPlanes.SelectedIndex].IdPlan.ToString();
+                foreach (var item in formaPagos)
+                {
+                    DDLMedioDePago.Items.Add(item.Nombre.ToString());
+                }
             }
-        
+
+            inputPrecio.Text = plans[DDLPlanes.SelectedIndex].Precio.ToString();
+            inputCantMegas.Text = plans[DDLPlanes.SelectedIndex].CantidadMegas.ToString();
+            inputIdPlan.Text = plans[DDLPlanes.SelectedIndex].IdPlan.ToString();
+
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+            List<Servicio> servicio = servicioNegocio.buscarServicio(IdServicio);
+            if (!IsPostBack)
+            {
+                inputBarrio.Text = servicio[0].Domicilio.Barrio;
+                inputCiudad.Text = servicio[0].Domicilio.Ciudad;
+                inputComentarios.Text = servicio[0].Domicilio.Comentario;
+                inputDireccion.Text = servicio[0].Domicilio.Direccion;
+            }
+            
+        }
+
 
         protected void btnDireccion_Click(object sender, EventArgs e)
         {
-            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
             Domicilio domicilio = new Domicilio();
+            DomicilioNegocio DomNegocio = new DomicilioNegocio();
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
 
-            domicilio.Barrio = inputBarrio.Text;
-            domicilio.Ciudad = inputCiudad.Text;
-            domicilio.Comentario = inputComentarios.Text;
-            domicilio.Direccion = inputDireccion.Text;
-            Session["DomicilioNuevo"] = domicilio;
-            Response.Redirect("ActivarServicio.aspx?Id=" + 2 + "&IdCliente=" + IdCliente);
+            List<Servicio> servicio = servicioNegocio.buscarServicio(IdServicio);
+
+            servicio[0].Domicilio.Barrio = inputBarrio.Text;
+            servicio[0].Domicilio.Ciudad = inputCiudad.Text;
+            servicio[0].Domicilio.Comentario = inputComentarios.Text;
+            servicio[0].Domicilio.Direccion = inputDireccion.Text;
+
+            DomNegocio.modificarDomicilio(servicio[0].Domicilio);
+
+            Response.Redirect("GestionServicio.aspx?Estado=" + 0 + "&IdServicio=" + IdServicio);
         }
 
         protected void btnPlan_Click(object sender, EventArgs e)
         {
-            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
-            TPlan plan = new TPlan();
-            plan.Nombre = DDLPlanes.SelectedValue;
-            plan.Precio = decimal.Parse(inputPrecio.Text);
-            plan.CantidadMegas = int.Parse(inputCantMegas.Text.ToString());
-            plan.IdPlan = int.Parse(inputIdPlan.Text.ToString());
-            Session["PlanNuevo"] = plan;
-            Response.Redirect("ActivarServicio.aspx?Id=" + 3 + "&IdCliente=" + IdCliente);
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+            List<Servicio> servicio = servicioNegocio.buscarServicio(IdServicio);
+
+            int idPlan = int.Parse(inputIdPlan.Text.ToString());
+            servicioNegocio.modificarPlan(IdServicio, idPlan);
+
+            Response.Redirect("GestionServicio.aspx?Estado=" + 0 + "&IdServicio=" + IdServicio);
         }
 
         protected void btnFDP_Click(object sender, EventArgs e)
         {
-            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
-            FormaPago formaPago = new FormaPago();
-            formaPago.IdFormaPago = formaPagos[DDLMedioDePago.SelectedIndex].IdFormaPago;
-            formaPago.Nombre = formaPagos[DDLMedioDePago.SelectedIndex].Nombre;
-            Session["FPNuevo"] = formaPago;
-            Response.Redirect("ActivarServicio.aspx?Id=" +4 + "&IdCliente=" + IdCliente);
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+            List<Servicio> servicio = servicioNegocio.buscarServicio(IdServicio);
+
+            int IdFormaPago = formaPagos[DDLMedioDePago.SelectedIndex].IdFormaPago;
+
+            AbonoMensualNegocio abonoMensualNegocio = new AbonoMensualNegocio();
+            abonoMensualNegocio.modificarFormaPago(servicio[0].AbonoMensual.IdAbonoMensual, IdFormaPago);
+            Response.Redirect("GestionServicio.aspx?Estado=" + 0 + "&IdServicio=" + IdServicio);
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
         {
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
 
+            servicioNegocio.EditarEstado(IdServicio, 5);
+            Response.Redirect("AgendarMantenimiento.aspx");
         }
     }
 }

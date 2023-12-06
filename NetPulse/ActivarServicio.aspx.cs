@@ -58,19 +58,19 @@ namespace NetPulse
         protected void AgregarDireccion_Click(object sender, EventArgs e)
         {
             int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
-            Response.Redirect("Modificaciones.aspx?Id=" + 1 + "&IdCliente=" + IdCliente);
+            Response.Redirect("FormAgregarServicio.aspx?Id=" + 1 + "&IdCliente=" + IdCliente);
         }
 
         protected void AgregarPlan_Click(object sender, EventArgs e)
         {
             int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
-            Response.Redirect("Modificaciones.aspx?Id=" + 2 + "&IdCliente=" + IdCliente);
+            Response.Redirect("FormAgregarServicio.aspx?Id=" + 2 + "&IdCliente=" + IdCliente);
         }
 
         protected void AgregarFormaDePago_Click(object sender, EventArgs e)
         {
             int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
-            Response.Redirect("Modificaciones.aspx?Id=" + 3 + "&IdCliente=" + IdCliente);
+            Response.Redirect("FormAgregarServicio.aspx?Id=" + 3 + "&IdCliente=" + IdCliente);
         }
 
         protected void Finalizar_Click(object sender, EventArgs e)

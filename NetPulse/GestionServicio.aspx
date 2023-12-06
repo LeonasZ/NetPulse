@@ -43,12 +43,22 @@
         <h3>Modificar Servicio</h3>
     </div>
 
-    <div style="margin: 20px 20px;">
-        <asp:Button ID="ModificarDireccion" runat="server" Text="Modificar Direccion" type="submit" CssClass="btn btn-primary" OnClick="ModificarDireccion_Click" />
-        <asp:Button ID="ModificarPlan" runat="server" Text="Modificar Plan" type="submit" CssClass="btn btn-primary" OnClick="ModificarPlan_Click" />
-        <asp:Button ID="ModificarFormaDePago" runat="server" Text="Modificar Forma de Pago" type="submit" CssClass="btn btn-primary" OnClick="ModificarFormaDePago_Click" />
-        <asp:Button ID="DardeBaja" runat="server" Text="Baja del Servicio" type="submit" CssClass="btn btn-primary" OnClick="DardeBaja_Click" />
-        <asp:Button ID="btnAgendarMantenimiento" runat="server" Text="Registrar Reclamo" type="submit" CssClass="btn btn-primary" Enabled="true" OnClick="btnAgendarMantenimiento_Click" />
+    <div style="margin: 20px">
+        <div class="col-6" style="margin-bottom: 20px">
+            <label for="inputState" class="form-label">Modificacion</label>
+            <asp:DropDownList ID="DDLModificaciones" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px">
+            <asp:Button ID="btnModificar" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
+            <asp:Label ID="lblSuccess" ForeColor="Green" runat="server" Visible="false" Text="Campo Modificado Con Exito!"></asp:Label>
+        </div>
+
+        <div class="col-6" style="margin-bottom: 20px">
+            <label for="inputState" class="form-label">Otros</label>
+            <asp:DropDownList ID="DDLOtros" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
+        </div>
+        <asp:Button ID="btnGestionar" type="submit" CssClass="btn btn-primary" runat="server" Text="Gestionar" OnClick="btnGestionar_Click" />
+        
     </div>
 
 

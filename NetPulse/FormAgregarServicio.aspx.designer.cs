@@ -11,106 +11,124 @@ namespace NetPulse
 {
 
 
-    public partial class GestionServicio
+    public partial class FormAgregarServicio
     {
 
         /// <summary>
-        /// dgvDatosCliente control.
+        /// labelCheck control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvDatosCliente;
+        protected global::System.Web.UI.WebControls.Label labelCheck;
 
         /// <summary>
-        /// DgvDomicilio control.
+        /// inputDireccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DgvDomicilio;
+        protected global::System.Web.UI.WebControls.TextBox inputDireccion;
 
         /// <summary>
-        /// DgvPlan control.
+        /// inputBarrio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DgvPlan;
+        protected global::System.Web.UI.WebControls.TextBox inputBarrio;
 
         /// <summary>
-        /// DgvFormaPago control.
+        /// inputCiudad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DgvFormaPago;
+        protected global::System.Web.UI.WebControls.TextBox inputCiudad;
 
         /// <summary>
-        /// DDLModificaciones control.
+        /// inputComentarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLModificaciones;
+        protected global::System.Web.UI.WebControls.TextBox inputComentarios;
 
         /// <summary>
-        /// btnModificar control.
+        /// btnDireccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.WebControls.Button btnDireccion;
 
         /// <summary>
-        /// lblSuccess control.
+        /// DDLPlanes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuccess;
+        protected global::System.Web.UI.WebControls.DropDownList DDLPlanes;
 
         /// <summary>
-        /// DDLOtros control.
+        /// inputIdPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLOtros;
+        protected global::System.Web.UI.WebControls.TextBox inputIdPlan;
 
         /// <summary>
-        /// btnGestionar control.
+        /// inputCantMegas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGestionar;
+        protected global::System.Web.UI.WebControls.TextBox inputCantMegas;
 
         /// <summary>
-        /// dgvHistorialServicio control.
+        /// inputPrecio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvHistorialServicio;
+        protected global::System.Web.UI.WebControls.TextBox inputPrecio;
 
         /// <summary>
-        /// btnCancelar control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// DDLMedioDePago control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLMedioDePago;
+
+        /// <summary>
+        /// btnFDP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFDP;
     }
 }

@@ -78,6 +78,7 @@
     <Content Include="DetalleCliente.aspx" />
     <Content Include="FinalizarMantenimiento.aspx" />
     <Content Include="FormActivarServicio.aspx" />
+    <Content Include="FormAgregarServicio.aspx" />
     <Content Include="FormEditMantenimiento.aspx" />
     <Content Include="GestionEstados.aspx" />
     <Content Include="GestionServicio.aspx" />
@@ -176,6 +177,13 @@
     </Compile>
     <Compile Include="FormActivarServicio.aspx.designer.cs">
       <DependentUpon>FormActivarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgregarServicio.aspx.cs">
+      <DependentUpon>FormAgregarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormAgregarServicio.aspx.designer.cs">
+      <DependentUpon>FormAgregarServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormEditMantenimiento.aspx.cs">
       <DependentUpon>FormEditMantenimiento.aspx</DependentUpon>

@@ -1,8 +1,10 @@
 ﻿using Dominio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Negocio
@@ -44,6 +46,32 @@ namespace Negocio
             }
             finally { datos.cerrarConexion(); }
 
+        }
+        public void modificarDomicilio(Domicilio nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            int IdDomicilio = nuevo.IdDomicilio;
+            string direccion = nuevo.Direccion;
+            string barrio = nuevo.Barrio;
+            string ciudad = nuevo.Ciudad;
+            string comentario = nuevo.Comentario;
+
+            try
+            {
+                datos.setConsulta("update Domicilio set Direccion = @Direccion , Barrio = @Barrio, Ciudad = @Ciudad, Comentario =@Comentario where IdDomicilio = @IdDomicilio");
+                datos.setearParametro("@Direccion", direccion);
+                datos.setearParametro("@Barrio", barrio);
+                datos.setearParametro("@Ciudad", ciudad);
+                datos.setearParametro("@Comentario", comentario);
+                datos.setearParametro("@IdDomicilio", IdDomicilio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
         }
     }
 }
