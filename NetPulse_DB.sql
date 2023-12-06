@@ -287,7 +287,7 @@ Create View VistaServicios as (
 select IdServicio,C.IdCliente ,C.Nombre as NombreCliente ,C.Telefono, C.Mail , C.Dni, C.FechaAlta as FACliente, C.Activo as ActivoCliente, 
 Am.IdAbonoMensual, Am.IdFormaPago as IdFormaPagoAm, Am.FechaVencimiento1, Am.FechaVencimiento2, Am.Pagado,
 Fp.IdFormaPago, Fp.Nombre as FormaPago, 
-P.IdPlan,P.CantidadMegas, P.Precio,
+P.IdPlan,P.CantidadMegas, P.Precio,P.Nombre as NombrePlan,
 D.IdDomicilio,D.Direccion, D.Barrio, D.Ciudad, D.Comentario as DireccionComentarios,
 S.FechaAlta as FechaAltaServicio,E_S.ID as ID_Estado,E_S.DESCRIPCION as Estado,S.Comentarios as ComentarioServicios from Servicio S
 inner join Cliente as C on C.IdCliente = S.IdCliente
