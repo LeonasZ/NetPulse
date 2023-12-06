@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -43,17 +44,37 @@ namespace NetPulse
 
         protected void btnDireccion_Click(object sender, EventArgs e)
         {
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            Domicilio domicilio = new Domicilio();
 
+            domicilio.Barrio = inputBarrio.Text;
+            domicilio.Ciudad = inputCiudad.Text;
+            domicilio.Comentario = inputComentarios.Text;
+            domicilio.Direccion = inputDireccion.Text;
+            Session["DomicilioNuevo"] = domicilio;
+            Response.Redirect("ActivarServicio.aspx?Id=" + 2 + "&IdCliente=" + IdCliente);
         }
 
         protected void btnPlan_Click(object sender, EventArgs e)
         {
-
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            TPlan plan = new TPlan();
+            plan.Nombre = DDLPlanes.SelectedValue;
+            plan.Precio = decimal.Parse(inputPrecio.Text);
+            plan.CantidadMegas = int.Parse(inputCantMegas.Text.ToString());
+            plan.IdPlan = int.Parse(inputIdPlan.Text.ToString());
+            Session["PlanNuevo"] = plan;
+            Response.Redirect("ActivarServicio.aspx?Id=" + 3 + "&IdCliente=" + IdCliente);
         }
 
         protected void btnFDP_Click(object sender, EventArgs e)
         {
-
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            FormaPago formaPago = new FormaPago();
+            formaPago.IdFormaPago = formaPagos[DDLMedioDePago.SelectedIndex].IdFormaPago;
+            formaPago.Nombre = formaPagos[DDLMedioDePago.SelectedIndex].Nombre;
+            Session["FPNuevo"] = formaPago;
+            Response.Redirect("ActivarServicio.aspx?Id=" +4 + "&IdCliente=" + IdCliente);
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
