@@ -15,7 +15,8 @@ namespace NetPulse
         {
             MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
             List<Mantenimiento> listaRealizados = new List<Mantenimiento>();
-            List<Mantenimiento> listaPendiente = new List<Mantenimiento>();
+            List<Mantenimiento> listaPendienteAlta = new List<Mantenimiento>();
+            List<Mantenimiento> listaPendienteBaja = new List<Mantenimiento>();
             List<Mantenimiento> mantenimientos = mantenimientoNegocio.listarMantenimientos();
             foreach (var item in mantenimientos)
             {
@@ -25,11 +26,22 @@ namespace NetPulse
                 }
                 if (item.EstadoRealizacion == false)
                 {
-                    listaPendiente.Add(item);
+                    if(item.TipoMantenimiento.IdTipoMantenimiento == 1)
+                    {
+                        listaPendienteAlta.Add(item);
+                    }
+                    if ((item.TipoMantenimiento.IdTipoMantenimiento == 2) || (item.TipoMantenimiento.IdTipoMantenimiento == 4))
+                    {
+                        listaPendienteBaja.Add(item);
+                    }
+
                 }
             }
-            dgvListaMantenimientosPendientes.DataSource = listaPendiente;
-            dgvListaMantenimientosPendientes.DataBind();
+            dgvPrioridadAlta.DataSource = listaPendienteAlta;
+            dgvPrioridadAlta.DataBind();
+
+            dgvPrioridadBaja.DataSource = listaPendienteBaja;
+            dgvPrioridadBaja.DataBind();
 
             dgvListaMantenimientosRealizados.DataSource = listaRealizados;
             dgvListaMantenimientosRealizados.DataBind();
@@ -39,7 +51,7 @@ namespace NetPulse
         protected void dgvListaMantenimientosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = dgvListaMantenimientosPendientes.Rows[rowIndex];
+            GridViewRow row = dgvPrioridadBaja.Rows[rowIndex];
 
             // Accede a los datos de la fila utilizando los índices de las columnas
             string IdServicio = row.Cells[1].Text;

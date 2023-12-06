@@ -9,7 +9,7 @@
             <h3>Mantenimientos Pendientes</h3>
         </div>
 
-        <asp:GridView ID="dgvListaMantenimientosPendientes" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive " AutoGenerateColumns="false" OnRowCommand="dgvListaMantenimientosPendientes_RowCommand">
+        <asp:GridView ID="dgvPrioridadAlta" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive table-danger " AutoGenerateColumns="false" OnRowCommand="dgvListaMantenimientosPendientes_RowCommand">
             <Columns>
                 <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
                 <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
@@ -37,13 +37,42 @@
         </asp:GridView>
     </div>
 
+    <div style="margin: 20px">
+    <asp:GridView ID="dgvPrioridadBaja" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive table-primary  " AutoGenerateColumns="false" OnRowCommand="dgvListaMantenimientosPendientes_RowCommand">
+        <Columns>
+            <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
+            <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
+            <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
+            <asp:BoundField HeaderText="TecnicoACargo" DataField="Tecnico.Nombre" />
+            <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
+            <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />
+            <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
+            <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
+
+            <asp:TemplateField HeaderText="Info Del Usuario">
+                <ItemTemplate>
+                    <asp:LinkButton ID="btnInfoUsuario" runat="server" CommandName="Info_onClick" CssClass="btn btn-secondary">
+                        <span class="fa-solid fa-bars" style="margin-right: 5px;"></span>Ver
+                    </asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="Finalizar Mantenimiento">
+                <ItemTemplate>
+                    <asp:LinkButton ID="btnFinalizar" runat="server" CommandName="Finalizar_onClick" CssClass="btn btn-primary" Text="Finalizar"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+    </div>
+
     <hr>
 
     <div style="margin: 20px">
         <div style="margin-bottom: 20px">
             <h3>Mantenimientos Realizados</h3>
         </div>
-        <asp:GridView ID="dgvListaMantenimientosRealizados" runat="server" CssClass="table table-bordered table-responsive " AutoGenerateColumns="false">
+        <asp:GridView ID="dgvListaMantenimientosRealizados" runat="server" CssClass="table table-bordered table-responsive table-success " AutoGenerateColumns="false">
             <Columns>
                 <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
                 <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
