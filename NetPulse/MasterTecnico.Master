@@ -8,6 +8,7 @@
 
     <title>NetPulse</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -23,10 +24,14 @@
                     </ul>
                     <ul class="navbar-nav bg-secondary ms-auto" style="border-radius: 0.25rem; border: 1px solid black;">
                         <li class="nav-item">
-                            <a class="nav-link" href="PerfilTec.aspx">Perfil</a>
+                            <a class="nav-link" href="PerfilTec.aspx">Perfil
+                                <asp:Literal runat="server" Text="&lt;i class='fa-solid fa-user' style='margin-left: 5px;'>&lt;/i>"></asp:Literal>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Login.aspx">Cerrar</a>
+                            <a class="nav-link" href="Login.aspx">Cerrar
+                                <asp:Literal runat="server" Text="&lt;i class='fa-solid fa-xmark' style='margin-left: 5px;'>&lt;/i>"></asp:Literal>
+                            </a>
                         </li>
                     </ul>
                 </div>
