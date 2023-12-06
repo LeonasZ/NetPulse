@@ -4,13 +4,13 @@ Go
 USE BD_NetPulse
 Go
 
-CREATE TABLE ESTADO_SERVICIO (
+Create Table Estado_Servicio (
 	ID INT PRIMARY KEY NOT NULL IDENTITY (1,1),
 	DESCRIPCION VARCHAR(50) NOT NULL
 )
 
 
-CREATE TABLE Cliente(
+Create Table Cliente(
     IdCliente INT PRIMARY KEY not null identity (1, 1),
     Nombre VARCHAR(255) NOT NULL,
     Telefono VARCHAR(20) unique,
@@ -106,7 +106,6 @@ CREATE TABLE Mantenimiento(
 )
 
 Go
-GO
 create table Tipo_Cambio_Historial(
     ID int PRIMARY KEY not null identity(1,1),
     Descripcion varchar(50)
@@ -120,8 +119,9 @@ CREATE TABLE HistorialCliente(
     IdTipoCambio int not null,
     FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
     FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID),
-
 )
+
+Go
 CREATE TABLE HistorialServicio(
     ID int PRIMARY KEY not NULL identity(1,1),
     IdCliente int not NULL,
@@ -130,10 +130,11 @@ CREATE TABLE HistorialServicio(
     IdTipoCambio int not null,
     FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
     FOREIGN KEY (IdServicio) REFERENCES Servicio (IdServicio),
-    FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID),
-
+    FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID)
 )
-insert into Tipo_Cambio_Historial(Descripcion)
+
+
+Insert into Tipo_Cambio_Historial(Descripcion)
 VALUES
     ('Alta'),
     ('Instalacion'),
@@ -145,38 +146,7 @@ VALUES
     ('Mantenimiento Realizado'),
     ('Desinstalacion'),
 	('Baja')
-	
 Go
-insert into HistorialServicio(IdServicio,IdCliente,Fecha,IdTipoCambio)
-Values
-(1,1,'2023-11-05',1),
-(1,1,'2023-11-10',2),
-(1,1,'2023-11-11',4),
-(1,1,'2023-11-18',6),
-(1,1,'2023-11-20',7),
-(1,1,'2023-11-22',8),
-(1,1,'2023-11-24',7),
-(1,1,'2023-11-25',8),
-(1,1,'2023-11-30',9),
-(1,1,'2023-12-02',10)
-
-Go
-insert into HistorialCliente(IdCliente,Fecha,IdTipoCambio)
-Values
-(1,'2023-11-05',1),
-(2,'2023-10-15',3),
-(2,'2023-10-15',1),
-(1,'2023-12-02',10)
-
-INSERT INTO ESTADO_SERVICIO (DESCRIPCION) 
-VALUES 
-	('Pendiente a Activacion'),
-	('Pendiente a Instalacion'),
-	('Instalado'),
-	('Inhabilitado'),
-	('Inactivo'),
-	('Desinstalado'),
-	('Registra Deuda')
 
 INSERT INTO Cliente (Nombre, Telefono, Mail, Dni, FechaAlta, Activo)
 VALUES
@@ -208,10 +178,10 @@ GO
 
 INSERT INTO TPlan (Nombre, CantidadMegas, Precio)
 VALUES
-    ('Base',10, 29.99),
-    ('Bronce',25, 69.99),
-    ('Plata',50, 119.99),
-    ('Oro',100, 229.99);
+    ('Base', 10, 29.99),
+    ('Bronce', 25, 69.99),
+    ('Plata', 50, 119.99),
+    ('Oro', 100, 229.99);
 GO
 
 INSERT INTO FormaPago (Nombre)
@@ -235,20 +205,6 @@ VALUES
     (1, DATEADD(MONTH, 1, GETDATE()), DATEADD(MONTH, 2, GETDATE()), 1);
 GO
 
-INSERT INTO Servicio (IdCliente, IdDomicilio, IdPlan, IdAbonoMensual, FechaAlta, Estado, Comentarios)
-VALUES
-    (1, 1, 1, 1, GETDATE(), 1, ''),
-    (2, 2, 2, 2, GETDATE(), 1, ''),
-    (3, 3, 3, 3, GETDATE(), 2, ''),
-    (4, 4, 4, 4, GETDATE(), 3, ''),
-    (5, 5, 1, 5, GETDATE(), 4, ''),
-    (6, 6, 2, 6, GETDATE(), 5, ''),
-    (7, 7, 3, 7, GETDATE(), 6, ''),
-    (8, 8, 4, 8, GETDATE(), 3, ''),
-    (9, 9, 1, 9, GETDATE(), 2, ''),
-    (10, 10, 2, 10, GETDATE(), 4, '');
-GO
-
 INSERT INTO Tecnico (Nombre, Contacto, FechaIncorporacion, Estado)
 VALUES
     ('Tecnico Pepe', '123-456-7890', GETDATE(), 1),
@@ -265,7 +221,40 @@ VALUES
     ('Desinstalación');
 GO
 
-INSERT INTO Mantenimiento (IdServicio, Fecha,FechaRealizado, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
+INSERT INTO Estado_Servicio (Descripcion) 
+VALUES 
+	('Pendiente a Activacion'),
+	('Pendiente a Instalacion'),
+	('Instalado'),
+	('Inhabilitado'),
+	('Inactivo'),
+	('Desinstalado'),
+	('Registra Deuda');
+Go
+
+INSERT INTO Servicio (IdCliente, IdDomicilio, IdPlan, IdAbonoMensual, FechaAlta, Estado, Comentarios)
+VALUES
+    (1, 1, 1, 1, GETDATE(), 1, ''),
+    (2, 2, 2, 2, GETDATE(), 1, ''),
+    (3, 3, 3, 3, GETDATE(), 2, ''),
+    (4, 4, 4, 4, GETDATE(), 3, ''),
+    (5, 5, 1, 5, GETDATE(), 4, ''),
+    (6, 6, 2, 6, GETDATE(), 5, ''),
+    (7, 7, 3, 7, GETDATE(), 6, ''),
+    (8, 8, 4, 8, GETDATE(), 3, ''),
+    (9, 9, 1, 9, GETDATE(), 2, ''),
+    (10, 10, 2, 10, GETDATE(), 4, '');
+GO
+
+Insert into HistorialCliente(IdCliente, Fecha, IdTipoCambio)
+Values
+(1,'2023-11-05',1),
+(2,'2023-10-15',3),
+(2,'2023-10-15',1),
+(1,'2023-12-02',10);
+Go
+
+INSERT INTO Mantenimiento (IdServicio, Fecha, FechaRealizado, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
 VALUES
     (1, GETDATE(),GETDATE(), 1, 'Mantenimiento Correctivo', 2, 'Estaba todo sucio', 1),
     (2, GETDATE(),GETDATE(), 2, 'Mantenimiento Emergencia', 1, 'Antena caida', 0),
@@ -278,6 +267,21 @@ VALUES
     (9, GETDATE(),GETDATE(), 1, 'Mantenimiento Emergencia', 1, 'Cable router cortado', 1),
     (10, GETDATE(),GETDATE(), 3, 'Mantenimiento Correctivo', 2, 'Antena movida', 0);
 GO
+
+Insert into HistorialServicio(IdServicio, IdCliente, Fecha, IdTipoCambio)
+Values
+(1,1,'2023-11-05',1),
+(1,1,'2023-11-10',2),
+(1,1,'2023-11-11',4),
+(1,1,'2023-11-18',6),
+(1,1,'2023-11-20',7),
+(1,1,'2023-11-22',8),
+(1,1,'2023-11-24',7),
+(1,1,'2023-11-25',8),
+(1,1,'2023-11-30',9),
+(1,1,'2023-12-02',10)
+Go
+
 
 Create View VistaServicios as (
 select IdServicio,C.IdCliente ,C.Nombre as NombreCliente ,C.Telefono, C.Mail , C.Dni, C.FechaAlta as FACliente, C.Activo as ActivoCliente, 
@@ -300,5 +304,3 @@ IdFormaPago, FormaPago,
 IdPlan, CantidadMegas, Precio, 
 IdDomicilio, Direccion,Barrio, Ciudad, DireccionComentarios,
 FechaAltaServicio, Estado, ComentarioServicios from VistaServicios*/
-
-select * from Mantenimiento
