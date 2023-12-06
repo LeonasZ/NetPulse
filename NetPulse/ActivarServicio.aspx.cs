@@ -15,29 +15,124 @@ namespace NetPulse
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int Id= int.Parse(Request.QueryString["Id"]);
+            if(Id == 1)
+            {
+                AgregarDireccion.Visible = true;
+                AgregarFormaDePago.Visible = false;
+                AgregarPlan.Visible = false;
+            }
+            if (Id == 2)
+            {
+                AgregarDireccion.Visible = false;
+                AgregarFormaDePago.Visible = false;
+                AgregarPlan.Visible = true;
+            }
+            if (Id == 3)
+            {
+                AgregarDireccion.Visible = false;
+                AgregarFormaDePago.Visible = true;
+                AgregarPlan.Visible = false;
+            }
+            if (Id == 4)
+            {
+                List<Servicio> lista = new List<Servicio>();
+                Servicio servicio = new Servicio();
+                servicio.Plan = (TPlan)Session["PlanNuevo"];
+                servicio.Domicilio = (Domicilio)Session["DomicilioNuevo"];
+                AbonoMensual am = new AbonoMensual();
+                am.FormaPago = (FormaPago)Session["FPNuevo"];
+                servicio.AbonoMensual = am;
 
+                lista.Add(servicio);
+                DgvDatos.DataSource = lista;
+                DgvDatos.DataBind();
+            
+                AgregarDireccion.Visible = false;
+                AgregarFormaDePago.Visible = false;
+                AgregarPlan.Visible = false;
+                btnFinalizar.Visible = true;
+
+            }
         }
         protected void AgregarDireccion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Modificaciones.aspx?Id=" + 1);
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            Response.Redirect("Modificaciones.aspx?Id=" + 1 + "&IdCliente=" + IdCliente);
         }
 
         protected void AgregarPlan_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Modificaciones.aspx?Id=" + 2);
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            Response.Redirect("Modificaciones.aspx?Id=" + 2 + "&IdCliente=" + IdCliente);
         }
 
         protected void AgregarFormaDePago_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Modificaciones.aspx?Id=" + 3);
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
+            Response.Redirect("Modificaciones.aspx?Id=" + 3 + "&IdCliente=" + IdCliente);
         }
 
         protected void Finalizar_Click(object sender, EventArgs e)
         {
+            int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
 
+            Servicio servicio = new Servicio();
+           
+
+            //Plan
+            servicio.Plan = (TPlan)Session["PlanNuevo"];
+
+            // Agrego Domicilio Nuevo
+            int IdDomicilio;
+            DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
+            servicio.Domicilio = (Domicilio)Session["DomicilioNuevo"];
+            IdDomicilio = domicilioNegocio.agregarDomicilio(servicio.Domicilio);
+            servicio.Domicilio.IdDomicilio = IdDomicilio;
+            // Abono Mensual
+            AbonoMensual am = new AbonoMensual();
+            AbonoMensualNegocio amn = new AbonoMensualNegocio();
+            am.FormaPago = (FormaPago)Session["FPNuevo"];
+            am.FechaVencimiento1 = System.DateTime.Now;
+            am.FechaVencimiento2 = System.DateTime.Now;
+            am.Pagado = false;
+            int IdAbonoMensual = amn.agregarAbonoMensual(am);
+            am.IdAbonoMensual = IdAbonoMensual;
+            servicio.AbonoMensual = am;
+
+            //Cliente
+            ClienteNegocio clienteNeg = new ClienteNegocio();
+            List<Cliente> cliente = new List<Cliente>();
+            cliente = clienteNeg.buscarCliente(IdCliente);
+            servicio.Cliente = cliente[0];
+
+            //Fecha alta
+            servicio.FechaAlta = System.DateTime.Now;
+
+            // Estado
+            EstadoServicio estado = new EstadoServicio();
+            
+            estado.Id = 1;
+            estado.Descripcion = "Pendiente a Activacion";
+            servicio.Estado = estado;
+            servicio.Estado = estado;
+            //Comentarios
+            servicio.Comentarios = "";
+
+            // Agrego a db nuevo servicio
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+            servicioNegocio.agregarServicio(servicio);
+
+            
+            lblSuccess.Visible = true;
+            btnFinalizar.Enabled = false;
+            btnVolver.Visible = true;
         }
 
-      
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }
 /*

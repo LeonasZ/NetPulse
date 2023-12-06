@@ -101,7 +101,7 @@ namespace NetPulse
         protected void dgvListaClientesInactivos_SelectedIndexChanged(object sender, EventArgs e)
         {
             int IdCliente = int.Parse(dgvListaClientesInactivos.SelectedDataKey.Value.ToString());
-            Response.Redirect("ActivarServicio.aspx?IdCliente=" + IdCliente);
+            Response.Redirect("ActivarServicio.aspx?Id=" + 1 + "&IdCliente=" + IdCliente);
         }
 
         protected void DgvListaClientesActivos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -113,7 +113,7 @@ namespace NetPulse
 
             if (e.CommandName == "AgregarServicio_onClick")
             {
-                Response.Redirect("ActivarServicio.aspx");
+                Response.Redirect("ActivarServicio.aspx?Id=" +1 + "&IdCliente=" +IdCliente);
             }
 
             if (e.CommandName == "Detalle_onClick")
