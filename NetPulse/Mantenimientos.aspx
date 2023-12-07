@@ -74,7 +74,7 @@
             </Columns>
         </asp:GridView>
     </div>
-
+    <hr />
     <div style="margin: 60px 20px">
         <h3>Mantenimientos Realizados </h3>
         <asp:GridView ID="DgvMantenimientosRealizados" runat="server" CssClass="table table-bordered table-responsive table-success" BorderColor="Green" AutoGenerateColumns="false">

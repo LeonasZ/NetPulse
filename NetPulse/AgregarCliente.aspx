@@ -25,6 +25,7 @@
         <div class="col-md-6">
             <label for="FechaAlta" class="form-label">FechaAlta</label>
             <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+            <asp:Label ID="lblCalendario" runat="server" Text=""></asp:Label>
         </div>
         <div class="col-12">
 

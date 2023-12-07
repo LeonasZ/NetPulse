@@ -61,9 +61,6 @@
         <asp:Label ID="lblSuccessDelete" runat="server" Visible="false" ForeColor="Red" Text="Servicio Inactivado. Mantenimiento de Tipo DESINSTALACION Agendado Con Exito!"></asp:Label>
     </div>
 
-    <div style="margin: 40px 20px">
-        <h3>Historial de Reclamos</h3>
-        <%-- Ver de poner un dgv solo con el historial de reclamos y mantenimientos de este cliente --%>
-    </div>
+    
 
 </asp:Content>

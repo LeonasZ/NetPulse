@@ -60,6 +60,15 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
+        /// lblCalendario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCalendario;
+
+        /// <summary>
         /// agregarCliente control.
         /// </summary>
         /// <remarks>
