@@ -33,9 +33,9 @@
             <label for="inputComentarios" class="form-label">Comentarios</label>
             <asp:TextBox type="text" class="form-control" ID="inputComentarios" placeholder="Especificaciones sobre el domicilio..." runat="server"></asp:TextBox>
         </div>
-        
+
     </div>
-    <asp:Button ID="btnDireccion" style="margin:20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnDireccion_Click" />
+    <asp:Button ID="btnDireccion" Style="margin: 20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnDireccion_Click" />
     <%} %>
 
     <%if (labelCheck.Text == "2")
@@ -67,7 +67,7 @@
             <asp:TextBox type="text" class="form-control" ID="inputPrecio" placeholder="XX-XXX-XXX" aria-label="Disabled input" ReadOnly="true" runat="server"></asp:TextBox>
         </div>
     </div>
-        <asp:Button ID="Button1" style="margin:20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnPlan_Click" />
+    <asp:Button ID="Button1" Style="margin: 20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnPlan_Click" />
     <%} %>
 
     <%if (labelCheck.Text == "3")
@@ -81,23 +81,37 @@
         <div class="col-12">
             <label for="inputPago" class="form-label">Medio de pago</label>
             <asp:DropDownList ID="DDLMedioDePago" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
-        </div>      
+        </div>
     </div>
-     <asp:Button ID="btnFDP" style="margin:20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnFDP_Click" />
+    <asp:Button ID="btnFDP" Style="margin: 20px" type="submit" CssClass="btn btn-primary" runat="server" Text="Modificar" OnClick="btnFDP_Click" />
     <%} %>
 
     <%if (labelCheck.Text == "4")
         {  %>
 
-    <div style="margin: 20px">
-        <h3>Baja De Servicio</h3>
-        <div class="row g-3" style="margin-top:20px; margin-bottom:20px">
-            <asp:TextBox type="text" class="form-control" ID="inputComentariosServicio" placeholder="Causa de la baja..." runat="server"></asp:TextBox>
-        </div>
-        <asp:Button ID="btnBaja" type="submit" CssClass="btn btn-danger" runat="server" Text="Eliminar Servicio" OnClick="btnBaja_Click" />
+    <div style="margin:20px">
+        <h3>Inhabilitar Servicio</h3>
+        <asp:GridView ID="DgvServicio" runat="server" CssClass="table table-bordered table-responsive table-primary" BorderColor="Black" AutoGenerateColumns="false" >
+            <Columns>
+                <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
+                <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombre" />
+                <asp:BoundField HeaderText="FormaPago" DataField="AbonoMensual.FormaPago.Nombre" />
+                <asp:BoundField HeaderText="CantMegas" DataField="Plan.CantidadMegas" />
+                <asp:BoundField HeaderText="Direccion" DataField="Domicilio.Direccion" />
+                <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
+                <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
+                <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />               
+            </Columns>
+        </asp:GridView>
     </div>
-    
+    <div style="margin: 40px 20px">
+        <asp:Button ID="btnBaja" type="submit" CssClass="btn btn-danger" runat="server" Text="Inhabilitar Servicio" OnClick="btnBaja_Click" />
+        <asp:Button ID="btnCancelar" type="submit" Style="margin-left: 10px" CssClass="btn btn-success" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+        <asp:Label ID="lblInhabilitado" runat="server" ForeColor="Red" Visible="false" Text="Servicio Inhabilitado Con Exito!"></asp:Label>
+    </div>
+
+
+
 
     <%} %>
-
 </asp:Content>

@@ -109,13 +109,17 @@ namespace NetPulse
                     negocio.EditarEstado(IdServicio, 6);
 
                 }
-                
-                //Response.Write("<script>alert('Mantenimeinto Aprobado Con Exito!');</script>");
 
+                //Response.Write("<script>alert('Mantenimeinto Aprobado Con Exito!');</script>");
+                lblEstado.Text = "1";
                 //Falta Implementacion
             }
 
-            Response.Redirect("GestionEstados.aspx");
+            
+        }
+        protected void btnConfirmarActivacion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Servicios.aspx");
         }
     }
 }

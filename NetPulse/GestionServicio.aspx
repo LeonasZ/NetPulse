@@ -58,6 +58,7 @@
             <asp:DropDownList ID="DDLOtros" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
         </div>
         <asp:Button ID="btnGestionar" type="submit" CssClass="btn btn-primary" runat="server" Text="Gestionar" OnClick="btnGestionar_Click" />
+      
         
     </div>
 

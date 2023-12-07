@@ -132,13 +132,13 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Button btnFDP;
 
         /// <summary>
-        /// inputComentariosServicio control.
+        /// DgvServicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputComentariosServicio;
+        protected global::System.Web.UI.WebControls.GridView DgvServicio;
 
         /// <summary>
         /// btnBaja control.
@@ -148,5 +148,23 @@ namespace NetPulse
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBaja;
+
+        /// <summary>
+        /// btnCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
+
+        /// <summary>
+        /// lblInhabilitado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInhabilitado;
     }
 }
