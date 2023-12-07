@@ -72,6 +72,7 @@ namespace NetPulse
 
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
+
             if(inputIdServicio.Text != "" && inputIdServicio.Text != null) // chequea si el input es nulo o vacio
             {
                 int idServicio = int.Parse(inputIdServicio.Text); 

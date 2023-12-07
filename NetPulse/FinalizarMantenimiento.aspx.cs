@@ -13,12 +13,12 @@ namespace NetPulse
     {
         MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
         int IdMantenimiento;
-        int IdTipoMantenimiento;
+        int IdTipoCambioHistorial;
         protected void Page_Load(object sender, EventArgs e)
         {
 
             IdMantenimiento = int.Parse(Request.QueryString["IdMantenimiento"]);
-            IdTipoMantenimiento = int.Parse(Request.QueryString["IdTipoMantenimiento"]);
+            IdTipoCambioHistorial = int.Parse(Request.QueryString["IdTipoCambioHistorial"]);
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
@@ -28,28 +28,21 @@ namespace NetPulse
 
             mantenimientoNegocio.activarMantenimiento(IdMantenimiento, TextComentarios.Text);
 
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+            List<Servicio> lista = servicioNegocio.buscarServicio(IdServicio);
+
+            HistorialServicio historialServicio = new HistorialServicio();
+            HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
+
+            historialServicio.Fecha = DateTime.Now;
+            historialServicio.IdServicio = IdServicio;
+            historialServicio.TipoCambio = new TipoCambioHistorial();
+
+            historialServicio.TipoCambio.Id = IdTipoCambioHistorial; //depende el tipo de cambio que recibe es lo que registra el historial
 
 
-            if (IdTipoMantenimiento == 1)
-            {
-                //guardo el registro en el historial
+            historialServicioNegocio.guardar(historialServicio);
 
-                ServicioNegocio servicioNegocio = new ServicioNegocio();
-                List<Servicio> lista = servicioNegocio.buscarServicio(IdServicio);
-
-                HistorialServicio historialServicio = new HistorialServicio();
-                HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
-
-                historialServicio.Fecha = DateTime.Now;
-                historialServicio.IdServicio = IdServicio;
-                historialServicio.TipoCambio = new TipoCambioHistorial();
-
-                historialServicio.TipoCambio.Id = 8; //nro 8 mantenimiento realizado
-                                 
-                
-                historialServicioNegocio.guardar(historialServicio);
-
-            }
 
 
             Response.Redirect("MainTecnico.aspx");

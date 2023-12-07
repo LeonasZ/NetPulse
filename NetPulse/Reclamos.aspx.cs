@@ -77,6 +77,11 @@ namespace NetPulse
 
             mantenimiento.TipoMantenimiento = TMNegocio.buscarPorNombre( DDLPrioridad.SelectedValue);
 
+
+            ServicioNegocio servicioNegocio = new ServicioNegocio();
+
+            servicioNegocio.EditarEstado(IdServicio, 5);
+
             // Agendo Mantenimiento
             MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
             mantenimientoNegocio.agregarMantenimiento(mantenimiento);

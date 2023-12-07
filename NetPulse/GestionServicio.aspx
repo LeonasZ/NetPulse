@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-6" style="margin-bottom: 20px">
-            <label for="inputState" class="form-label">Agendar Mantenimiento / Dar de baja</label>
+            <label for="inputState" class="form-label">Agendar Mantenimiento / Ver historial de Mantenimientos</label>
             <asp:DropDownList ID="DDLOtros" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
         </div>
         <asp:Button ID="btnGestionar" type="submit" CssClass="btn btn-primary" runat="server" Text="Gestionar" OnClick="btnGestionar_Click" />

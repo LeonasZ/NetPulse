@@ -72,7 +72,7 @@ namespace NetPulse
             // Accede a los datos de la fila utilizando los índices de las columnas
             string IdServicio = row.Cells[1].Text;
             string IdMantenimiento = row.Cells[0].Text;
-            int IdTipoMantenimiento = 1;
+            int IdTipoCambioHistorial = 8;
 
             if (e.CommandName == "Info_onClick")
             {
@@ -80,7 +80,7 @@ namespace NetPulse
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
 
             }
         }
@@ -93,7 +93,7 @@ namespace NetPulse
             // Accede a los datos de la fila utilizando los índices de las columnas
             string IdServicio = row.Cells[1].Text;
             string IdMantenimiento = row.Cells[0].Text;
-            int IdTipoMantenimiento = 0;
+            int IdTipoCambioHistorial = 2;
 
 
             if (e.CommandName == "Info_onClick")
@@ -102,7 +102,7 @@ namespace NetPulse
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
 
             }
         }
@@ -115,7 +115,7 @@ namespace NetPulse
             // Accede a los datos de la fila utilizando los índices de las columnas
             string IdServicio = row.Cells[1].Text;
             string IdMantenimiento = row.Cells[0].Text;
-            int IdTipoMantenimiento = 0;
+            int IdTipoCambioHistorial = 9;
 
 
             if (e.CommandName == "Info_onClick")
@@ -124,7 +124,7 @@ namespace NetPulse
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
 
             }
         }
@@ -138,7 +138,7 @@ namespace NetPulse
             // Accede a los datos de la fila utilizando los índices de las columnas
             string IdServicio = row.Cells[1].Text;
             string IdMantenimiento = row.Cells[0].Text;
-            int IdTipoMantenimiento = 1;
+            int IdTipoCambioHistorial = 8;
 
             if (e.CommandName == "Info_onClick")
             {
@@ -146,7 +146,7 @@ namespace NetPulse
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
 
             }
         }

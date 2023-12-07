@@ -42,8 +42,5 @@
     </div>
     
     <div style="margin: 40px 20px">
-        <h3>Historial de Reclamos</h3>
-        <%-- Ver de poner un dgv solo con el historial de reclamos y mantenimientos de este cliente --%>
-    </div>
-    <asp:Label ID="Label1" runat="server" Text="GridView..."></asp:Label>
+        
 </asp:Content>

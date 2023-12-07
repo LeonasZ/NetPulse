@@ -24,6 +24,4 @@
         <asp:Button ID="btnAgendarMantenimiento" runat="server" Text="Registrar Reclamo" type="submit" CssClass="btn btn-primary" Enabled="true" OnClick="btnAgendarMantenimiento_Click" />
     </div>
 
-    <asp:Label ID="Label1" runat="server" Text="Crear Dgv Historial de modificaciones. Para eso 
-        crear una nueva tabla en db con las modificaciones"></asp:Label>
 </asp:Content>

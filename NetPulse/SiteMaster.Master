@@ -25,13 +25,13 @@
                             <a class="nav-link" href="Default.aspx">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="Servicios.aspx">Servicios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Tecnicos.aspx">Tecnicos</a>
+                            <a class="nav-link active"  href="Servicios.aspx">Servicios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Mantenimientos.aspx">Mantenimientos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Tecnicos.aspx">Tecnicos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Planes.aspx">Planes</a>
