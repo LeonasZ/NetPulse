@@ -20,7 +20,7 @@
                 <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                 <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
-                <asp:ButtonField HeaderText="Activar" ButtonType="Link" Text="Activar" CommandName="btnActivar_OnClick" />
+                <asp:ButtonField HeaderText="Activar" ButtonType="Link" Text='<i class="fa-solid fa-arrow-right"></i> Activar' CommandName="btnActivar_OnClick"  ControlStyle-CssClass="btn btn-primary"/>
             </Columns>
         </asp:GridView>
        
@@ -37,10 +37,7 @@
                 <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                 <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
-
             </Columns>
         </asp:GridView>
     </div>
-
-
 </asp:Content>

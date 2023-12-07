@@ -18,7 +18,7 @@
         </div>
         <asp:Label Style="color: darkgray" ID="LabelEstado" runat="server" Text="Disponibilidad..."></asp:Label>
         <div style="margin: 20px 0px">
-            <asp:GridView ID="dgvServicioEncontrado" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaServiciosEncontrados_RowCommand">
+            <asp:GridView ID="dgvServicioEncontrado" runat="server" CssClass="table table-bordered table-responsive table-info" AutoGenerateColumns="false" OnRowCommand="DgvListaServiciosEncontrados_RowCommand">
                 <Columns>
                     <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
                     <asp:BoundField HeaderText="Nombre" DataField="Cliente.Nombre" />

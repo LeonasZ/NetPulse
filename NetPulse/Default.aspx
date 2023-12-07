@@ -27,7 +27,7 @@
                 {
 
             %>
-            <asp:GridView ID="dgvUsuarioEncontrado" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesActivos_RowCommand">
+            <asp:GridView ID="dgvUsuarioEncontrado" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive table-info" AutoGenerateColumns="false" OnRowCommand="DgvListaClientesActivos_RowCommand">
 
                 <Columns>
                     <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
@@ -36,10 +36,9 @@
                     <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
                     <asp:BoundField HeaderText="Mail" DataField="Mail" />
                     <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
-                    <asp:ButtonField HeaderText="Agregar Servicio" Text='<i class="fa-solid fa-plus"></i> Agregar' ButtonType="Link" CommandName="Info_onClick" ControlStyle-CssClass="btn btn-secondary" />
-                    
-                    <asp:ButtonField HeaderText="Detalle Cliente" Text='<i class="fa-solid fa-magnifying-glass"></i> Ver' ButtonType="Link" CommandName="Detalle_onClick" ControlStyle-CssClass="btn btn-secondary" />
 
+                    <asp:ButtonField HeaderText="Agregar Servicio" Text='<i class="fa-solid fa-plus"></i> Agregar' ButtonType="Link" CommandName="Info_onClick" ControlStyle-CssClass="btn btn-secondary" />
+                    <asp:ButtonField HeaderText="Detalle Cliente" Text='<i class="fa-solid fa-magnifying-glass"></i> Ver' ButtonType="Link" CommandName="Detalle_onClick" ControlStyle-CssClass="btn btn-secondary" />
                 </Columns>
             </asp:GridView>
             <%} %>
@@ -55,8 +54,10 @@
                 <asp:BoundField HeaderText="Dni" DataField="Dni" />
                 <asp:BoundField HeaderText="Mail" DataField="Mail" />
                 <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
-                <asp:CommandField HeaderText="Agregar Servicio" SelectText="Agregar" ShowSelectButton="true" />
-                <asp:ButtonField HeaderText="Detalle Cliente" Text="Ver" ButtonType="Link" CommandName="Detalle_onClick" />
+
+                <asp:CommandField HeaderText="Agregar Servicio" SelectText='<i class="fa-solid fa-plus"></i> Agregar' ShowSelectButton="true" ControlStyle-CssClass="btn btn-secondary"/>
+
+                <asp:ButtonField HeaderText="Detalle Cliente" Text='<i class="fa-solid fa-magnifying-glass"></i> Ver' ButtonType="Link" CommandName="Detalle_onClick" ControlStyle-CssClass="btn btn-secondary"/>
             </Columns>
         </asp:GridView>
         <asp:Label ID="lblClientesSinServicios" runat="server" Text="No se Encontraron Usuarios Sin Servicio asociado" Visible="false"></asp:Label>
