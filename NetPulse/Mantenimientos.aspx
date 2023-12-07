@@ -90,10 +90,4 @@
             </Columns>
         </asp:GridView>
     </div>
-
-    <div style="margin: 20px">
-        <h3>Funcionalidades</h3>
-        <asp:Button ID="BtnAgendarMantenimiento" Style="margin: 20px 0px; display: block" type="submit" class="btn btn-primary" runat="server" Text="Agendar Mantenimiento" OnClick="BtnAgendarMantenimiento_Click" />
-        <asp:Button ID="btnHistorialMantenimientos" type="submit" class="btn btn-primary" runat="server" Text="Historial de Mantenimientos" OnClick="btnHistorialMantenimientos_Click" />
-    </div>
 </asp:Content>

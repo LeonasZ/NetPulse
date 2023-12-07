@@ -70,20 +70,6 @@ namespace NetPulse
             Response.Redirect("Default.aspx");
         }
 
-        protected void btnHistorialMantenimientos_Click(object sender, EventArgs e)
-        {
-            int IdServicio = 1;
-            Response.Redirect("HistorialMantenimientos.aspx?IdServicio=" + IdServicio);
-            // Revisar
-        }
-
-        protected void BtnAgendarMantenimiento_Click(object sender, EventArgs e)
-        {
-            int IdServicio = 1;
-            Response.Redirect("AgendarMantenimiento.aspx?IdServicio=" + IdServicio);
-            // Revisar
-        }
-
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
             if(inputIdServicio.Text != "" && inputIdServicio.Text != null) // chequea si el input es nulo o vacio
