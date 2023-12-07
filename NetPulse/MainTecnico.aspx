@@ -30,7 +30,9 @@
 
                 <asp:TemplateField HeaderText="Finalizar Mantenimiento">
                     <ItemTemplate>
-                        <asp:LinkButton ID="btnFinalizar" runat="server" CommandName="Finalizar_onClick" CssClass="btn btn-primary" Text="Finalizar"></asp:LinkButton>
+                        <asp:LinkButton ID="btnFinalizar" runat="server" CommandName="Finalizar_onClick" CssClass="btn btn-primary">
+                            <span class="fa-solid fa-check" style="margin-right: 5px;"></span>Finalizar
+                        </asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -38,32 +40,34 @@
     </div>
 
     <div style="margin: 20px">
-    <asp:GridView ID="dgvPrioridadBaja" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive table-primary  " AutoGenerateColumns="false" OnRowCommand="dgvListaMantenimientosPendientes_RowCommand">
-        <Columns>
-            <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
-            <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
-            <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
-            <asp:BoundField HeaderText="TecnicoACargo" DataField="Tecnico.Nombre" />
-            <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
-            <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />
-            <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
-            <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
+        <asp:GridView ID="dgvPrioridadBaja" DataKeyNames="IdServicio" runat="server" CssClass="table table-bordered table-responsive table-primary  " AutoGenerateColumns="false" OnRowCommand="dgvListaMantenimientosPendientes_RowCommand">
+            <Columns>
+                <asp:BoundField HeaderText="IdMantenimiento" DataField="IdMantenimiento" />
+                <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
+                <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
+                <asp:BoundField HeaderText="TecnicoACargo" DataField="Tecnico.Nombre" />
+                <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
+                <asp:BoundField HeaderText="TipoMantenimiento" DataField="TipoMantenimiento.Nombre" />
+                <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
+                <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
 
-            <asp:TemplateField HeaderText="Info Del Usuario">
-                <ItemTemplate>
-                    <asp:LinkButton ID="btnInfoUsuario" runat="server" CommandName="Info_onClick" CssClass="btn btn-secondary">
-                        <span class="fa-solid fa-bars" style="margin-right: 5px;"></span>Ver
-                    </asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
+                <asp:TemplateField HeaderText="Info Del Usuario">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnInfoUsuario" runat="server" CommandName="Info_onClick" CssClass="btn btn-secondary">
+                            <span class="fa-solid fa-bars" style="margin-right: 5px;"></span>Ver
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Finalizar Mantenimiento">
-                <ItemTemplate>
-                    <asp:LinkButton ID="btnFinalizar" runat="server" CommandName="Finalizar_onClick" CssClass="btn btn-primary" Text="Finalizar"></asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
+                <asp:TemplateField HeaderText="Finalizar Mantenimiento">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnFinalizar" runat="server" CommandName="Finalizar_onClick" CssClass="btn btn-primary">
+                            <span class="fa-solid fa-check" style="margin-right: 5px;"></span>Finalizar
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
     </div>
 
     <hr>
