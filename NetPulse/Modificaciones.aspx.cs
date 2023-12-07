@@ -51,7 +51,10 @@ namespace NetPulse
                 inputComentarios.Text = servicio[0].Domicilio.Comentario;
                 inputDireccion.Text = servicio[0].Domicilio.Direccion;
             }
-            
+            List<Servicio> lista = servicioNegocio.buscarServicio(IdServicio);
+            DgvServicio.DataSource = lista;
+            DgvServicio.DataBind();
+
         }
 
 
@@ -146,23 +149,17 @@ namespace NetPulse
         {
             int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
             ServicioNegocio servicioNegocio = new ServicioNegocio();
+            servicioNegocio.EditarEstado(IdServicio, 4);
 
-            servicioNegocio.EditarEstado(IdServicio, 5);
+            lblInhabilitado.Visible= true;
+            btnBaja.Visible= false;
 
-            //guardo el historial de la modificacion de plan
+            btnCancelar.Text = "Volver";
+        }
 
-            HistorialServicio historialServicio = new HistorialServicio();
-            HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
-
-            historialServicio.Fecha = DateTime.Now;
-            historialServicio.IdServicio = IdServicio;
-            historialServicio.TipoCambio = new TipoCambioHistorial();
-            historialServicio.TipoCambio.Id = 10; //nro 10 la baja
-
-            historialServicioNegocio.guardar(historialServicio);
-
-
-            Response.Redirect("GestionEstados.aspx");
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Servicios.aspx");
         }
     }
 }

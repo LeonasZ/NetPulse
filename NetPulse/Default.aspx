@@ -46,7 +46,7 @@
     </div>
     <div style="margin: 60px 20px">
         <h3>Usuarios Sin Servicio Asociado</h3>
-        <asp:GridView ID="dgvListaClientesInactivos" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvListaClientesInactivos_SelectedIndexChanged" OnRowCommand="dgvListaClientesInactivos_RowCommand">
+        <asp:GridView ID="dgvListaClientesInactivos" DataKeyNames="IdCliente" runat="server" CssClass="table table-bordered table-responsive table-info" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvListaClientesInactivos_SelectedIndexChanged" OnRowCommand="dgvListaClientesInactivos_RowCommand">
             <Columns>
                 <asp:BoundField HeaderText="IdCliente" DataField="IdCliente" />
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" />

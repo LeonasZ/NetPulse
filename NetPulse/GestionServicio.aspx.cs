@@ -59,6 +59,7 @@ namespace NetPulse
                 DDLModificaciones.Items.Add("Modificar Forma de Pago");
                 DDLOtros.Items.Add("Historial Mantenimientos");
                 DDLOtros.Items.Add("Agendar Mantenimiento");
+                DDLOtros.Items.Add("Inhabilitar");
             }
             int Estado = int.Parse(Request.QueryString["Estado"]);
             if (Estado == 0)
@@ -85,6 +86,11 @@ namespace NetPulse
             if (DDLOtros.SelectedIndex == 1)
             {
                 Response.Redirect("Reclamos.aspx?IdServicio=" + IdServicio);
+            }
+
+            if (DDLOtros.SelectedIndex == 2)
+            {
+                Response.Redirect("Modificaciones.aspx?Id=" + 4 + "&IdServicio=" + IdServicio);
             }
         }
 
