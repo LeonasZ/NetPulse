@@ -32,7 +32,6 @@ namespace NetPulse
                     listaDesinstalados.Add(item);
                 }
             }
-            
 
             dgvDesinstalados.DataSource = listaDesinstalados;
             dgvDesinstalados.DataBind();
@@ -40,7 +39,6 @@ namespace NetPulse
             DgvListaActivos.DataSource = listaActivos;
             DgvListaActivos.DataBind();
         }
-
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
             listaServicios = servicioNegocio.listarServicios();
@@ -61,9 +59,7 @@ namespace NetPulse
                     dgvServicioEncontrado.DataBind();
 
                 }
-
             }
-
         }
 
         protected void DgvListaServiciosEncontrados_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -72,7 +68,6 @@ namespace NetPulse
             GridViewRow row = dgvServicioEncontrado.Rows[rowIndex];
 
             string IdServicio = row.Cells[0].Text;
-
 
             if (e.CommandName == "Modificar_onClick")
             {
@@ -89,7 +84,6 @@ namespace NetPulse
             GridViewRow row = DgvListaActivos.Rows[rowIndex];
 
             string IdServicio = row.Cells[0].Text;
-
 
             if (e.CommandName == "btnGestionar_OnClick")
             {

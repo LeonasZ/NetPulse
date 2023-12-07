@@ -20,21 +20,8 @@
                 <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
                 <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
 
-                <asp:TemplateField HeaderText="Info Del Usuario">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="btnInfoUsuario" runat="server" CommandName="Info_onClick" CssClass="btn btn-secondary">
-                            <span class="fa-solid fa-bars" style="margin-right: 5px;"></span>Ver
-                        </asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Finalizar Mantenimiento">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="btnFinalizar" runat="server" CommandName="Finalizar_onClick" CssClass="btn btn-primary">
-                            <span class="fa-solid fa-check" style="margin-right: 5px;"></span>Finalizar
-                        </asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:ButtonField HeaderText="Info Del Usuario" Text='Ver <i class="fa-solid fa-bars"></i>' ButtonType="Link" CommandName="Info_onClick" ControlStyle-CssClass="btn btn-secondary" />
+                <asp:ButtonField HeaderText="Finalizar Mantenimiento" Text='Finalizar <i class="fa-solid fa-check"></i>' ButtonType="Link" CommandName="Finalizar_onClick" ControlStyle-CssClass="btn btn-primary" />
             </Columns>
         </asp:GridView>
     </div>
@@ -51,21 +38,8 @@
                 <asp:BoundField HeaderText="Comentario" DataField="Comentarios" />
                 <asp:CheckBoxField HeaderText="Estado" DataField="EstadoRealizacion" />
 
-                <asp:TemplateField HeaderText="Info Del Usuario">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="btnInfoUsuario" runat="server" CommandName="Info_onClick" CssClass="btn btn-secondary">
-                            <span class="fa-solid fa-bars" style="margin-right: 5px;"></span>Ver
-                        </asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Finalizar Mantenimiento">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="btnFinalizar" runat="server" CommandName="Finalizar_onClick" CssClass="btn btn-primary">
-                            <span class="fa-solid fa-check" style="margin-right: 5px;"></span>Finalizar
-                        </asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:ButtonField HeaderText="Info Del Usuario" Text='Ver <i class="fa-solid fa-bars"></i>' ButtonType="Link" CommandName="Info_onClick" ControlStyle-CssClass="btn btn-secondary" />
+                <asp:ButtonField HeaderText="Finalizar Mantenimiento" Text='Finalizar <i class="fa-solid fa-check"></i>' ButtonType="Link" CommandName="Finalizar_onClick" ControlStyle-CssClass="btn btn-primary" />
             </Columns>
         </asp:GridView>
     </div>
