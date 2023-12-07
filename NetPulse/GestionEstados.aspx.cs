@@ -43,12 +43,13 @@ namespace NetPulse
                 listaAuxiliar = historialServicioNegocio.listar(item.IdServicio);
                 foreach (var i in listaAuxiliar)
                 {
-                    if ((item.Estado.Id == 2) || (item.Estado.Id == 5))
+                    if ((item.Estado.Id == 2) && (i.TipoCambio.Id == 2))
                     {
-                        if ((i.TipoCambio.Id == 2) || (i.TipoCambio.Id == 9))
-                        {
-                            listaInstalaciones.Add(item);
-                        }
+                        listaInstalaciones.Add(item);
+                    }
+                    if ((item.Estado.Id == 5) && (i.TipoCambio.Id == 9))
+                    {
+                        listaInstalaciones.Add(item);
                     }
 
                 }
@@ -119,8 +120,9 @@ namespace NetPulse
                     historialServicio.TipoCambio.Id = 9;//tipo cambio historial desinstalacion
 
                 }
-
+                
                 historialServicioNegocio.guardar(historialServicio);
+                //Response.Write("<script>alert('Mantenimeinto Aprobado Con Exito!');</script>");
 
                 //Falta Implementacion
             }

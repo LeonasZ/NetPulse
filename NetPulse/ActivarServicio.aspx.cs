@@ -15,24 +15,21 @@ namespace NetPulse
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int Id= int.Parse(Request.QueryString["Id"]);
-            if(Id == 1)
+            int Id = int.Parse(Request.QueryString["Id"]);
+            if (Id == 1)
             {
+                lblDireccion.Visible = true;
                 AgregarDireccion.Visible = true;
-                AgregarFormaDePago.Visible = false;
-                AgregarPlan.Visible = false;
             }
             if (Id == 2)
             {
-                AgregarDireccion.Visible = false;
-                AgregarFormaDePago.Visible = false;
+                lblPlan.Visible = true;
                 AgregarPlan.Visible = true;
             }
             if (Id == 3)
             {
-                AgregarDireccion.Visible = false;
+                lblFDP.Visible = true;
                 AgregarFormaDePago.Visible = true;
-                AgregarPlan.Visible = false;
             }
             if (Id == 4)
             {
@@ -47,10 +44,9 @@ namespace NetPulse
                 lista.Add(servicio);
                 DgvDatos.DataSource = lista;
                 DgvDatos.DataBind();
-            
-                AgregarDireccion.Visible = false;
+
+
                 AgregarFormaDePago.Visible = false;
-                AgregarPlan.Visible = false;
                 btnFinalizar.Visible = true;
 
             }
@@ -78,7 +74,7 @@ namespace NetPulse
             int IdCliente = int.Parse(Request.QueryString["IdCliente"]);
 
             Servicio servicio = new Servicio();
-           
+
 
             //Plan
             servicio.Plan = (TPlan)Session["PlanNuevo"];
@@ -111,7 +107,7 @@ namespace NetPulse
 
             // Estado
             EstadoServicio estado = new EstadoServicio();
-            
+
             estado.Id = 1;
             estado.Descripcion = "Pendiente a Activacion";
             servicio.Estado = estado;
@@ -123,13 +119,24 @@ namespace NetPulse
             ServicioNegocio servicioNegocio = new ServicioNegocio();
             servicioNegocio.agregarServicio(servicio);
 
-            
+
             lblSuccess.Visible = true;
             btnFinalizar.Enabled = false;
             btnVolver.Visible = true;
+            btnCancelar.Visible = false;
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
+
+        protected void Agregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx");
         }

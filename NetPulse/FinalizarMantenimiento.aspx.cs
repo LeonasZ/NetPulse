@@ -29,9 +29,13 @@ namespace NetPulse
             mantenimientoNegocio.activarMantenimiento(IdMantenimiento, TextComentarios.Text);
 
 
+
             if (IdTipoMantenimiento == 1)
             {
                 //guardo el registro en el historial
+
+                ServicioNegocio servicioNegocio = new ServicioNegocio();
+                List<Servicio> lista = servicioNegocio.buscarServicio(IdServicio);
 
                 HistorialServicio historialServicio = new HistorialServicio();
                 HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
@@ -39,7 +43,10 @@ namespace NetPulse
                 historialServicio.Fecha = DateTime.Now;
                 historialServicio.IdServicio = IdServicio;
                 historialServicio.TipoCambio = new TipoCambioHistorial();
+
                 historialServicio.TipoCambio.Id = 8; //nro 8 mantenimiento realizado
+                                 
+                
                 historialServicioNegocio.guardar(historialServicio);
 
             }

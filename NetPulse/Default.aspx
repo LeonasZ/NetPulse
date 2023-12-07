@@ -37,7 +37,7 @@
                     <asp:BoundField HeaderText="Mail" DataField="Mail" />
                     <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
 
-                    <asp:ButtonField HeaderText="Agregar Servicio" Text='<i class="fa-solid fa-plus"></i> Agregar' ButtonType="Link" CommandName="Info_onClick" ControlStyle-CssClass="btn btn-secondary" />
+                    <asp:ButtonField HeaderText="Agregar Servicio" Text='<i class="fa-solid fa-plus"></i> Agregar' ButtonType="Link" CommandName="AgregarServicio_onClick" ControlStyle-CssClass="btn btn-secondary" />
                     <asp:ButtonField HeaderText="Detalle Cliente" Text='<i class="fa-solid fa-magnifying-glass"></i> Ver' ButtonType="Link" CommandName="Detalle_onClick" ControlStyle-CssClass="btn btn-secondary" />
                 </Columns>
             </asp:GridView>

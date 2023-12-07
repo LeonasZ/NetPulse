@@ -137,6 +137,10 @@ namespace NetPulse
                 Response.Redirect("DetalleCliente.aspx?IdCliente=" + IdCliente);
 
             }
+            if (e.CommandName == "AgregarServicio_onClick")
+            {
+                Response.Redirect("ActivarServicio.aspx?Id=" + 1 + "&IdCliente=" + IdCliente);
+            }
         }
     }
 }

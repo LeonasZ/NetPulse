@@ -15,6 +15,15 @@ namespace NetPulse
     {
 
         /// <summary>
+        /// lblDireccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDireccion;
+
+        /// <summary>
         /// AgregarDireccion control.
         /// </summary>
         /// <remarks>
@@ -24,6 +33,15 @@ namespace NetPulse
         protected global::System.Web.UI.WebControls.Button AgregarDireccion;
 
         /// <summary>
+        /// lblPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPlan;
+
+        /// <summary>
         /// AgregarPlan control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace NetPulse
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AgregarPlan;
+
+        /// <summary>
+        /// lblFDP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFDP;
 
         /// <summary>
         /// AgregarFormaDePago control.
@@ -58,6 +85,15 @@ namespace NetPulse
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFinalizar;
+
+        /// <summary>
+        /// btnCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
 
         /// <summary>
         /// btnVolver control.
