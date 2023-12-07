@@ -11,8 +11,11 @@ namespace NetPulse
 {
     public partial class InfoCliente : System.Web.UI.Page
     {
+        int IdTecnico;
         protected void Page_Load(object sender, EventArgs e)
         {
+            IdTecnico = int.Parse(Request.QueryString["IdTecnico"]);
+
             ServicioNegocio servicioNegocio = new ServicioNegocio();
             List<Servicio> servicios = servicioNegocio.listarServicios();
             List<Servicio> listaServicios = new List<Servicio>();
@@ -32,7 +35,7 @@ namespace NetPulse
 
         protected void Cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MainTecnico.aspx");
+            Response.Redirect("MainTecnico.aspx?IdTecnico=" + IdTecnico);
         }
     }
 }

@@ -50,8 +50,22 @@ namespace NetPulse
                     }
                     else if (tipoUsuario == "Tecnico")
                     {
-                        //Response.Write("<script>alert('Ingresaste como Usuario');</script>");
-                        Response.Redirect("MainTecnico.aspx");
+                        if(nombreUsuario == "TecPepe")
+                        {
+                            //Response.Write("<script>alert('Ingresaste como Usuario');</script>");
+                            Response.Redirect("MainTecnico.aspx?IdTecnico=" + 1);
+                        }
+                        else if(nombreUsuario == "TecJose")
+                        {
+                            //Response.Write("<script>alert('Ingresaste como Usuario');</script>");
+                            Response.Redirect("MainTecnico.aspx?IdTecnico=" + 2);
+                        }
+                        else if(nombreUsuario == "TecLuis")
+                        {
+                            //Response.Write("<script>alert('Ingresaste como Usuario');</script>");
+                            Response.Redirect("MainTecnico.aspx?IdTecnico=" + 3);
+                        }
+                        
                     }
 
                 }

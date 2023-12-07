@@ -11,15 +11,20 @@ namespace NetPulse
 {
     public partial class MainTecnico : System.Web.UI.Page
     {
+        int IdTecnico;
         protected void Page_Load(object sender, EventArgs e)
         {
+            IdTecnico = int.Parse(Request.QueryString["IdTecnico"]);
+
             MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
             List<Mantenimiento> listaRealizados = new List<Mantenimiento>();
             List<Mantenimiento> listaPendienteAltaPrioridad = new List<Mantenimiento>();
             List<Mantenimiento> listaPendientes= new List<Mantenimiento>();
             List<Mantenimiento> listaPendienteInstalacion = new List<Mantenimiento>();
             List<Mantenimiento> listaPendienteDesinstalacion = new List<Mantenimiento>();
-            List<Mantenimiento> mantenimientos = mantenimientoNegocio.listarMantenimientos();
+
+            List<Mantenimiento> mantenimientos = mantenimientoNegocio.listarMantenimientosPorTecnico(IdTecnico);
+
             foreach (var item in mantenimientos)
             {
                 if (item.EstadoRealizacion == true)
@@ -76,11 +81,11 @@ namespace NetPulse
 
             if (e.CommandName == "Info_onClick")
             {
-                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio + "&IdTecnico=" + IdTecnico);
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial + "&IdTecnico=" + IdTecnico);
 
             }
         }
@@ -98,11 +103,11 @@ namespace NetPulse
 
             if (e.CommandName == "Info_onClick")
             {
-                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio + "&IdTecnico=" + IdTecnico);
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial + "&IdTecnico=" + IdTecnico);
 
             }
         }
@@ -120,11 +125,11 @@ namespace NetPulse
 
             if (e.CommandName == "Info_onClick")
             {
-                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio + "&IdTecnico=" + IdTecnico);
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial + "&IdTecnico=" + IdTecnico);
 
             }
         }
@@ -142,11 +147,11 @@ namespace NetPulse
 
             if (e.CommandName == "Info_onClick")
             {
-                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio + "&IdTecnico=" + IdTecnico);
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoCambioHistorial=" + IdTipoCambioHistorial + "&IdTecnico=" + IdTecnico);
 
             }
         }

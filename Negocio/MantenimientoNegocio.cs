@@ -88,6 +88,43 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
 
         }
+        public List<Mantenimiento> listarMantenimientosPorTecnico(int IdTecnico)
+        {
+
+            List<Mantenimiento> lista = new List<Mantenimiento>();
+            AccesoDatos datos = new AccesoDatos();
+
+            datos.setConsulta("select IdMantenimiento,IdServicio,Fecha,FechaRealizado,M.IdTecnico,T.Nombre as NombreTecnico,Descripcion,M.IdTipoMantenimiento,TM.Nombre as TipoMantenimiento,M.Comentarios,M.EstadoRealizacion from Mantenimiento M inner join Tecnico T on M.IdTecnico = T.IdTecnico inner join TipoMantenimiento TM on M.IdTipoMantenimiento = TM.IdTipoMantenimiento where T.IdTecnico = @IdTecnico");
+            datos.setearParametro("@IdTecnico", IdTecnico);
+            datos.ejecutarLectura();
+
+            while (datos.Lector.Read())
+            {
+                Mantenimiento aux = new Mantenimiento();
+
+                aux.IdMantenimiento = (int)datos.Lector["IdMantenimiento"];
+                aux.IdServicio = (int)datos.Lector["IdServicio"];
+                aux.Fecha = (DateTime)datos.Lector["Fecha"];
+                aux.FechaRealizado = (DateTime)datos.Lector["FechaRealizado"];
+                aux.Descripcion = (string)datos.Lector["Descripcion"];
+                aux.Comentarios = (string)datos.Lector["Comentarios"];
+                aux.EstadoRealizacion = (bool)datos.Lector["EstadoRealizacion"];
+
+                aux.Tecnico = new Tecnico();
+                aux.Tecnico.IdTecnico = (int)datos.Lector["IdTecnico"];
+                aux.Tecnico.Nombre = (string)datos.Lector["NombreTecnico"];
+
+                aux.TipoMantenimiento = new TipoMantenimiento();
+                aux.TipoMantenimiento.IdTipoMantenimiento = (int)datos.Lector["IdTipoMantenimiento"];
+                aux.TipoMantenimiento.Nombre = (string)datos.Lector["TipoMantenimiento"];
+
+
+                lista.Add(aux);
+
+            }
+
+            return lista;
+        }
 
         public void activarMantenimiento(int IdMantenimiento, string Comentarios)
         {

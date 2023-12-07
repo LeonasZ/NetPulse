@@ -14,9 +14,10 @@ namespace NetPulse
         MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
         int IdMantenimiento;
         int IdTipoCambioHistorial;
+        int IdTecnico;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            IdTecnico = int.Parse(Request.QueryString["IdTecnico"]);
             IdMantenimiento = int.Parse(Request.QueryString["IdMantenimiento"]);
             IdTipoCambioHistorial = int.Parse(Request.QueryString["IdTipoCambioHistorial"]);
         }
@@ -45,12 +46,12 @@ namespace NetPulse
 
 
 
-            Response.Redirect("MainTecnico.aspx");
+            Response.Redirect("MainTecnico.aspx?IdTecnico=" + IdTecnico);
         }
 
         protected void Cancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MainTecnico.aspx");
+            Response.Redirect("MainTecnico.aspx?IdTecnico=" + IdTecnico);
         }
     }
 }
