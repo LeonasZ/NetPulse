@@ -81,13 +81,26 @@ namespace NetPulse
             MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
             mantenimientoNegocio.agregarMantenimiento(mantenimiento);
             lblSuccess.Visible = true;
-            
+
+            //guardo registro de mantenimiento en el historial 
+            HistorialServicio historialServicio = new HistorialServicio();
+            HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
+
+            historialServicio.Fecha = DateTime.Now;
+            historialServicio.IdServicio = IdServicio;
+            historialServicio.TipoCambio = new TipoCambioHistorial();
+            historialServicio.TipoCambio.Id = 7; //nro 7 reclamo/mantenimiento
+
+            historialServicioNegocio.guardar(historialServicio);
+
             //Response.Redirect("Reclamos.aspx");
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ModificarServicio.aspx");
+            int IdServicio = int.Parse(Request.QueryString["IdServicio"]);
+
+            Response.Redirect("GestionServicio.aspx?Estado=" + 1 + "&IdServicio=" + IdServicio);
         }
     }
 }

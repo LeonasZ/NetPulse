@@ -40,12 +40,12 @@
     </div>
 
     <div style="margin: 20px">
-        <h3>Modificar Servicio</h3>
+        <h3>Administrar Servicio</h3>
     </div>
 
     <div style="margin: 20px">
         <div class="col-6" style="margin-bottom: 20px">
-            <label for="inputState" class="form-label">Modificacion</label>
+            <label for="inputState" class="form-label">Modificacion / Cambio de plan / Cambio de forma de pago</label>
             <asp:DropDownList ID="DDLModificaciones" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
         </div>
         <div style="margin-top: 20px; margin-bottom: 20px">
@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-6" style="margin-bottom: 20px">
-            <label for="inputState" class="form-label">Otros</label>
+            <label for="inputState" class="form-label">Agendar Mantenimiento / Dar de baja</label>
             <asp:DropDownList ID="DDLOtros" runat="server" class="form-select" AutoPostBack="true"></asp:DropDownList>
         </div>
         <asp:Button ID="btnGestionar" type="submit" CssClass="btn btn-primary" runat="server" Text="Gestionar" OnClick="btnGestionar_Click" />

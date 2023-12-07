@@ -63,7 +63,7 @@ namespace NetPulse
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento);
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio);
                 
             }
         }
