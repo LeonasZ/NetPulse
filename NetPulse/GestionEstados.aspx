@@ -40,4 +40,21 @@
             </Columns>
         </asp:GridView>
     </div>
+
+     <div style="margin: 40px 20px">
+     <h3>Mantenimientos a Aprobar</h3>
+     <asp:GridView ID="dgvServiciosAprobar" runat="server" CssClass="table table-bordered table-responsive table-primary" AutoGenerateColumns="false" BorderColor="Black" OnSelectedIndexChanged="dgvServiciosAprobar_SelectedIndexChanged" OnRowCommand="dgvServiciosAprobar_RowCommand">
+         <Columns>
+             <asp:BoundField HeaderText="IdServicio" DataField="IdServicio" />
+             <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombre" />
+             <asp:BoundField HeaderText="FormaPago" DataField="AbonoMensual.FormaPago.Nombre" />
+             <asp:BoundField HeaderText="CantMegas" DataField="Plan.CantidadMegas" />
+             <asp:BoundField HeaderText="Direccion" DataField="Domicilio.Direccion" />
+             <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
+             <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
+             <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
+             <asp:ButtonField HeaderText="Aprobar" Text="Aprobar" CommandName="Aprobar_onClick"/>
+         </Columns>
+     </asp:GridView>
+ </div>
 </asp:Content>

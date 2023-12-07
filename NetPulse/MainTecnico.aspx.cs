@@ -34,6 +34,10 @@ namespace NetPulse
                     {
                         listaPendienteBaja.Add(item);
                     }
+                    if ((item.TipoMantenimiento.IdTipoMantenimiento == 3) || (item.TipoMantenimiento.IdTipoMantenimiento == 5))
+                    {
+                        listaPendienteBaja.Add(item);
+                    }
 
                 }
             }

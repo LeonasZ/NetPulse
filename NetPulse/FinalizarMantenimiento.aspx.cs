@@ -22,6 +22,7 @@ namespace NetPulse
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
             int IdServicio= int.Parse(Request.QueryString["IdServicio"]);
+            //cambio el estado
 
             mantenimientoNegocio.activarMantenimiento(IdMantenimiento,TextComentarios.Text);
             //guardo el registro en el historial
