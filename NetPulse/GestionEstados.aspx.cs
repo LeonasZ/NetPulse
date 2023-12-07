@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Microsoft.Win32;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -26,17 +27,17 @@ namespace NetPulse
 
             foreach (var item in listaServicios)
             {
-                if(item.Estado.Id == 1)
+                if (item.Estado.Id == 1)
                 {
                     listaPendientesActivacion.Add(item);
                 }
-                if(item.Estado.Id == 2)
+                if (item.Estado.Id == 2)
                 {
                     listaPendientes.Add(item);
                 }
                 if (item.Estado.Id == 5)
                 {
-                    listaPendientes.Add(item);                   
+                    listaPendientes.Add(item);
                 }
 
                 listaAuxiliar = historialServicioNegocio.listar(item.IdServicio);
@@ -49,10 +50,10 @@ namespace NetPulse
                             listaInstalaciones.Add(item);
                         }
                     }
-                    
+
                 }
 
-                
+
             }
             dgvPendienteInstalacion.DataSource = listaPendientes;
             dgvPendienteInstalacion.DataBind();
@@ -60,7 +61,7 @@ namespace NetPulse
             dgvPendienteActivacion.DataBind();
             dgvServiciosAprobar.DataSource = listaInstalaciones;
             dgvServiciosAprobar.DataBind();
-            
+
 
         }
         protected void DgvListaServiciosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -94,19 +95,37 @@ namespace NetPulse
             string Estado = row.Cells[6].Text;
             int IdServicio = int.Parse(IdS);
 
+
             if (e.CommandName == "Aprobar_onClick")
             {
+                //registro en el historial dependiendo el tipomantenimiento realizado
+                //guardo el registro en el historial
+                HistorialServicio historialServicio = new HistorialServicio();
+                HistorialServicioNegocio historialServicioNegocio = new HistorialServicioNegocio();
+
+                historialServicio.Fecha = DateTime.Now;
+                historialServicio.IdServicio = IdServicio;
+                historialServicio.TipoCambio = new TipoCambioHistorial();
+
                 ServicioNegocio negocio = new ServicioNegocio();
-                if(Estado == "Pendiente a Instalacion"){
+                if (Estado == "Pendiente a Instalacion")
+                {
                     negocio.EditarEstado(IdServicio, 3);
+                    historialServicio.TipoCambio.Id = 2; //tipo cambio historial instalacion
                 }
                 if (Estado == "Inactivo")
                 {
                     negocio.EditarEstado(IdServicio, 6);
+                    historialServicio.TipoCambio.Id = 9;//tipo cambio historial desinstalacion
+
                 }
+
+                historialServicioNegocio.guardar(historialServicio);
 
                 //Falta Implementacion
             }
+
+
             Response.Redirect("GestionEstados.aspx");
         }
     }

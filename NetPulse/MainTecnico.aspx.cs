@@ -15,8 +15,10 @@ namespace NetPulse
         {
             MantenimientoNegocio mantenimientoNegocio = new MantenimientoNegocio();
             List<Mantenimiento> listaRealizados = new List<Mantenimiento>();
-            List<Mantenimiento> listaPendienteAlta = new List<Mantenimiento>();
-            List<Mantenimiento> listaPendienteBaja = new List<Mantenimiento>();
+            List<Mantenimiento> listaPendienteAltaPrioridad = new List<Mantenimiento>();
+            List<Mantenimiento> listaPendientes= new List<Mantenimiento>();
+            List<Mantenimiento> listaPendienteInstalacion = new List<Mantenimiento>();
+            List<Mantenimiento> listaPendienteDesinstalacion = new List<Mantenimiento>();
             List<Mantenimiento> mantenimientos = mantenimientoNegocio.listarMantenimientos();
             foreach (var item in mantenimientos)
             {
@@ -26,40 +28,51 @@ namespace NetPulse
                 }
                 if (item.EstadoRealizacion == false)
                 {
-                    if(item.TipoMantenimiento.IdTipoMantenimiento == 1)
+                    if (item.TipoMantenimiento.IdTipoMantenimiento == 1)
                     {
-                        listaPendienteAlta.Add(item);
+                        listaPendienteAltaPrioridad.Add(item);
                     }
                     if ((item.TipoMantenimiento.IdTipoMantenimiento == 2) || (item.TipoMantenimiento.IdTipoMantenimiento == 4))
                     {
-                        listaPendienteBaja.Add(item);
+                        listaPendientes.Add(item);
                     }
-                    if ((item.TipoMantenimiento.IdTipoMantenimiento == 3) || (item.TipoMantenimiento.IdTipoMantenimiento == 5))
+                    if ( item.TipoMantenimiento.IdTipoMantenimiento == 5)
                     {
-                        listaPendienteBaja.Add(item);
+                        listaPendienteDesinstalacion.Add(item);
+                    }
+                    if (item.TipoMantenimiento.IdTipoMantenimiento == 3)
+                    {
+                        listaPendienteInstalacion.Add(item);
                     }
 
                 }
             }
-            dgvPrioridadAlta.DataSource = listaPendienteAlta;
+            dgvDesinstalacionesPendientes.DataSource = listaPendienteDesinstalacion;
+            dgvDesinstalacionesPendientes.DataBind();
+
+            dgvPendienteInstalacion.DataSource = listaPendienteInstalacion;
+            dgvPendienteInstalacion.DataBind();
+
+            dgvPrioridadAlta.DataSource = listaPendienteAltaPrioridad;
             dgvPrioridadAlta.DataBind();
 
-            dgvPrioridadBaja.DataSource = listaPendienteBaja;
+            dgvPrioridadBaja.DataSource = listaPendientes;
             dgvPrioridadBaja.DataBind();
 
             dgvListaMantenimientosRealizados.DataSource = listaRealizados;
             dgvListaMantenimientosRealizados.DataBind();
         }
 
-        
+
         protected void dgvListaMantenimientosPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument);
-            GridViewRow row = dgvPrioridadBaja.Rows[rowIndex];
+            GridViewRow row = dgvPrioridadAlta.Rows[rowIndex];
 
             // Accede a los datos de la fila utilizando los índices de las columnas
             string IdServicio = row.Cells[1].Text;
             string IdMantenimiento = row.Cells[0].Text;
+            int IdTipoMantenimiento = 1;
 
             if (e.CommandName == "Info_onClick")
             {
@@ -67,10 +80,75 @@ namespace NetPulse
             }
             if (e.CommandName == "Finalizar_onClick")
             {
-                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio);
-                
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+
             }
         }
 
+        protected void dgvPendienteInstalacion_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvPendienteInstalacion.Rows[rowIndex];
+
+            // Accede a los datos de la fila utilizando los índices de las columnas
+            string IdServicio = row.Cells[1].Text;
+            string IdMantenimiento = row.Cells[0].Text;
+            int IdTipoMantenimiento = 0;
+
+
+            if (e.CommandName == "Info_onClick")
+            {
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
+            }
+            if (e.CommandName == "Finalizar_onClick")
+            {
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+
+            }
+        }
+
+        protected void dgvDesinstalacionesPendientes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvDesinstalacionesPendientes.Rows[rowIndex];
+
+            // Accede a los datos de la fila utilizando los índices de las columnas
+            string IdServicio = row.Cells[1].Text;
+            string IdMantenimiento = row.Cells[0].Text;
+            int IdTipoMantenimiento = 0;
+
+
+            if (e.CommandName == "Info_onClick")
+            {
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
+            }
+            if (e.CommandName == "Finalizar_onClick")
+            {
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+
+            }
+        }
+
+        protected void dgvPrioridadBaja_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            GridViewRow row = dgvPrioridadBaja.Rows[rowIndex];
+
+
+            // Accede a los datos de la fila utilizando los índices de las columnas
+            string IdServicio = row.Cells[1].Text;
+            string IdMantenimiento = row.Cells[0].Text;
+            int IdTipoMantenimiento = 1;
+
+            if (e.CommandName == "Info_onClick")
+            {
+                Response.Redirect("InfoCliente.aspx?IdServicio=" + IdServicio);
+            }
+            if (e.CommandName == "Finalizar_onClick")
+            {
+                Response.Redirect("FinalizarMantenimiento.aspx?IdMantenimiento=" + IdMantenimiento + "&IdServicio=" + IdServicio + "&IdTipoMantenimiento=" + IdTipoMantenimiento);
+
+            }
+        }
     }
 }
