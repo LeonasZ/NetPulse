@@ -14,7 +14,7 @@
             <asp:TextBox ID="inputDNI" class="form-control" placeholder="0" runat="server"></asp:TextBox>
         </div>
         <div style="margin-bottom: 10px" class="col-12">
-            <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" type="submit" class="btn btn-primary" OnClick="btnBuscarDni_Click" />
+            <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" type="submit" CssClass="btn btn-primary" OnClick="btnBuscarDni_Click" />
         </div>
         <asp:Label Style="color: darkgray" ID="LabelEstado" runat="server" Text="Disponibilidad..."></asp:Label>
         <div style="margin: 20px 0px">
@@ -27,7 +27,7 @@
                     <asp:BoundField HeaderText="Telefono" DataField="Cliente.Telefono" />
                     <asp:BoundField HeaderText="Fecha Alta Servicio" DataField="FechaAlta" />
                     <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
-                    <asp:ButtonField HeaderText="Gestionar" Text="Gestionar" ButtonType="Link" CommandName="Modificar_onClick" />
+                    <asp:ButtonField HeaderText="Gestionar" Text='<i class="fa-solid fa-pen-to-square"></i> Gestionar' ButtonType="Link" CommandName="Modificar_onClick" ControlStyle-CssClass="btn btn-primary" />
                 </Columns>
             </asp:GridView>
         </div>
@@ -44,7 +44,7 @@
                 <asp:BoundField HeaderText="FechaAlta" DataField="FechaAlta" />
                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                 <asp:BoundField HeaderText="Comentarios" DataField="Comentarios" />
-                <asp:ButtonField HeaderText="Gestionar" ButtonType="Link" Text="Gestionar" CommandName="btnGestionar_OnClick" />
+                <asp:ButtonField HeaderText="Gestionar" Text='<i class="fa-solid fa-pen-to-square"></i> Gestionar' ButtonType="Link" CommandName="btnGestionar_OnClick" ControlStyle-CssClass="btn btn-primary" />
             </Columns>
         </asp:GridView>
     </div>
