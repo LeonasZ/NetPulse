@@ -42,7 +42,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine("Se produjo un error: " + ex.ToString());
                 throw ex;
             }
 
@@ -59,15 +59,21 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
         public void cerrarConexion()
         {
-            if (lector != null)
+            if (lector != null && !lector.IsClosed)
+            {
+                lector.Close();
+            }
+            if (conection != null && conection.State != System.Data.ConnectionState.Closed)
+            {
                 conection.Close();
-            conection.Close();
+            }
         }
     }
 }

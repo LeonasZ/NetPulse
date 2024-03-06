@@ -9,7 +9,6 @@ Create Table Estado_Servicio (
 	DESCRIPCION VARCHAR(50) NOT NULL
 )
 
-
 Create Table Cliente(
     IdCliente INT PRIMARY KEY not null identity (1, 1),
     Nombre VARCHAR(255) NOT NULL,
@@ -104,14 +103,14 @@ CREATE TABLE Mantenimiento(
     FOREIGN KEY (IdTecnico) REFERENCES Tecnico (IdTecnico),
     FOREIGN KEY (IdTipoMantenimiento) REFERENCES TipoMantenimiento (IdTipoMantenimiento)
 )
-
 Go
+
 create table Tipo_Cambio_Historial(
     ID int PRIMARY KEY not null identity(1,1),
     Descripcion varchar(50)
 )
-
 GO
+
 CREATE TABLE HistorialCliente(
     ID int PRIMARY KEY not NULL identity(1,1),
     IdCliente int not NULL,
@@ -120,8 +119,8 @@ CREATE TABLE HistorialCliente(
     FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
     FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID),
 )
-
 Go
+
 CREATE TABLE HistorialServicio(
     ID int PRIMARY KEY not NULL identity(1,1),
     IdServicio int not null,
@@ -130,7 +129,7 @@ CREATE TABLE HistorialServicio(
     FOREIGN KEY (IdServicio) REFERENCES Servicio (IdServicio),
     FOREIGN KEY (IdTipoCambio) REFERENCES Tipo_Cambio_Historial (ID)
 )
-
+Go
 
 Insert into Tipo_Cambio_Historial(Descripcion)
 VALUES
@@ -145,10 +144,10 @@ VALUES
     ('Desinstalacion'),
 	('Baja')
 Go
-
+/*
 INSERT INTO Cliente (Nombre, Telefono, Mail, Dni, FechaAlta, Activo)
 VALUES
-     ('Juan Pérez', '1123456789', 'jPerez@mail.com', '12345678', '2023-11-05', 1),
+    ('Juan Pérez', '1123456789', 'jPerez@mail.com', '12345678', '2023-11-05', 1),
     ('María García', '1145678901', 'mGarcia@mail.com', '87654321', '2023-10-15', 1),
     ('Carlos López', '1156789012', 'cLopez@mail.com', '23456789', '2022-12-20', 0),
     ('Laura Martínez', '1167890123', 'lMartinez@mail.com', '34567890', '2022-08-25', 0),
@@ -158,6 +157,19 @@ VALUES
     ('Sofía López', '1145678902', 'sLopez@mail.com', '78901234', '2022-03-29', 1),
     ('Joaquín González', '1156789013', 'jGonzalez@mail.com', '89012345', '2021-11-14', 1),
     ('Elena Torres', '1190123456', 'eTorres@mail.com', '90123456', '2022-04-03', 0);
+GO*/
+INSERT INTO Cliente (Nombre, Telefono, Mail, Dni, FechaAlta, Activo)
+VALUES
+    ('Juan Pérez', '1123456789', 'jPerez@mail.com', '12345678', '05-11-2023', 1),
+    ('María García', '1145678901', 'mGarcia@mail.com', '87654321', '15-10-2023', 1),
+    ('Carlos López', '1156789012', 'cLopez@mail.com', '23456789', '20-12-2022', 0),
+    ('Laura Martínez', '1167890123', 'lMartinez@mail.com', '34567890', '25-08-2022', 0),
+    ('Diego Rodríguez', '1189012345', 'dRodriguez@mail.com', '45678901', '12-05-2021', 1),
+    ('Valeria Fernández', '1123456790', 'vFernandez@mail.com', '56789012', '07-09-2023', 1),
+    ('Lucas Pérez', '1134567890', 'lPerez@mail.com', '67890123', '18-07-2020', 1),
+    ('Sofía López', '1145678902', 'sLopez@mail.com', '78901234', '29-03-2022', 1),
+    ('Joaquín González', '1156789013', 'jGonzalez@mail.com', '89012345', '14-11-2021', 1),
+    ('Elena Torres', '1190123456', 'eTorres@mail.com', '90123456', '03-04-2022', 0);
 GO
 
 INSERT INTO Domicilio (Direccion, Barrio, Ciudad, Comentario)
@@ -243,13 +255,20 @@ VALUES
     (9, 9, 1, 9, GETDATE(), 2, ''),
     (10, 10, 2, 10, GETDATE(), 4, '');
 GO
-
+/*
 Insert into HistorialCliente(IdCliente, Fecha, IdTipoCambio)
 Values
 (1,'2023-11-05',1),
 (2,'2023-10-15',3),
 (2,'2023-10-15',1),
 (1,'2023-12-02',10);
+Go*/
+Insert into HistorialCliente(IdCliente, Fecha, IdTipoCambio)
+Values
+(1,'05-11-2023',1),
+(2,'15-10-2023',3),
+(2,'15-10-2023',1),
+(1,'02-12-2023',10);
 Go
 
 INSERT INTO Mantenimiento (IdServicio, Fecha, FechaRealizado, IdTecnico, Descripcion, IdTipoMantenimiento, Comentarios, EstadoRealizacion)
@@ -265,7 +284,7 @@ VALUES
     (9, GETDATE(),GETDATE(), 1, 'Mantenimiento Emergencia', 1, 'Cable router cortado', 1),
     (10, GETDATE(),GETDATE(), 3, 'Mantenimiento Correctivo', 2, 'Antena movida', 0);
 GO
-
+/*
 Insert into HistorialServicio(IdServicio, Fecha, IdTipoCambio)
 Values
 (1,'2023-11-05',1),
@@ -278,6 +297,20 @@ Values
 (1,'2023-11-25',8),
 (1,'2023-11-30',9),
 (1,'2023-12-02',10)
+Go*/
+
+Insert into HistorialServicio(IdServicio, Fecha, IdTipoCambio)
+Values
+(1,'05-11-2023',1),
+(1,'10-11-2023',2),
+(1,'11-11-2023',4),
+(1,'18-11-2023',6),
+(1,'20-11-2023',7),
+(1,'22-11-2023',8),
+(1,'24-11-2023',7),
+(1,'25-11-2023',8),
+(1,'30-11-2023',9),
+(1,'02-12-2023',10)
 Go
 
 

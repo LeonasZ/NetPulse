@@ -78,7 +78,8 @@ namespace NetPulse
             {
                 //MessageBox.Show(e.ToString());
                 //Agregar para ver el error de forma correcta ya que MessageBox no existe acá
-                throw e;
+                //throw e;
+                Response.Write("<script>alert('Error: " + e.Message + "');</script>");
             }
             finally
             {
